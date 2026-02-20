@@ -1,0 +1,7 @@
+# compile vhdl design source files
+vhdl xil_defaultlib  \
+"../../../../ECE449Main.srcs/sources_1/new/ALUv2.vhd" \
+"../../../../ECE449Main.srcs/sources_1/new/ALUTest.vhd" \
+
+# Do not sort compile order
+nosort

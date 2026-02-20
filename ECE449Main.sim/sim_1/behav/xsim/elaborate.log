@@ -1,0 +1,16 @@
+Vivado Simulator 2017.4
+Copyright 1986-1999, 2001-2016 Xilinx, Inc. All Rights Reserved.
+Running: E:/Vivado/Vivado/2017.4/bin/unwrapped/win64.o/xelab.exe -wto bd56acb4f8004fa8831a86f65c5f783c --incr --debug typical --relax --mt 2 -L xil_defaultlib -L secureip --snapshot ALUTest_behav xil_defaultlib.ALUTest -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling package std.standard
+Compiling package std.textio
+Compiling package ieee.std_logic_1164
+Compiling package ieee.numeric_std
+Compiling architecture behavioral of entity xil_defaultlib.ALUv2 [aluv2_default]
+Compiling architecture simulate of entity xil_defaultlib.alutest
+Built simulation snapshot ALUTest_behav
