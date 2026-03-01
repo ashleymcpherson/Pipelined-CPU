@@ -85,7 +85,7 @@ begin
                 output <= std_logic_vector(temp_s);
                 
             when "0000010" => 
-                temp_s := ra - rb; --EROROROR HERE
+                temp_s := signed(ra) - signed(rb); --EROROROR HERE
                 output <= std_logic_vector(temp_s);
                 --temp_u := ('0' & unsigned(ra)) - ('0' & unsigned(rb));
                 --result_int <= std_logic_vector(temp_u(15 downto 0));
