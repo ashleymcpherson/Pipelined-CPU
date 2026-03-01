@@ -19,16 +19,23 @@ signal rd_index1, rd_index2, wr_index : std_logic_vector(2 downto 0);
 signal rd_data1, rd_data2, wr_data : std_logic_vector(15 downto 0); 
 begin
 u0:register_file port map(rst, clk, rd_index1, rd_index2, rd_data1, rd_data2, wr_index, wr_data, wr_enable);
-process begin
-clk <=  '0'; wait for 10 us;
-clk<=‘1'; wait for 10 us; 
+process
+begin
+    while true loop
+        clk <= '0';
+        wait for 1 ns;
+        clk <= '1';
+        wait for 1 ns;
+    end loop;
 end process;
 process  begin
 rst <= '1'; rd_index1 <= "000"; rd_index2 <= "000"; wr_enable <= '0'; wr_index <= "000";
 wr_data <= X"0000";
-wait until (clk='0' and clk'event); wait until (clk='1' and clk'event); wait until (clk='1' and clk'event);
+wait until (clk='0' and clk'event); 
+wait until (clk='1' and clk'event); 
+wait until (clk='1' and clk'event);
 rst <= '0';
-wait until (clk='1' and clk'event); wr_enable <= ‘1'; wr_data <= X"200a";
+wait until (clk='1' and clk'event); wr_enable <= '1'; wr_data <= X"200a";
 wait until (clk='1' and clk'event); wr_index <= "001"; wr_data <= X"0037";
 wait until (clk='1' and clk'event); wr_index <= "010"; wr_data <= X"8b00";
 wait until (clk='1' and clk'event); wr_index <= "101"; wr_data <= X"f00d";
