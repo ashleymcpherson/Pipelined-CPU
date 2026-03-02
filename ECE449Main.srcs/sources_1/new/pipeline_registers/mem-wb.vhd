@@ -12,7 +12,7 @@ entity mem_wb_register is
 
         wb_data_out : out std_logic_vector(15 downto 0);
         ra_dest_out : out std_logic_vector(2 downto 0);
-        reg_write_out : out std_logic;
+        reg_write_out : out std_logic
     );
 end entity;
 

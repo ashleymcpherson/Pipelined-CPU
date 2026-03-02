@@ -25,7 +25,7 @@ architecture simulate of tb_id_ex_register is
 begin
 
   dut : entity work.id_ex_register
-    port map (
+   port map (
       clock => clock,
       reset => reset,
       opcode_in => opcode_in,
@@ -58,13 +58,25 @@ begin
     wait for 1 ns;
 
     -- Check outputs cleared
-    assert opcode_out = (others => '0') and
-           ra_dest_out = (others => '0') and
+    if opcode_out = ("0000000") and
+           ra_dest_out = ("000") and
            rb_val_out = x"0000" and
            rc_val_out = x"0000" and
-           reg_write_out = '0'
-      report "ID/EX: outputs not cleared on reset"
-      severity error;
+           reg_write_out = '0' then
+       
+       report "ID/EX: outputs are not cleared on reset"
+       severity error;
+               
+   end if;
+               
+               
+    --assert opcode_out = std_logic_vector'(others => '0') and
+      --     ra_dest_out = std_logic_vector'(others => '0') and
+        --   rb_val_out = x"0000" and
+          -- rc_val_out = x"0000" and
+           --reg_write_out = '0'
+      --report "ID/EX: outputs not cleared on reset"
+      --severity error;
 
     -- 2. Release reset so it can latch inputs
     reset <= '0';
