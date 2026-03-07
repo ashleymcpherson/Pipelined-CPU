@@ -33,14 +33,15 @@ use IEEE.STD_LOGIC_1164.ALL;
 
 entity RegCtrl is
 Port ( 
-    clk : in std_logic_vector;
+    clk : in std_logic;
     instruction : in std_logic_vector(15 downto 0);
     opcode : out std_logic_vector(6 downto 0);
     Ra : out std_logic_vector(2 downto 0);
     Rb : out std_logic_vector(2 downto 0);
     Rc : out std_logic_vector(2 downto 0);
-    shiftOp : out std_logic_vector(3 downto 0)
-);
+    shiftOp : out std_logic_vector(3 downto 0);
+    wb_enable : out std_logic
+    );
 end RegCtrl;
 
 architecture Behavioral of RegCtrl is
@@ -51,15 +52,23 @@ begin
     begin
         
         opcode <= instruction(15 downto 9);
-        case opcode is
-            when "0000000" | "0000001" | "0000010" | "0000011" | "0000100" => 
+        
+        case instruction(15 downto 9) is
+            when "0000000" =>
                 Ra <= instruction(8 downto 6);
                 Rb <= instruction(5 downto 3);
                 Rc <= instruction(2 downto 0);
+                wb_enable <= '0';
+            when "0000001" | "0000010" | "0000011" | "0000100" => 
+                Ra <= instruction(8 downto 6);
+                Rb <= instruction(5 downto 3);
+                Rc <= instruction(2 downto 0);
+                wb_enable <= '1';
             when "0001000" =>
                 Ra <= instruction(8 downto 6);
                 shiftOp <= instruction(3 downto 0);
-   
+                wb_enable <= '1';
+        end case;
     end Process;
 
 
