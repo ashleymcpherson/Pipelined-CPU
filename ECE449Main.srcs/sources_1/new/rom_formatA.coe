@@ -39,6 +39,6 @@ memory_initialization_vector=
 -- For example, ADD: ra = 001, rb = 010, rc = 011, opcode = 0000001 --> 0000001001010011 --> 0000 0010 0101 0011 --> 0x0253
 
 -- To create the ROM using Vivado's Block Memory Generator, do the following:
-   -- 1. In IP Catalog, open Block Memory Generator
+   -- In IP Catalog, open Block Memory Generator
    -- Settings: memory type = single port ROM, write width A = 16, write depth A = 512, enable load init file, and choose rom_formatA.coe
    -- Vivado creates blk_mem_gen_0 or something like that
