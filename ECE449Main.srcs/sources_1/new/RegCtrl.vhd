@@ -39,7 +39,7 @@ Port (
     Ra : out std_logic_vector(2 downto 0);
     Rb : out std_logic_vector(2 downto 0);
     Rc : out std_logic_vector(2 downto 0);
-    shiftOp : out std_logic_vector(3 downto 0);
+    shiftOp : out std_logic_vector(3 downto 0) := X"0";
     wb_enable : out std_logic
     );
 end RegCtrl;
@@ -64,8 +64,10 @@ begin
                 Rb <= instruction(5 downto 3);
                 Rc <= instruction(2 downto 0);
                 wb_enable <= '1';
-            when "0001000" | "0001001"=> --shift instructions
+            when "0000101" | "0000110"=> --shift instructions
                 Ra <= instruction(8 downto 6);
+                Rb <= instruction(8 downto 6);
+                Rc <= instruction(2 downto 0);
                 shiftOp <= instruction(3 downto 0);
                 wb_enable <= '1';
             when "0100000" =>
@@ -73,7 +75,7 @@ begin
                 Rc <= instruction(2 downto 0); -- dummys to ensure no floaints
                 Ra <= instruction(5 downto 3); -- ''
                 wb_enable <= '0';
-            when "0110000" => 
+            when "0100001" => 
                 wb_enable <= '1';
                 Ra <= instruction(8 downto 6);
                 Rb <= instruction(5 downto 3); --unsured just to prevent floatings

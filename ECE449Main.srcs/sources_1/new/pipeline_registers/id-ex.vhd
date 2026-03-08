@@ -29,18 +29,21 @@ architecture rtl of id_ex_register is
     signal rb_reg : std_logic_vector(15 downto 0);
     signal rc_reg : std_logic_vector(15 downto 0);
     signal write_enable_reg: std_logic;
+    signal shift_op_reg: std_logic_vector(3 downto 0);
 begin
 
     process(clock)
     begin
         if rising_edge(clock) then
             if reset = '1' then
+                shift_op_reg <= (others => '0');
                 opcode_reg <= (others => '0');
                 ra_reg <= (others => '0');
                 rb_reg <= (others => '0');
                 rc_reg <= (others => '0');
                 write_enable_reg <= '0';
             else
+                shift_op_reg <= shiftop_in;
                 opcode_reg <= opcode_in;
                 ra_reg <= ra_dest_in;
                 rb_reg <= rb_val_in;
@@ -49,7 +52,8 @@ begin
             end if;
         end if;
     end process;
-
+    
+    shiftop_out <= shift_op_reg;
     opcode_out <= opcode_reg;
     ra_dest_out <= ra_reg;
     rb_val_out <= rb_reg;

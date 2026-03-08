@@ -34,14 +34,15 @@ use IEEE.NUMERIC_STD.ALL;
 entity datapath is
   Port (
         clk : in std_logic;
-        reset : in std_logic
+        reset : in std_logic;
+        outside_input : in std_logic_vector(15 downto 0)
   );
 end datapath;
 
 architecture Behavioral of datapath is
 -- components are in order and should be able to be connected as such
-signal pc_op: std_logic_vector(1 downto 0); -- for set to 01 to make PC increment
-signal enable : std_logic;
+signal pc_op: std_logic_vector(1 downto 0) := "01"; -- for set to 01 to make PC increment
+signal enable : std_logic := '1';
 
 component PC is
 port(
@@ -163,11 +164,12 @@ signal reg_wb_ex :std_logic_vector(2 downto 0);
 
 component ALUv2 is
 port(
-    ra : in signed(15 downto 0); 
-    rb : in signed(15 downto 0);
+    rb : in signed(15 downto 0); 
+    rc : in signed(15 downto 0);
     opcode : in std_logic_vector(6 downto 0);
     output : out std_logic_vector(15 downto 0);
-    shiftop : in std_logic_vector(3 downto 0)
+    shiftop : in std_logic_vector(3 downto 0);
+    outside_input : in std_logic_vector(15 downto 0)
     );
 end component;
 
@@ -214,6 +216,7 @@ signal wb_enable : std_logic;
 
 
 begin
+
 pc_op <= "01";
 enable <= '1';
 
@@ -225,7 +228,7 @@ pr1: if_id_register port map(clock=>clk,reset=>reset,instr_in=>instr_in, instr_o
 regc: RegCtrl port map(clk=>clk, instruction=>instr_out, Ra=>Ra, Rb=>Rb, Rc=>Rc, opcode=>opcode_id, shiftOp=>shiftop_id, wb_enable=>wb_enable_id);
 mreg: register_file port map(rst=>reset, clk=>clk, rd_index1=>Rb, rd_index2=>Rc,wr_index=>wb_reg_dest, wr_data=>reg_wb_output,wr_enable=>wb_enable, rd_data1=>rb_data, rd_data2=>rc_data);
 pr2: id_ex_register port map(clock=>clk, reset=>reset, opcode_in=>opcode_id, ra_dest_in=>Ra, rb_val_in=>rb_data, rc_val_in=>rc_data, reg_write_in=>wb_enable_id, opcode_out=>opcode_alu, ra_dest_out=>reg_wb_ex, rb_val_out=>rb_alu, rc_val_out=>rc_alu, reg_write_out=>reg_wr_ex, shiftop_in=>shiftop_id, shiftop_out=>shiftop_alu);
-al: ALUv2 port map(ra=>signed(rb_alu), rb=>signed(rc_alu), opcode=>opcode_alu, output=>alu_out, shiftop=>shiftop_alu);
+al: ALUv2 port map(rb=>signed(rb_alu), rc=>signed(rc_alu), opcode=>opcode_alu, output=>alu_out, shiftop=>shiftop_alu, outside_input=>outside_input);
 pr3: ex_mem_register port map(clock=>clk, reset=>reset, alu_result_in=>alu_out, ra_dest_in=>reg_wb_ex, reg_write_in=>reg_wr_ex, alu_result_out=>alu_out_mem, ra_dest_out=>reg_wb_mem, reg_write_out=>reg_wr_mem);
 -- putlogic here if we need differ write back
 pr4: mem_wb_register port map(clock=>clk, reset=>reset, wb_data_in=>alu_out_mem, ra_dest_in=>reg_wb_mem, reg_write_in=>reg_wr_mem, wb_data_out=>reg_wb_output, ra_dest_out=>wb_reg_dest, reg_write_out=>wb_enable);
