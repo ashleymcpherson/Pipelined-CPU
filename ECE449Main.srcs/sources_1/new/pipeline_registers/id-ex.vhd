@@ -10,13 +10,16 @@ entity id_ex_register is
         ra_dest_in : in std_logic_vector(2 downto 0);
         rb_val_in : in std_logic_vector(15 downto 0);
         rc_val_in : in std_logic_vector(15 downto 0);
-        reg_write_in : in std_logic;                    -- control signal
+        reg_write_in : in std_logic;  
+        shiftop_in : in std_logic_vector(3 downto 0); 
+                         -- control signal
 
         opcode_out : out std_logic_vector(6 downto 0);
         ra_dest_out : out std_logic_vector(2 downto 0);
         rb_val_out : out std_logic_vector(15 downto 0);
         rc_val_out : out std_logic_vector(15 downto 0);
         reg_write_out : out std_logic;
+        shiftop_out : out std_logic_vector(3 downto 0)
     );
 end entity;
 

@@ -37,6 +37,7 @@ Port (
     ra : in signed(15 downto 0); 
     rb : in signed(15 downto 0);
     opcode : in std_logic_vector(6 downto 0);
+    shiftop : in std_logic_vector(3 downto 0);
     --Cin : in std_logic_vector(1);
     output : out std_logic_vector(15 downto 0)
     --Cout : out std_logic;

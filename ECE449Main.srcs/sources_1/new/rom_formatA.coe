@@ -1,44 +1,32 @@
--- Format A ROM initialization
--- 16-bit instructions
-
 memory_initialization_radix=16;
 memory_initialization_vector=
 
--- NOP
-0000,
 
--- ADD r1,r2,r3
-0253,
+0000, 
 
--- SUB r1,r2,r3
+
+0253, 
+
+
 0453,
 
--- MUL r1,r2,r3
-0653,
 
--- NAND r1,r2,r3
+0653, 
+
 0853,
 
--- SHL r1,#2
+
 0A42,
 
--- SHR r1,#2
-0C42,
 
--- TEST r1
-0E40,
+0C42, 
 
--- OUT r1
+
+0E40, 
+
+
 4040,
 
--- IN r1
+
 4240;
 
-
--- Hex determined by using the ra, rb, and rc registers binary values and converting them to hex.
--- For example, ADD: ra = 001, rb = 010, rc = 011, opcode = 0000001 --> 0000001001010011 --> 0000 0010 0101 0011 --> 0x0253
-
--- To create the ROM using Vivado's Block Memory Generator, do the following:
-   -- In IP Catalog, open Block Memory Generator
-   -- Settings: memory type = single port ROM, write width A = 16, write depth A = 512, enable load init file, and choose rom_formatA.coe
-   -- Vivado creates blk_mem_gen_0 or something like that

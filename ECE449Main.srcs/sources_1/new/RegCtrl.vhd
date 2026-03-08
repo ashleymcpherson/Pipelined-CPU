@@ -64,10 +64,15 @@ begin
                 Rb <= instruction(5 downto 3);
                 Rc <= instruction(2 downto 0);
                 wb_enable <= '1';
-            when "0001000" =>
+            when "0001000" | "0001001"=>
                 Ra <= instruction(8 downto 6);
                 shiftOp <= instruction(3 downto 0);
                 wb_enable <= '1';
+            when others =>
+                Ra <= instruction(8 downto 6);
+                Rb <= instruction(5 downto 3);
+                Rc <= instruction(2 downto 0);
+                wb_enable <= '0';
         end case;
     end Process;
 
