@@ -32,16 +32,16 @@ use IEEE.NUMERIC_STD.ALL;
 --use UNISIM.VComponents.all;
 
 entity datapath is
---  Port ( );
+  Port (
+        clk : in std_logic;
+        reset : in std_logic
+  );
 end datapath;
-
-
 
 architecture Behavioral of datapath is
 -- components are in order and should be able to be connected as such
 signal pc_op: std_logic_vector(1 downto 0); -- for set to 01 to make PC increment
-signal clk : std_logic; 
-signal reset : std_logic;
+signal enable : std_logic;
 
 component PC is
 port(
@@ -53,7 +53,7 @@ port(
 end component;
 
 signal pc_address : std_logic_vector(15 downto 0);
-signal enable : std_logic;
+-- signal enable : std_logic;
 
 
 --component rom_128B is
@@ -214,6 +214,9 @@ signal wb_enable : std_logic;
 
 
 begin
+pc_op <= "01";
+enable <= '1';
+
 --________________________-- define port maps for entities here they should be mostly sequential
 pc1: PC port map(clk=>clk, in_PC=>X"0000", op_PC=>pc_op, out_pc=>pc_address);
 --rom1: rom_128B port map(clock=>clk, reset=>reset, enable=>enable, address=>pc_address, data_out=>instr_in);

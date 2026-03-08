@@ -1,24 +1,3 @@
-----------------------------------------------------------------------------------
--- Company: 
--- Engineer: 
--- 
--- Create Date: 02/08/2026 04:30:00 PM
--- Design Name: 
--- Module Name: ALUv2 - Behavioral
--- Project Name: 
--- Target Devices: 
--- Tool Versions: 
--- Description: 
--- 
--- Dependencies: 
--- 
--- Revision:
--- Revision 0.01 - File Created
--- Additional Comments:
--- 
-----------------------------------------------------------------------------------
-
-
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 --use IEEE.STD_LOGIC_SIGNED.all;
@@ -92,12 +71,12 @@ begin
             
             when "0000101"=>
                 output <= std_logic_vector(shift_left(unsigned(ra), to_integer(unsigned(shiftop))));
-            when "0000101"=>
+            when "0000110"=>
                 output <= std_logic_vector(shift_right(unsigned(ra), to_integer(unsigned(shiftop))));
             when "0100000" =>
                 outside_output <= std_logic_vector(ra);
                 output <= std_logic_vector(ra);
-            when "0110000" => 
+            when "0100001" => 
                 output <= outside_input;
             when others => 
                 output <= (others => '0');
