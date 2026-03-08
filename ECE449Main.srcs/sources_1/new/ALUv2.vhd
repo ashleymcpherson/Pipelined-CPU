@@ -51,6 +51,9 @@ architecture Behavioral of ALUv2 is
     signal carry : std_logic;
     signal overflow : std_logic;
     
+    signal outside_input : std_logic_vector(15 downto 0);
+    signal outside_output : std_logic_vector(15 downto 0);
+    
     --signal overflow : std_logic;
     --signal negative : std_logic;
     --signal carry : std_logic;
@@ -70,34 +73,15 @@ begin
         
         case opcode is
             when "0000001" => 
-                --temp_u := ('0' & unsigned(ra)) + ('0' & unsigned(rb));
-                --temp_u := ('1' & unsigned(ra)) + ('1' & unsigned(rb));
-                --result_int <= std_logic_vector(temp_u(15 downto 0));
-                --carry <= temp_u(16);
-                
+               
                 temp_s := signed(ra) + signed(rb);
-                --temp_u := unsigned(ra) + unsigned(rb);
-                --if (ra(15) = rb(15)) and (temp_s(15) /= ra(15)) then
-                 --   overflow <= '1';
-                --else
-                   -- overflow <= '0';
-                --end if;
-            
+          
                 output <= std_logic_vector(temp_s);
                 
             when "0000010" => 
                 temp_s := signed(ra) - signed(rb); --EROROROR HERE
                 output <= std_logic_vector(temp_s);
-                --temp_u := ('0' & unsigned(ra)) - ('0' & unsigned(rb));
-                --result_int <= std_logic_vector(temp_u(15 downto 0));
-                --carry <= temp_u(16);
                 
-                --temp_s := signed(ra) - signed(rb);
-                --if (ra(15) = rb(15)) and (temp_s(15) /= ra(15)) then
-                --    overflow <= '1';
-                --else
-                --    overflow <= '0';
-                --end if;
             
             when "0000011" => 
                 mul_temp := ra * rb;
@@ -107,7 +91,14 @@ begin
                 output <= std_logic_vector(ra) nand std_logic_vector(rb);
             
             when "0000101"=>
-                    
+                output <= std_logic_vector(shift_left(unsigned(ra), to_integer(unsigned(shiftop))));
+            when "0000101"=>
+                output <= std_logic_vector(shift_right(unsigned(ra), to_integer(unsigned(shiftop))));
+            when "0100000" =>
+                outside_output <= std_logic_vector(ra);
+                output <= std_logic_vector(ra);
+            when "0110000" => 
+                output <= outside_input;
             when others => 
                 output <= (others => '0');
         end case;
