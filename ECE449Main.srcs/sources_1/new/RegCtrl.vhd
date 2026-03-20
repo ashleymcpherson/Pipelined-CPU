@@ -40,6 +40,7 @@ Port (
     Rb : out std_logic_vector(2 downto 0);
     Rc : out std_logic_vector(2 downto 0);
     shiftOp : out std_logic_vector(3 downto 0) := X"0";
+    branchOut : out std_logic_vector(8 downto 0);
     wb_enable : out std_logic
     );
 end RegCtrl;
@@ -80,6 +81,24 @@ begin
                 Ra <= instruction(8 downto 6);
                 Rb <= instruction(5 downto 3); --unsured just to prevent floatings
                 Rc <= instruction(2 downto 0);
+            when "1000000" | "1000001" | "1000010" => -- format B1
+                branchOut <= instruction(8 downto 0);
+                
+                Ra <= "111"; --unsured just to prevent floatings
+                Rb <= "111"; --unsured just to prevent floatings
+                Rc <= "111"; --unsured just to prevent floatings
+                wb_enable <= '0';
+
+            
+            when "1000011" | "1000100" | "1000101" | "1000110" => -- format B2
+                Ra <= instruction(8 downto 6);
+                branchOut <= instruction(8 downto 0);
+                wb_enable <= '0';
+            
+            when "1000111" => --71
+                Ra <= "111";
+                wb_enable <= '1';
+            
             when others =>
                 Ra <= instruction(8 downto 6);
                 Rb <= instruction(5 downto 3);
