@@ -41,13 +41,20 @@ Port (
     Rc : out std_logic_vector(2 downto 0);
     shiftOp : out std_logic_vector(3 downto 0) := X"0";
     branchOut : out std_logic_vector(8 downto 0);
-    wb_enable : out std_logic
+    wb_enable : out std_logic;
+    forwarding_control : out std_logic_vector(1 downto 0)
     );
 end RegCtrl;
 
 architecture Behavioral of RegCtrl is
 
+signal prev_ra : std_logic_vector(15 downto 0);
+--signal prev_rc : std_logic_vector(2 downto 0);
+--signal prev_rc : std_logic_vector(2 downto 0);
+
 begin
+--if wb_prev = instruction(5 downto 3)
+
 
     Process(clk)
     begin
@@ -105,7 +112,17 @@ begin
                 Rc <= instruction(2 downto 0);
                 wb_enable <= '0';
         end case;
+        
+        if (prev_ra = instruction(5 downto 3)) then
+            forwarding_control <= "01";
+        elsif (prev_ra = instruction(2 downto 0)) then
+            forwarding_control <= "10";
+        else
+            forwarding_control <= "00";
+        end if;
+        
     end Process;
 
+    prev_ra <= instruction(8 downto 6);
 
 end Behavioral;
