@@ -5,74 +5,93 @@ entity tb_if_id_register is
 end entity;
 
 architecture simulate of tb_if_id_register is
-    signal clock : std_logic := '0';
-    signal reset : std_logic := '0';
-    signal instr_in : std_logic_vector(15 downto 0) := (others => '0');
+    signal clock     : std_logic := '0';
+    signal reset     : std_logic := '0';
+    signal stall     : std_logic := '0';
+    signal flush     : std_logic := '0';
+    signal instr_in  : std_logic_vector(15 downto 0) := (others => '0');
+    signal pc_in     : std_logic_vector(15 downto 0) := (others => '0');
     signal instr_out : std_logic_vector(15 downto 0);
+    signal pc_out    : std_logic_vector(15 downto 0);
 
     constant period : time := 10 ns;
 begin
 
     dut : entity work.if_id_register
         port map(
-            clock => clock,
-            reset => reset,
-            instr_in => instr_in,
-            instr_out => instr_out
+            clock     => clock,
+            reset     => reset,
+            stall     => stall,
+            flush     => flush,
+            instr_in  => instr_in,
+            pc_in     => pc_in,
+            instr_out => instr_out,
+            pc_out    => pc_out
         );
 
     clock <= not clock after period / 2;
 
     process
     begin
-        -- 1. Assert reset and apply some input (input shouldn't matter during reset)
-    reset    <= '1';  -- Turn reset ON
-    instr_in <= x"AAAA";
-    wait until rising_edge(clock);
-    wait for 1 ns;
+        -- Reset should clear outputs
+        reset    <= '1';
+        stall    <= '0';
+        flush    <= '0';
+        instr_in <= x"AAAA";
+        pc_in    <= x"0011";
+        wait until rising_edge(clock);
+        wait for 1 ns;
 
-    -- During reset, output should be cleared to 0
-    assert instr_out = x"0000"
-      report "IF/ID: instr_out not cleared on reset"
-      severity error;
+        assert instr_out = x"0000" and pc_out = x"0000"
+          report "IF/ID: outputs not cleared on reset"
+          severity error;
 
-    -- 2. Deassert reset so the register should start latching inputs
-    reset <= '0';  -- Turn reset OFF
+        -- Normal latch
+        reset    <= '0';
+        instr_in <= x"1234";
+        pc_in    <= x"0005";
+        wait until rising_edge(clock);
+        wait for 1 ns;
 
-    -- 3. Apply instruction 0x1234, expect it to appear at output after next rising edge
-    instr_in <= x"1234";
-    wait until rising_edge(clock);
-    wait for 1 ns;
+        assert instr_out = x"1234" and pc_out = x"0005"
+          report "IF/ID: normal latch failed"
+          severity error;
 
-    -- Check output latched correctly
-    assert instr_out = x"1234"
-      report "IF/ID: instr_out should equal instr_in after clock"
-      severity error;
+        -- Stall should hold old value
+        stall    <= '1';
+        instr_in <= x"BEEF";
+        pc_in    <= x"0009";
+        wait until rising_edge(clock);
+        wait for 1 ns;
 
-    -- 4. Apply instruction 0xBEEF, expect output to update on next rising edge
-    instr_in <= x"BEEF";
-    wait until rising_edge(clock);
-    wait for 1 ns;
+        assert instr_out = x"1234" and pc_out = x"0005"
+          report "IF/ID: stall failed to hold value"
+          severity error;
 
-    -- Check update worked
-    assert instr_out = x"BEEF"
-      report "IF/ID: instr_out should update each clock"
-      severity error;
+        -- Release stall, new values should latch
+        stall    <= '0';
+        wait until rising_edge(clock);
+        wait for 1 ns;
 
-    -- 5. Reset again mid-run (should clear output again)
-    reset    <= '1';
-    instr_in <= x"FFFF";
-    wait until rising_edge(clock);
-    wait for 1 ns;
+        assert instr_out = x"BEEF" and pc_out = x"0009"
+          report "IF/ID: value did not latch after stall released"
+          severity error;
 
-    -- Output should clear again
-    assert instr_out = x"0000"
-      report "IF/ID: instr_out not cleared on second reset"
-      severity error;
+        -- Flush should clear outputs
+        flush    <= '1';
+        instr_in <= x"FFFF";
+        pc_in    <= x"00AA";
+        wait until rising_edge(clock);
+        wait for 1 ns;
 
-    report "tb_if_id_register PASSED" severity note;
-    wait;
+        assert instr_out = x"0000" and pc_out = x"0000"
+          report "IF/ID: flush did not clear outputs"
+          severity error;
 
-  end process;
+        flush <= '0';
+
+        report "tb_if_id_register PASSED" severity note;
+        wait;
+    end process;
 
 end architecture;
