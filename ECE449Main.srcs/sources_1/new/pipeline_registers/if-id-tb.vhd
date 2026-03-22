@@ -33,12 +33,15 @@ begin
 
     process
     begin
-        -- Reset should clear outputs
+        ------------------------------------------------------------------
+        -- 1. Reset should clear both instruction and PC
+        ------------------------------------------------------------------
         reset    <= '1';
         stall    <= '0';
         flush    <= '0';
         instr_in <= x"AAAA";
-        pc_in    <= x"0011";
+        pc_in    <= x"0005";
+
         wait until rising_edge(clock);
         wait for 1 ns;
 
@@ -46,41 +49,68 @@ begin
           report "IF/ID: outputs not cleared on reset"
           severity error;
 
-        -- Normal latch
+        ------------------------------------------------------------------
+        -- 2. Normal latch
+        ------------------------------------------------------------------
         reset    <= '0';
         instr_in <= x"1234";
-        pc_in    <= x"0005";
+        pc_in    <= x"0001";
+
         wait until rising_edge(clock);
         wait for 1 ns;
 
-        assert instr_out = x"1234" and pc_out = x"0005"
+        assert instr_out = x"1234" and pc_out = x"0001"
           report "IF/ID: normal latch failed"
           severity error;
 
-        -- Stall should hold old value
-        stall    <= '1';
+        ------------------------------------------------------------------
+        -- 3. Update again normally
+        ------------------------------------------------------------------
         instr_in <= x"BEEF";
-        pc_in    <= x"0009";
+        pc_in    <= x"0002";
+
         wait until rising_edge(clock);
         wait for 1 ns;
 
-        assert instr_out = x"1234" and pc_out = x"0005"
-          report "IF/ID: stall failed to hold value"
+        assert instr_out = x"BEEF" and pc_out = x"0002"
+          report "IF/ID: normal update failed"
           severity error;
 
-        -- Release stall, new values should latch
+        ------------------------------------------------------------------
+        -- 4. Stall should hold old values
+        ------------------------------------------------------------------
+        stall    <= '1';
+        instr_in <= x"9999";
+        pc_in    <= x"0003";
+
+        wait until rising_edge(clock);
+        wait for 1 ns;
+
+        assert instr_out = x"BEEF" and pc_out = x"0002"
+          report "IF/ID: stall did not hold previous values"
+          severity error;
+
+        ------------------------------------------------------------------
+        -- 5. Release stall and latch new values
+        ------------------------------------------------------------------
         stall    <= '0';
+        instr_in <= x"7777";
+        pc_in    <= x"0004";
+
         wait until rising_edge(clock);
         wait for 1 ns;
 
-        assert instr_out = x"BEEF" and pc_out = x"0009"
-          report "IF/ID: value did not latch after stall released"
+        assert instr_out = x"7777" and pc_out = x"0004"
+          report "IF/ID: release from stall failed"
           severity error;
 
-        -- Flush should clear outputs
+        ------------------------------------------------------------------
+        -- 6. Flush should clear outputs
+        ------------------------------------------------------------------
         flush    <= '1';
         instr_in <= x"FFFF";
-        pc_in    <= x"00AA";
+        pc_in    <= x"000A";
+
         wait until rising_edge(clock);
         wait for 1 ns;
 
