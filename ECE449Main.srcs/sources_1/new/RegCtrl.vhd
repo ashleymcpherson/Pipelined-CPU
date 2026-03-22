@@ -112,8 +112,9 @@ begin
                 Rc <= instruction(2 downto 0);
                 wb_enable <= '0';
         end case;
-        
-        if (prev_ra = instruction(5 downto 3)) then
+        if (prev_ra = instruction(5 downto 3)) and (prev_ra = instruction(2 downto 0)) then
+            forwarding_control <= "11";
+        elsif (prev_ra = instruction(5 downto 3)) then
             forwarding_control <= "01";
         elsif (prev_ra = instruction(2 downto 0)) then
             forwarding_control <= "10";
