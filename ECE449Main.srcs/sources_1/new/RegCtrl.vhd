@@ -48,7 +48,7 @@ end RegCtrl;
 
 architecture Behavioral of RegCtrl is
 
-signal prev_ra : std_logic_vector(15 downto 0);
+signal prev_ra : std_logic_vector(2 downto 0);
 --signal prev_rc : std_logic_vector(2 downto 0);
 --signal prev_rc : std_logic_vector(2 downto 0);
 

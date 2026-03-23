@@ -432,7 +432,7 @@ port map(
     clock=>clk,
     reset=>reset,
     wb_data_in=>wb_data_mem,
-    wb_dest_in=>wb_data_mem,
+    wb_dest_in=>wb_dest_mem,
     reg_write_in=>reg_wr_mem,
     wb_data_out=>wb_data_wb,
     wb_dest_out=>wb_dest_wb,
