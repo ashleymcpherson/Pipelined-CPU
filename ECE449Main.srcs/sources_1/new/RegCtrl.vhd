@@ -104,7 +104,10 @@ begin
             
             when "1000111" => --71
                 Ra <= "111";
+                Rb <= "000"; --unsured just to prevent floatings
+                Rc <= "000"; --unsured just to prevent floatings
                 wb_enable <= '1';
+          
             
             when others =>
                 Ra <= instruction(8 downto 6);

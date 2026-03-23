@@ -111,7 +111,9 @@ begin
                 wb_en <= '1';
             when "1000111" =>
                 set_pc <= ra;
-                pc_op <= "10";   
+                pc_op <= "10";
+            when others =>
+                pc_op <= "01";
         end case;
 
 
