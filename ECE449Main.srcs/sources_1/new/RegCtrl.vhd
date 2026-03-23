@@ -114,7 +114,7 @@ begin
                 wb_enable <= '0';
 
             
-            when "1000011" | "1000100" | "1000101" | "1000110" => -- format B2
+            when "1000011" | "1000100" | "1000101" => -- format B2
                 Ra <= instruction(8 downto 6);
                 branchOut <= instruction(8 downto 0);
                 wb_enable <= '0';
@@ -124,8 +124,13 @@ begin
                 Rb <= "000"; --unsured just to prevent floatings
                 Rc <= "000"; --unsured just to prevent floatings
                 wb_enable <= '0';
-          
-            
+            when "1000110" =>
+                Ra <= instruction(8 downto 6);
+                --branchOut <= instruction(8 downto 0);
+                rb <= "111";
+                rc <= instruction(2 downto 0);
+                wb_enable <= '1';
+
             when others =>
                 Ra <= instruction(8 downto 6);
                 Rb <= instruction(5 downto 3);

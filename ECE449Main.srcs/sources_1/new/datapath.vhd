@@ -63,7 +63,7 @@ component blk_mem_gen_0 is
 port(
         clka  : in std_logic;
         ena   : in std_logic;
-        addra : in std_logic_vector(8 downto 0);
+        addra : in std_logic_vector(9 downto 0);
         douta : out std_logic_vector(15 downto 0)
     );
 end component;
@@ -258,6 +258,11 @@ signal reg_wb_output : std_logic_vector(15 downto 0);
 signal wb_reg_dest : std_logic_vector(2 downto 0);
 signal wb_enable : std_logic;
 
+signal rb_data_sub : std_logic_Vector(15 downto 0);
+signal ra_dest_sub : std_logic_vector(2 downto 0);
+
+--signal flush_count : std_logic_vector(1 downto 0) := "11";
+
 begin
 
 enable <= '1';
@@ -294,9 +299,30 @@ stall_pipe <= '0';
     pc_op <= branch_pc_op;
     pc_in <= branch_set_pc;
 
-    flush_ifid <= '1' when branch_pc_op = "10" else '0';
-    flush_idex <= '1' when branch_pc_op = "10" else '0';
 
+
+    --flush_ifid <= '1' when branch_pc_op = "10" else '0';
+   -- flush_ifid <= '1' when flush_count = "11" else when flush_count = "10" else when flush_count = "01"
+    --flush_idex <= '1' when branch_pc_op = "10" else '0';
+process(clk, branch_pc_op)
+variable flush_count : std_logic_vector(1 downto 0);
+begin
+    if (rising_edge(clk)) then
+        if branch_pc_op = "10" then
+            flush_count := "01";
+        --flush_count := "11" when branch_pc_op = "10" ;
+        end if;
+        
+        if flush_count = "11" or flush_count = "10" or flush_count = "01" then
+            flush_ifid <= '1';
+            flush_count := std_logic_vector(unsigned(flush_count) - 1);
+        else
+            flush_ifid <= '0';
+        end if;
+           
+    end if;
+
+end process;
     -- forwarding
     fwd_a <= wb_data_mem when (reg_wr_mem = '1' and wb_dest_mem = rb_src_ex and wb_dest_mem /= "000") else
              wb_data_wb  when (wb_enable_pipe = '1' and wb_dest_wb = rb_src_ex and wb_dest_wb /= "000") else
@@ -307,9 +333,18 @@ stall_pipe <= '0';
              rc_ex;
 
     -- final writeback
-    reg_wb_output <= r7_wb_data when branch_wb_en = '1' else wb_data_wb;
-    wb_reg_dest   <= r7_wb_dest when branch_wb_en = '1' else wb_dest_wb;
-    wb_enable     <= branch_wb_en when branch_wb_en = '1' else wb_enable_pipe;
+    reg_wb_output <=  wb_data_wb; --v when branch_wb_en = '1' else
+    wb_reg_dest   <=  wb_dest_wb; --r7_wb_dest when branch_wb_en = '1' else
+    wb_enable     <=  wb_enable_pipe; -- branch_wb_en when branch_wb_en = '1' else
+
+    rb_data_sub <= r7_wb_data when (branch_wb_en = '1') else 
+                    rb_data;
+    ra_dest_sub <= "111" when( branch_wb_en = '1') else Ra;
+                    
+    
+    
+
+
 
     -- flag registers
     process(clk)
@@ -339,7 +374,7 @@ rom1: blk_mem_gen_0
 port map(
     clka=>clk,
     ena=>enable,
-    addra=>pc_address(8 downto 0),
+    addra=>pc_address(9 downto 0),
     douta=>instr_in
 );
 
@@ -389,8 +424,8 @@ port map(
     flush=>flush_idex,
     instr_in=>instr_out,
     pc_in=>pc_id,
-    ra_dest_in=>Ra,
-    rb_val_in=>rb_data,
+    ra_dest_in=>ra_dest_sub,
+    rb_val_in=>rb_data_sub,
     rb_src_in=>read_index1,
     rc_val_in=>rc_data,
     rc_src_in=>RC,

@@ -64,7 +64,7 @@ begin
                 when x"00ee" =>
                     outside_input <= x"0005";
                 when x"00ef" =>
-                    outside_input <= x"0210";
+                    outside_input <= x"0108";
                 when x"00f0" =>
                     outside_input <= x"0001";
                 when x"00f1" =>

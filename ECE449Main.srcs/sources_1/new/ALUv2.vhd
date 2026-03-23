@@ -93,7 +93,8 @@ begin
             when "0100001" => -- input
                 result_s := signed(outside_input);
                 outside_output <= outside_input;
-                
+           when "1000110" =>
+                result_s := rb;     
             when "0000111" => -- test
                 result_s := (rb);
                 
