@@ -395,6 +395,7 @@ port map(
     rc_val_in=>rc_data,
     rc_src_in=>RC,
     reg_write_in=>wb_enable_id,
+    instr_out=>instr_ex,
     ra_dest_out=>ra_dest_ex,
     rb_val_out=>rb_ex,
     rb_src_out=>rb_src_ex,

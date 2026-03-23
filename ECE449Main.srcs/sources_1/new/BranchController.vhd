@@ -106,9 +106,11 @@ begin
                 end if;
                 wb_en <= '0';
             when "1000110" => -- br.sub
+                set_pc <= std_logic_vector(unsigned(ra) + unsigned(displ));
                 r7_wb_data <= std_logic_vector(unsigned(cur_pc) + 1);
                 r7_wb_dest <= "111";
                 wb_en <= '1';
+                pc_op <= "10";
             when "1000111" =>
                 set_pc <= ra;
                 pc_op <= "10";

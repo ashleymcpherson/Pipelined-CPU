@@ -50,9 +50,9 @@ architecture Behavioral of ALUv2 is
     signal outside_output : std_logic_vector(15 downto 0);
     
 begin
-    process( rb, rc, outside_input)
-        variable opcode : std_logic_vector(6 downto 0) := instruction(15 downto 9);
-        variable shiftop : std_logic_vector(3 downto 0) := instruction(3 downto 0);
+    process(rb, rc, outside_input, instruction)
+        variable opcode : std_logic_vector(6 downto 0) ;
+        variable shiftop : std_logic_vector(3 downto 0) ;
         variable temp_s : signed(15 downto 0);
         variable mul_temp : signed(31 downto 0);
         variable result_s : signed(15 downto 0);
@@ -61,7 +61,8 @@ begin
     begin
         z_flag <= '0';
         n_flag <= '0';
-        
+        opcode := instruction(15 downto 9);
+        shiftop := instruction(3 downto 0);
         
         case opcode is
             when "0000001" => -- add
@@ -91,6 +92,7 @@ begin
                 
             when "0100001" => -- input
                 result_s := signed(outside_input);
+                outside_output <= outside_input;
                 
             when "0000111" => -- test
                 result_s := (rb);

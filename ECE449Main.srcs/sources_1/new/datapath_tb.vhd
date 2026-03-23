@@ -37,10 +37,11 @@ begin
             clk <= '1';
             wait for clk_period / 2;
         end loop;
+        wait;
     end process;
 
     stimulus_process : process
-        variable cycle : std_logic_vector := "0000";
+        variable cycle : std_logic_vector(15 downto 0) := x"0000";
     begin
         outside_input <= x"0000";
         
@@ -54,14 +55,22 @@ begin
             cycle := std_logic_vector(unsigned(cycle) + 1);
             
             case cycle is
-                when x"FFFF" =>
+                when x"00eb" =>
                     outside_input <= x"0002";
-                when x"02F4" =>
+                when x"00ec" =>
                     outside_input <= x"0003";
-                when x"0AEF" =>
+                when x"00ed" =>
                     outside_input <= x"0001";
-                when x"fffe" =>
+                when x"00ee" =>
                     outside_input <= x"0005";
+                when x"00ef" =>
+                    outside_input <= x"0210";
+                when x"00f0" =>
+                    outside_input <= x"0001";
+                when x"00f1" =>
+                    outside_input <= x"0005";
+                when x"00f2" =>
+                    outside_input <= x"0000";
                 when others =>
                     outside_input <= x"0000";
             end case;

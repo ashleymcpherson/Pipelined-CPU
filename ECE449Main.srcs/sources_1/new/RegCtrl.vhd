@@ -48,7 +48,7 @@ end RegCtrl;
 
 architecture Behavioral of RegCtrl is
 
-signal prev_ra : std_logic_vector(2 downto 0);
+--signal prev_ra : std_logic_vector(2 downto 0);
 --signal prev_rc : std_logic_vector(2 downto 0);
 --signal prev_rc : std_logic_vector(2 downto 0);
 
@@ -56,9 +56,9 @@ begin
 --if wb_prev = instruction(5 downto 3)
 
 
-    Process(clk)
+    Process(clk, instruction)
     begin
-        
+        if rising_edge(clk) then
         opcode <= instruction(15 downto 9);
         
         case instruction(15 downto 9) is
@@ -115,18 +115,18 @@ begin
                 Rc <= instruction(2 downto 0);
                 wb_enable <= '0';
         end case;
-        if (prev_ra = instruction(5 downto 3)) and (prev_ra = instruction(2 downto 0)) then
-            forwarding_control <= "11";
-        elsif (prev_ra = instruction(5 downto 3)) then
-            forwarding_control <= "01";
-        elsif (prev_ra = instruction(2 downto 0)) then
-            forwarding_control <= "10";
-        else
-            forwarding_control <= "00";
+        --if (prev_ra = instruction(5 downto 3)) and (prev_ra = instruction(2 downto 0)) then
+        --    forwarding_control <= "11";
+        --elsif (prev_ra = instruction(5 downto 3)) then
+        --    forwarding_control <= "01";
+        --elsif (prev_ra = instruction(2 downto 0)) then
+        --    forwarding_control <= "10";
+        --else
+        --    forwarding_control <= "00";
+        --end if;
         end if;
-        
     end Process;
 
-    prev_ra <= instruction(8 downto 6);
+    --prev_ra <= instruction(8 downto 6);
 
 end Behavioral;
