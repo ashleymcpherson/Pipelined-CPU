@@ -373,7 +373,7 @@ mreg: register_file
 port map(
     rst=>reset,
     clk=>clk,
-    rd_index1=>Rb,
+    rd_index1=>read_index1,
     rd_index2=>Rc,
     wr_index=>wb_reg_dest,
     wr_data=>reg_wb_output,
@@ -391,7 +391,7 @@ port map(
     pc_in=>pc_id,
     ra_dest_in=>Ra,
     rb_val_in=>rb_data,
-    rb_src_in=>Rb,
+    rb_src_in=>read_index1,
     rc_val_in=>rc_data,
     rc_src_in=>RC,
     reg_write_in=>wb_enable_id,
