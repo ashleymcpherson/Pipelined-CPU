@@ -110,17 +110,17 @@ begin
                 result_s := (others => '0');
         end case;
         
-        if result_s = to_signed(0, 16) then
-            z_flag <= '1';
-        else
-            z_flag <= '0';
-        end if;
-        
-        if result_s < to_signed(0, 16) then
-            n_flag <= '1';
-        else
-            n_flag <= '0';
-        end if;      
+--        if result_s = to_signed(0, 16) then
+--            z_flag <= '1';
+--        else
+--            z_flag <= '0';
+--        end if;
+--        
+--        if result_s < to_signed(0, 16) then
+--            n_flag <= '1';
+--        else
+--            n_flag <= '0';
+--        end if;      
         
         output <= std_logic_Vector(result_s);
 

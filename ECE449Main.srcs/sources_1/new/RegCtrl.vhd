@@ -39,7 +39,7 @@ Port (
     Ra : out std_logic_vector(2 downto 0);
     Rb : out std_logic_vector(2 downto 0);
     Rc : out std_logic_vector(2 downto 0);
-    shiftOp : out std_logic_vector(3 downto 0) := X"0";
+    shiftOp : out std_logic_vector(3 downto 0);
     branchOut : out std_logic_vector(8 downto 0);
     wb_enable : out std_logic;
     forwarding_control : out std_logic_vector(1 downto 0)
@@ -56,10 +56,21 @@ begin
 --if wb_prev = instruction(5 downto 3)
 
 
-    Process(clk, instruction)
+    Process(instruction)
     begin
-        if rising_edge(clk) then
+        
         opcode <= instruction(15 downto 9);
+        
+                -- defaults to avoid latches and U signals
+        Ra                 <= instruction(8 downto 6);
+        Rb                 <= instruction(5 downto 3);
+        Rc                 <= instruction(2 downto 0);
+        shiftOp            <= X"0";
+        branchOut          <= instruction(8 downto 0);
+        wb_enable          <= '0';
+        forwarding_control <= "00";
+        
+        
         
         case instruction(15 downto 9) is
             when "0000000" =>
@@ -88,6 +99,12 @@ begin
                 Ra <= instruction(8 downto 6);
                 Rb <= instruction(5 downto 3); --unsured just to prevent floatings
                 Rc <= instruction(2 downto 0);
+            when "0000111" =>                               -- TEST
+                Ra        <= instruction(8 downto 6);
+                Rb        <= instruction(8 downto 6);       -- TEST reads Ra
+                Rc        <= instruction(2 downto 0);
+                wb_enable <= '0';                           -- TEST does not write back
+            
             when "1000000" | "1000001" | "1000010" => -- format B1
                 branchOut <= instruction(8 downto 0);
                 
@@ -106,7 +123,7 @@ begin
                 Ra <= "111";
                 Rb <= "000"; --unsured just to prevent floatings
                 Rc <= "000"; --unsured just to prevent floatings
-                wb_enable <= '1';
+                wb_enable <= '0';
           
             
             when others =>
@@ -115,16 +132,8 @@ begin
                 Rc <= instruction(2 downto 0);
                 wb_enable <= '0';
         end case;
-        --if (prev_ra = instruction(5 downto 3)) and (prev_ra = instruction(2 downto 0)) then
-        --    forwarding_control <= "11";
-        --elsif (prev_ra = instruction(5 downto 3)) then
-        --    forwarding_control <= "01";
-        --elsif (prev_ra = instruction(2 downto 0)) then
-        --    forwarding_control <= "10";
-        --else
-        --    forwarding_control <= "00";
-        --end if;
-        end if;
+        
+        
     end Process;
 
     --prev_ra <= instruction(8 downto 6);

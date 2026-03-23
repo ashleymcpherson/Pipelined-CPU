@@ -53,43 +53,61 @@ architecture Behavioral of BranchController is
 
 begin
 
-process(clk, flag_n, flag_z)
-variable opcode : std_logic_vector(6 downto 0) := instruction(15 downto 9);
-variable displ : std_logic_vector(8 downto 0) := instruction(8 downto 0);
-variable disps : std_logic_vector( 5 downto 0) := instruction(5 downto 0);
+process(instruction, flag_n, flag_z, ra, cur_pc)
+variable opcode : std_logic_vector(6 downto 0) ;
+variable displ : std_logic_vector(8 downto 0) ;
+variable disps : std_logic_vector( 5 downto 0) ;
+
+variable displ_x2 : std_logic_vector(15 downto 0);
+variable disps_x2 : std_logic_vector(15 downto 0);
+
 begin
+       
+    opcode := instruction(15 downto 9);
+    displ  := instruction(8 downto 0);
+    disps  := instruction(5 downto 0); 
+    
+    displ_x2 := std_logic_vector((resize(signed(displ), 16)));
+    disps_x2 := std_logic_vector((resize(signed(disps), 16)));    
         
+        
+    pc_op       <= "01";
+    set_pc      <= (others => '0');
+    wb_en       <= '0';
+    r7_wb_data  <= (others => '0');
+    r7_wb_dest  <= (others => '0');
+    reset_prev  <= '0';
         
         case opcode is
             when "1000000" => --brr
-                set_pc <= std_logic_vector(unsigned(cur_pc) + unsigned(displ));
+                set_pc <= std_logic_vector(unsigned(cur_pc) + unsigned(displ_x2));
                 pc_op <= "10";
                 wb_en <= '0';
             when "1000001" => --brr.n
                 if flag_n = '1' then
-                    set_pc <= std_logic_vector(unsigned(cur_pc) + unsigned(displ));
+                    set_pc <= std_logic_vector(unsigned(cur_pc) + unsigned(displ_x2));
                     pc_op <= "10";
                 elsif flag_n = '0' then
-                    set_pc <= std_logic_vector(unsigned(cur_pc) + 1);
+                    --set_pc <= std_logic_vector(unsigned(cur_pc) + 1);
                     pc_op <= "01";
                 end if;
                 wb_en <= '0';
             when "1000010" => -- brr.z
                 if flag_z = '1' then
-                    set_pc <= std_logic_vector(unsigned(cur_pc) + unsigned(displ));
+                    set_pc <= std_logic_vector(unsigned(cur_pc) + unsigned(displ_x2));
                     pc_op <= "10";
                 elsif flag_z = '0' then
-                    set_pc <= std_logic_vector(unsigned(cur_pc) + 1);
+                    --set_pc <= std_logic_vector(unsigned(cur_pc) + 1);
                     pc_op <= "01";
                 end if;
                 wb_en <= '0';
             when "1000011" => -- br
-                set_pc <= std_logic_vector(unsigned(ra) + unsigned(disps));
+                set_pc <= std_logic_vector(unsigned(ra) + unsigned(disps_x2));
                 pc_op <= "10";
                 wb_en <= '0';
             when "1000100" => -- br.n
                 if flag_n = '1' then
-                    set_pc <= std_logic_vector(unsigned(ra) + unsigned(disps));
+                    set_pc <= std_logic_vector(unsigned(ra) + unsigned(disps_x2));
                     pc_op <= "10";
                 elsif flag_n = '0' then
                     set_pc <= std_logic_vector(unsigned(cur_pc) + 1);
@@ -98,7 +116,7 @@ begin
                 wb_en <= '0';             
             when "1000101" => -- br.z
                 if flag_z = '1' then
-                    set_pc <= std_logic_vector(unsigned(ra) + unsigned(displ));
+                    set_pc <= std_logic_vector(unsigned(ra) + unsigned(disps_x2));
                     pc_op <= "10";
                 elsif flag_z = '0' then
                     set_pc <= std_logic_vector(unsigned(cur_pc) + 1);
@@ -106,7 +124,7 @@ begin
                 end if;
                 wb_en <= '0';
             when "1000110" => -- br.sub
-                set_pc <= std_logic_vector(unsigned(ra) + unsigned(displ));
+                set_pc <= std_logic_vector(unsigned(ra) + unsigned(disps_x2));
                 r7_wb_data <= std_logic_vector(unsigned(cur_pc) + 1);
                 r7_wb_dest <= "111";
                 wb_en <= '1';
