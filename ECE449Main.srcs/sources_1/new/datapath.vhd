@@ -401,7 +401,8 @@ port map(
     rb_src_out=>rb_src_ex,
     rc_val_out=>rc_ex,
     rc_src_out=>rc_src_ex,
-    reg_write_out=>reg_wr_ex
+    reg_write_out=>reg_wr_ex,
+    pc_out=>pc_ex
 );
 
 al: ALUv2
