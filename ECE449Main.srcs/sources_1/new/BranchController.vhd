@@ -80,7 +80,7 @@ begin
         
         case opcode is
             when "1000000" => --brr
-                set_pc <= std_logic_vector(unsigned(cur_pc) + unsigned(displ_x2));
+                set_pc <= std_logic_vector(unsigned(cur_pc) + unsigned(displ_x2) - 2);
                 pc_op <= "10";
                 wb_en <= '0';
             when "1000001" => --brr.n
@@ -116,7 +116,7 @@ begin
                 wb_en <= '0';             
             when "1000101" => -- br.z
                 if flag_z = '1' then
-                    set_pc <= std_logic_vector(unsigned(ra) + unsigned(disps_x2));
+                    set_pc <= std_logic_vector(unsigned(ra) + unsigned(disps_x2)+2);
                     pc_op <= "10";
                 elsif flag_z = '0' then
                     set_pc <= std_logic_vector(unsigned(cur_pc) + 1);
@@ -125,7 +125,7 @@ begin
                 wb_en <= '0';
             when "1000110" => -- br.sub
                 set_pc <= std_logic_vector(unsigned(ra) + unsigned(disps_x2));
-                r7_wb_data <= std_logic_vector(unsigned(cur_pc) + 1);
+                r7_wb_data <= std_logic_vector(unsigned(cur_pc) - 1);
                 r7_wb_dest <= "111";
                 wb_en <= '1';
                 pc_op <= "10";

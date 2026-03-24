@@ -285,8 +285,8 @@ stall_pipe <= '0';
         clk => clk,
         instruction => instr_out,
         ra => rb_data,
-        flag_z => z_reg,
-        flag_n => n_reg,
+        flag_z => z_flag_ex,
+        flag_n => n_flag_ex,
         cur_pc => pc_id,
         pc_op => branch_pc_op,
         set_pc => branch_set_pc,
@@ -298,31 +298,36 @@ stall_pipe <= '0';
 
     pc_op <= branch_pc_op;
     pc_in <= branch_set_pc;
+    
+    flush_ifid <= '1' when branch_pc_op = "10" else '0';
+    flush_idex <= '1' when branch_pc_op = "10" and instr_out(15 downto 9) /= "1000110" else '0';
 
 
+    --flush_ifid <= '1' when branch_pc_op = "10" else '0';
+    --flush_idex <= '0';
 
     --flush_ifid <= '1' when branch_pc_op = "10" else '0';
    -- flush_ifid <= '1' when flush_count = "11" else when flush_count = "10" else when flush_count = "01"
     --flush_idex <= '1' when branch_pc_op = "10" else '0';
-process(clk, branch_pc_op)
-variable flush_count : std_logic_vector(1 downto 0);
-begin
-    if (rising_edge(clk)) then
-        if branch_pc_op = "10" then
-            flush_count := "01";
-        --flush_count := "11" when branch_pc_op = "10" ;
-        end if;
+--process(clk, branch_pc_op)
+--variable flush_count : std_logic_vector(1 downto 0);
+--begin
+--    if (rising_edge(clk)) then
+--        if branch_pc_op = "10" then
+--            flush_count := "01";
+--        --flush_count := "11" when branch_pc_op = "10" ;
+--        end if;
         
-        if flush_count = "11" or flush_count = "10" or flush_count = "01" then
-            flush_ifid <= '1';
-            flush_count := std_logic_vector(unsigned(flush_count) - 1);
-        else
-            flush_ifid <= '0';
-        end if;
+--        if flush_count = "11" or flush_count = "10" or flush_count = "01" then
+--            flush_ifid <= '1';
+--            flush_count := std_logic_vector(unsigned(flush_count) - 1);
+--       else
+--            flush_ifid <= '0';
+--        end if;
            
-    end if;
+--    end if;
 
-end process;
+--end process;
     -- forwarding
     fwd_a <= wb_data_mem when (reg_wr_mem = '1' and wb_dest_mem = rb_src_ex and wb_dest_mem /= "000") else
              wb_data_wb  when (wb_enable_pipe = '1' and wb_dest_wb = rb_src_ex and wb_dest_wb /= "000") else
@@ -340,25 +345,27 @@ end process;
     rb_data_sub <= r7_wb_data when (branch_wb_en = '1') else 
                     rb_data;
     ra_dest_sub <= "111" when( branch_wb_en = '1') else Ra;
-                    
+             
+             
+        
     
     
 
 
 
     -- flag registers
-    process(clk)
-    begin
-        if rising_edge(clk) then
-            if reset = '1' then
-                z_reg <= '0';
-                n_reg <= '0';
-            else
-                z_reg <= z_flag_ex;
-                n_reg <= n_flag_ex;
-            end if;
-        end if;
-    end process;
+--    process(clk)
+--    begin
+--        if rising_edge(clk) then
+--            if reset = '1' then
+--                z_reg <= '0';
+--                n_reg <= '0';
+--            else
+--                z_reg <= z_flag_ex;
+--                n_reg <= n_flag_ex;
+--            end if;
+--        end if;
+--    end process;
 
 -- define port maps for entities here they should be mostly sequential
 pc1: PC
