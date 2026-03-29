@@ -261,12 +261,23 @@ signal wb_enable : std_logic;
 signal rb_data_sub : std_logic_Vector(15 downto 0);
 signal ra_dest_sub : std_logic_vector(2 downto 0);
 
+
+signal rb_val_id    : std_logic_vector(15 downto 0);
+signal rc_val_id    : std_logic_vector(15 downto 0);
+signal ra_dest_id   : std_logic_vector(2 downto 0);
+signal reg_write_id : std_logic;
+
+
+
+
 --signal flush_count : std_logic_vector(1 downto 0) := "11";
 
 begin
 
 enable <= '1';
 stall_pipe <= '0';
+
+
 
 -- multiplexer for the first read port of the register file
     process(instr_out, Ra, Rb)
@@ -347,7 +358,25 @@ stall_pipe <= '0';
     ra_dest_sub <= "111" when( branch_wb_en = '1') else Ra;
              
              
-        
+--    rb_val_id <= r7_wb_data when (branch_wb_en = '1') else
+--             wb_data_mem when (reg_wr_mem = '1' and wb_dest_mem = read_index1 and wb_dest_mem /= "000") else
+--             wb_data_wb  when (wb_enable_pipe = '1' and wb_dest_wb = read_index1 and wb_dest_wb /= "000") else
+--             rb_data;
+    
+--    rc_val_id <= wb_data_mem when (reg_wr_mem = '1' and wb_dest_mem = Rc and wb_dest_mem /= "000") else
+--             wb_data_wb  when (wb_enable_pipe = '1' and wb_dest_wb = Rc and wb_dest_wb /= "000") else
+--             rc_data;
+    ra_dest_id   <= Ra;
+    reg_write_id <= wb_enable_id;
+    
+    rb_val_id <= r7_wb_data when (branch_wb_en = '1') else
+             wb_data_mem when (reg_wr_mem = '1' and wb_dest_mem = read_index1 and wb_dest_mem /= "000") else
+             wb_data_wb  when (wb_enable_pipe = '1' and wb_dest_wb = read_index1 and wb_dest_wb /= "000") else
+             rb_data;
+    
+    rc_val_id <= wb_data_mem when (reg_wr_mem = '1' and wb_dest_mem = Rc and wb_dest_mem /= "000") else
+             wb_data_wb  when (wb_enable_pipe = '1' and wb_dest_wb = Rc and wb_dest_wb /= "000") else
+             rc_data;
     
     
 
@@ -431,12 +460,16 @@ port map(
     flush=>flush_idex,
     instr_in=>instr_out,
     pc_in=>pc_id,
-    ra_dest_in=>ra_dest_sub,
-    rb_val_in=>rb_data_sub,
+    ra_dest_in   => ra_dest_id,
+    rb_val_in    => rb_val_id,
+    rc_val_in    => rc_val_id,
+    reg_write_in => reg_write_id,
+    
+    
     rb_src_in=>read_index1,
-    rc_val_in=>rc_data,
+    --rc_val_in=>rc_data,
     rc_src_in=>RC,
-    reg_write_in=>wb_enable_id,
+    --reg_write_in=>wb_enable_id,
     instr_out=>instr_ex,
     ra_dest_out=>ra_dest_ex,
     rb_val_out=>rb_ex,

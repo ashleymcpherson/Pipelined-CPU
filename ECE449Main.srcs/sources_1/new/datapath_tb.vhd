@@ -56,7 +56,7 @@ begin
             
             case cycle is
                 when x"00eb" =>
-                    outside_input <= x"0002";
+                    outside_input <= x"FFFE";
                 when x"00ec" =>
                     outside_input <= x"0003";
                 when x"00ed" =>
