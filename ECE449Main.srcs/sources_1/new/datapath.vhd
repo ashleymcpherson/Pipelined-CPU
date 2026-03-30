@@ -223,17 +223,30 @@ port(
     
     wb_data_in : in std_logic_vector(15 downto 0);
     wb_dest_in : in std_logic_vector(2 downto 0);
-    reg_write_in : in std_logic;                        -- control signal
+    reg_write_in : in std_logic;  
+    mem_ctrl_in   : in std_logic;                    
     
     wb_data_out : out std_logic_vector(15 downto 0);
     wb_dest_out : out std_logic_vector(2 downto 0);
-    reg_write_out : out std_logic
+    reg_write_out : out std_logic;
+    mem_ctrl_out   : out std_logic
     );
 end component;
 
 signal wb_data_mem : std_logic_vector(15 downto 0);
 signal wb_dest_mem : std_logic_vector(2 downto 0);
 signal reg_wr_mem :std_logic;
+
+
+component blk_mem_gen_1 is
+port(
+    addrb : in std_logic_vector(9 downto 0);
+    clkb : in std_logic;
+    dinb : in std_logic_vector(15 downto 0);
+    enb : in std_logic;
+    doutb : out std_logic_vector(15 downto 0)
+    );
+end component;
 
 component mem_wb_register is
 port(
@@ -267,6 +280,13 @@ signal rc_val_id    : std_logic_vector(15 downto 0);
 signal ra_dest_id   : std_logic_vector(2 downto 0);
 signal reg_write_id : std_logic;
 
+
+signal mem_mem_ctrl : std_logic;
+signal ex_mem_ctrl : std_logic;
+
+signal addrb : std_logic_vector(15 downto 0);
+signal dinb : std_logic_vector(15 downto 0);
+signal doutb : std_logic_vector(15 downto 0);
 
 
 
@@ -500,9 +520,18 @@ port map(
     reg_write_in=>reg_wr_ex,
     wb_data_out=>wb_data_mem,
     wb_dest_out=>wb_dest_mem,
-    reg_write_out=>reg_wr_mem
+    reg_write_out=>reg_wr_mem,
+    mem_ctrl_in=>ex_mem_ctrl,
+    mem_ctrl_out=>mem_mem_ctrl
 );
-
+ram: blk_mem_gen_1
+port map(
+addrb=>addrb,
+clkb=>clk,
+dinb=>dinb,
+enb=>'1',
+doutb=>doutb
+);
 -- putlogic here if we need differ write back
 pr4: mem_wb_register
 port map(
@@ -513,7 +542,8 @@ port map(
     reg_write_in=>reg_wr_mem,
     wb_data_out=>wb_data_wb,
     wb_dest_out=>wb_dest_wb,
-    reg_write_out=>wb_enable_pipe
+    reg_write_out=>wb_enable_pipe,
+    
 );
 
 end Behavioral;

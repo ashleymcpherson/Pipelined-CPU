@@ -42,7 +42,8 @@ Port (
     outside_input : in std_logic_vector(15 downto 0);
     output : out std_logic_vector(15 downto 0);
     z_flag : out std_logic;
-    n_flag : out std_logic
+    n_flag : out std_logic;
+    mem_ctrl : out std_logic
 );
 end ALUv2;
 
@@ -56,13 +57,16 @@ begin
         variable temp_s : signed(15 downto 0);
         variable mul_temp : signed(31 downto 0);
         variable result_s : signed(15 downto 0);
-        
+        variable imm : std_logic_vector(7 downto 0);
+        --variable load : signed(15 downto 0);
     
     begin
         z_flag <= '0';
         n_flag <= '0';
+        mem_ctrl <= '0';
         opcode := instruction(15 downto 9);
         shiftop := instruction(3 downto 0);
+        imm := (instruction(7 downto 0));
         
         case opcode is
             when "0000001" => -- add
@@ -107,16 +111,23 @@ begin
                 end if;
             
             when "0010000" => -- LOAD: pass address through for memory stage
+                mem_ctrl <= '1';
                 result_s := rb;
                 
             when "0010001" => -- STORE: pass address through
+                mem_ctrl <= '1';
                 result_s := rb;
             
             when "0010011" => -- MOV: pass Rb value to Ra
                 result_s := rb;
             
             when "0010010" => -- LOADIMM: handled in a separate merge step (see below)
-                result_s := rb;
+                if instruction(8) = '1' then
+                   result_s(15 downto 8) := signed(imm);
+                else
+                   result_s(7 downto 0) := signed(imm); 
+                end if;
+                --result_s := ;
             
             when others => 
                 result_s := (others => '0');
