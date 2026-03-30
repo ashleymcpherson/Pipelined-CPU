@@ -130,7 +130,26 @@ begin
                 rb <= "111";
                 rc <= instruction(2 downto 0);
                 wb_enable <= '1';
-
+            when "0010000" => -- LOAD
+                Ra <= instruction(8 downto 6);  -- r.dest
+                Rb <= instruction(5 downto 3);  -- r.src (address)
+                wb_enable <= '1';
+            
+            when "0010001" => -- STORE
+                Ra <= instruction(8 downto 6);  -- address register
+                Rb <= instruction(5 downto 3);  -- data to store
+                wb_enable <= '0';
+            
+            when "0010010" => -- LOADIMM
+                Ra <= "111";                    -- always targets R7
+                wb_enable <= '1';
+            
+            when "0010011" => -- MOV
+                Ra <= instruction(8 downto 6);  -- r.dest
+                Rb <= instruction(5 downto 3);  -- r.src
+                wb_enable <= '1';
+            
+            
             when others =>
                 Ra <= instruction(8 downto 6);
                 Rb <= instruction(5 downto 3);

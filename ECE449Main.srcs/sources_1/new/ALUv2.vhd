@@ -93,7 +93,7 @@ begin
             when "0100001" => -- input
                 result_s := signed(outside_input);
                 outside_output <= outside_input;
-           when "1000110" =>
+            when "1000110" =>
                 result_s := rb;     
             when "0000111" => -- test
                 result_s := (rb);
@@ -106,6 +106,17 @@ begin
                     n_flag <= '1';
                 end if;
             
+            when "0010000" => -- LOAD: pass address through for memory stage
+                result_s := rb;
+                
+            when "0010001" => -- STORE: pass address through
+                result_s := rb;
+            
+            when "0010011" => -- MOV: pass Rb value to Ra
+                result_s := rb;
+            
+            when "0010010" => -- LOADIMM: handled in a separate merge step (see below)
+                result_s := rb;
             
             when others => 
                 result_s := (others => '0');
