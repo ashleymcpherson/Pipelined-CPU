@@ -324,9 +324,12 @@ stall_pipe <= '0';
 --variable flush_count : std_logic_vector(1 downto 0);
 --begin
 --    if (rising_edge(clk)) then
---        if branch_pc_op = "10" then
+--        if branch_pc_op = "10" and instr_out(15 downto 9) = "1000110" then
 --            flush_count := "01";
 --        --flush_count := "11" when branch_pc_op = "10" ;
+--        else 
+--        flush_ifid <= '1';
+--        flush_count := "00";
 --        end if;
         
 --        if flush_count = "11" or flush_count = "10" or flush_count = "01" then
