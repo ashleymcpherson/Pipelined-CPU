@@ -136,8 +136,9 @@ begin
                 wb_enable <= '1';
             
             when "0010001" => -- STORE
-                Ra <= instruction(8 downto 6);  -- address register
+                --Ra <= instruction(8 downto 6);  --  no need for wb address
                 Rb <= instruction(5 downto 3);  -- data to store
+                Rc <= instruction(8 downto 6); -- fetch mem write location
                 wb_enable <= '0';
             
             when "0010010" => -- LOADIMM

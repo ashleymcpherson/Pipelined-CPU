@@ -204,6 +204,8 @@ port(
     instruction : in std_logic_vector(15 downto 0);
     outside_input : in std_logic_vector(15 downto 0);
     output : out std_logic_vector(15 downto 0);
+    str_loc : out std_logic_vector(15 downto 0);
+    mem_ctrl : out std_logic;
     z_flag : out std_logic;
     n_flag : out std_logic
     );
@@ -224,12 +226,14 @@ port(
     wb_data_in : in std_logic_vector(15 downto 0);
     wb_dest_in : in std_logic_vector(2 downto 0);
     reg_write_in : in std_logic;  
-    mem_ctrl_in   : in std_logic;                    
+    mem_ctrl_in   : in std_logic;     
+    mem_addr_in   : in std_logic_vector(15 downto 0);               
     
     wb_data_out : out std_logic_vector(15 downto 0);
     wb_dest_out : out std_logic_vector(2 downto 0);
     reg_write_out : out std_logic;
-    mem_ctrl_out   : out std_logic
+    mem_ctrl_out   : out std_logic;
+    mem_addr_out  : out std_logic_vector(15 downto 0)
     );
 end component;
 
@@ -240,11 +244,18 @@ signal reg_wr_mem :std_logic;
 
 component blk_mem_gen_1 is
 port(
-    addrb : in std_logic_vector(9 downto 0);
-    clkb : in std_logic;
-    dinb : in std_logic_vector(15 downto 0);
-    enb : in std_logic;
-    doutb : out std_logic_vector(15 downto 0)
+    clka : IN STD_LOGIC;
+    wea : IN STD_LOGIC_VECTOR(0 DOWNTO 0);
+    addra : IN STD_LOGIC_VECTOR(9 DOWNTO 0);
+    dina : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
+    douta : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
+    clkb : IN STD_LOGIC;
+    enb : IN STD_LOGIC;
+    web : IN STD_LOGIC_VECTOR(0 DOWNTO 0);
+    addrb : IN STD_LOGIC_VECTOR(9 DOWNTO 0);
+    dinb : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
+    doutb : OUT STD_LOGIC_VECTOR(15 DOWNTO 0)
+    
     );
 end component;
 
@@ -255,11 +266,13 @@ port(
 
     wb_data_in : in std_logic_vector(15 downto 0);
     wb_dest_in : in std_logic_vector(2 downto 0);
-    reg_write_in : in std_logic;                        -- control signal
+    reg_write_in : in std_logic; 
+    mem_ctrl_in : in std_logic;                       -- control signal
 
     wb_data_out : out std_logic_vector(15 downto 0);
     wb_dest_out : out std_logic_vector(2 downto 0);
-    reg_write_out : out std_logic
+    reg_write_out : out std_logic;
+    mem_ctrl_out : out std_logic
     );
 end component;
 
@@ -283,13 +296,22 @@ signal reg_write_id : std_logic;
 
 signal mem_mem_ctrl : std_logic;
 signal ex_mem_ctrl : std_logic;
+signal ex_location : std_logic_Vector(15 downto 0);
+signal mem_location : std_logic_Vector(15 downto 0);
 
-signal addrb : std_logic_vector(15 downto 0);
+signal mem_enb : std_logic;
+--signal addrb : std_logic_vector(15 downto 0);
 signal dinb : std_logic_vector(15 downto 0);
 signal doutb : std_logic_vector(15 downto 0);
 
+signal wb_data_direct_mem : std_logic_vector(15 downto 0);
 
 
+signal mem_wenb : std_logic_vector(0 downto 0);
+signal wb_mem_ctrl : std_logic;
+
+
+signal dump : std_logic_vector(15 downto 0);
 --signal flush_count : std_logic_vector(1 downto 0) := "11";
 
 begin
@@ -369,7 +391,7 @@ stall_pipe <= '0';
              rc_ex;
 
     -- final writeback
-    reg_wb_output <=  wb_data_wb; --v when branch_wb_en = '1' else
+    reg_wb_output <=  doutb when wb_mem_ctrl = '1' else wb_data_wb; --v when branch_wb_en = '1' else
     wb_reg_dest   <=  wb_dest_wb; --r7_wb_dest when branch_wb_en = '1' else
     wb_enable     <=  wb_enable_pipe; -- branch_wb_en when branch_wb_en = '1' else
 
@@ -400,7 +422,24 @@ stall_pipe <= '0';
     
     
 
+    --mem access logic
 
+
+
+mem_wenb <= "1" when reg_wr_mem = '1'  and mem_mem_ctrl = '1' else "0";
+mem_enb <= mem_mem_ctrl;
+dinb <= wb_data_mem;    
+--signal mem_enb : std_logic;
+--signal addrb : std_logic_vector(15 downto 0);
+--signal dinb : std_logic_vector(15 downto 0);
+--signal doutb : std_logic_vector(15 downto 0);
+
+--signal wb_data_direct_mem : std_logic_vector(15 downto 0);
+
+--signal ex_mem_ctrl : std_logic;
+--signal mem_wenb : std_logic;
+    
+      
 
     -- flag registers
 --    process(clk)
@@ -507,6 +546,8 @@ port map(
     instruction=>instr_ex,
     output=>alu_out,
     outside_input=>outside_input,
+    str_loc=>ex_location,
+    mem_ctrl=>ex_mem_ctrl,
     z_flag=>z_flag_ex,
     n_flag=>n_flag_ex
 );
@@ -522,15 +563,25 @@ port map(
     wb_dest_out=>wb_dest_mem,
     reg_write_out=>reg_wr_mem,
     mem_ctrl_in=>ex_mem_ctrl,
-    mem_ctrl_out=>mem_mem_ctrl
+    mem_ctrl_out=>mem_mem_ctrl,
+    mem_addr_in=>ex_location,
+    mem_addr_out=>mem_location
 );
 ram: blk_mem_gen_1
 port map(
-addrb=>addrb,
+addrb=>mem_location(9 downto 0),
 clkb=>clk,
 dinb=>dinb,
-enb=>'1',
-doutb=>doutb
+enb=>mem_enb,
+doutb=>doutb,
+web=>mem_wenb,
+
+clka=>'0',
+wea=>"0",
+addra=>"0000000000",
+dina=>x"0000",
+douta=>dump
+
 );
 -- putlogic here if we need differ write back
 pr4: mem_wb_register
@@ -543,6 +594,8 @@ port map(
     wb_data_out=>wb_data_wb,
     wb_dest_out=>wb_dest_wb,
     reg_write_out=>wb_enable_pipe,
+    mem_ctrl_in=>mem_mem_ctrl,
+    mem_ctrl_out=>wb_mem_ctrl
     
 );
 

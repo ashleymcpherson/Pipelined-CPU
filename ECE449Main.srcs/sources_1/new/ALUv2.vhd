@@ -43,6 +43,7 @@ Port (
     output : out std_logic_vector(15 downto 0);
     z_flag : out std_logic;
     n_flag : out std_logic;
+    str_loc : out std_logic_vector(15 downto 0);
     mem_ctrl : out std_logic
 );
 end ALUv2;
@@ -67,6 +68,7 @@ begin
         opcode := instruction(15 downto 9);
         shiftop := instruction(3 downto 0);
         imm := (instruction(7 downto 0));
+        str_loc <= x"0000";
         
         case opcode is
             when "0000001" => -- add
@@ -112,11 +114,13 @@ begin
             
             when "0010000" => -- LOAD: pass address through for memory stage
                 mem_ctrl <= '1';
-                result_s := rb;
+                result_s := rc;
+                str_loc <= std_logic_vector(rb);
                 
             when "0010001" => -- STORE: pass address through
                 mem_ctrl <= '1';
                 result_s := rb;
+                str_loc <= std_logic_vector(rc);
             
             when "0010011" => -- MOV: pass Rb value to Ra
                 result_s := rb;
