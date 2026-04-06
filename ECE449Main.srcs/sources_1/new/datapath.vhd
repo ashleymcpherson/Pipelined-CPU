@@ -317,6 +317,9 @@ signal dump : std_logic_vector(15 downto 0);
 
 signal bc_ra_val : std_logic_vector(15 downto 0);
 
+
+signal flush_count : unsigned(1 downto 0) := (others => '0');
+
 begin
 
 enable <= '1';
@@ -356,8 +359,25 @@ stall_pipe <= '0';
     pc_op <= branch_pc_op;
     pc_in <= branch_set_pc;
     
-    flush_ifid <= '1' when branch_pc_op = "10" else '0';
-    flush_idex <= '1' when branch_pc_op = "10" and instr_out(15 downto 9) /= "1000110" else '0';
+    
+    process(clk)
+        begin
+            if rising_edge(clk) then
+                if reset = '1' then
+                    flush_count <= (others => '0');
+                elsif branch_pc_op = "10" then
+                    flush_count <= "10";
+                elsif flush_count /= 0 then
+                    flush_count <= flush_count - 1;
+                end if;
+            end if;
+        end process;
+    
+    flush_ifid <= '1' when flush_count = "10" else '0';
+    flush_idex <= '1' when flush_count /= 0 else '0';
+    
+--    flush_ifid <= '1' when branch_pc_op = "10" else '0';
+--    flush_idex <= '1' when branch_pc_op = "10" and instr_out(15 downto 9) /= "1000110" else '0';
 
 
     --flush_ifid <= '1' when branch_pc_op = "10" else '0';
