@@ -426,7 +426,7 @@ stall_pipe <= '0';
 
 
 
-mem_wenb <= "1" when reg_wr_mem = '1'  and mem_mem_ctrl = '1' else "0";
+mem_wenb <= "1" when reg_wr_mem = '0'  and mem_mem_ctrl = '1' else "0";
 mem_enb <= mem_mem_ctrl;
 dinb <= wb_data_mem;    
 --signal mem_enb : std_logic;
@@ -572,11 +572,11 @@ port map(
 addrb=>mem_location(9 downto 0),
 clkb=>clk,
 dinb=>dinb,
-enb=>mem_enb,
+enb=>'1',
 doutb=>doutb,
 web=>mem_wenb,
 
-clka=>'0',
+clka=>clk,
 wea=>"0",
 addra=>"0000000000",
 dina=>x"0000",

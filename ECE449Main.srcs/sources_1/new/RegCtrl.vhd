@@ -142,7 +142,9 @@ begin
                 wb_enable <= '0';
             
             when "0010010" => -- LOADIMM
-                Ra <= "111";                    -- always targets R7
+                Ra <= "111"; 
+                Rb <= "111";                   -- always targets R7
+                Rc <= "111";
                 wb_enable <= '1';
             
             when "0010011" => -- MOV

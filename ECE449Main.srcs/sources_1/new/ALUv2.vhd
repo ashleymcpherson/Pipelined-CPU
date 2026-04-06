@@ -126,6 +126,7 @@ begin
                 result_s := rb;
             
             when "0010010" => -- LOADIMM: handled in a separate merge step (see below)
+                result_s := rb;
                 if instruction(8) = '1' then
                    result_s(15 downto 8) := signed(imm);
                 else
