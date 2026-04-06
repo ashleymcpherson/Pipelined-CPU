@@ -1,0 +1,22 @@
+#-----------------------------------------------------------
+# Vivado v2017.4 (64-bit)
+# SW Build 2086221 on Fri Dec 15 20:55:39 MST 2017
+# IP Build 2085800 on Fri Dec 15 22:25:07 MST 2017
+# Start of session at: Thu Feb 19 19:15:17 2026
+# Process ID: 18344
+# Current directory: C:/ECE449Main
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent20308 C:\ECE449Main\ECE449Main.xpr
+# Log file: C:/ECE449Main/vivado.log
+# Journal file: C:/ECE449Main\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project C:/ECE449Main/ECE449Main.xpr
+INFO: [Project 1-313] Project file moved from 'C:/Users/alexr/ECE449Main' since last save.
+Scanning sources...
+Finished scanning sources
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'E:/Vivado/Vivado/2017.4/data/ip'.
+update_compile_order -fileset sources_1
+exit
+INFO: [Common 17-206] Exiting Vivado at Thu Feb 19 19:25:46 2026...
