@@ -22,6 +22,7 @@ architecture rtl of mem_wb_register is
     signal data_reg         : std_logic_vector(15 downto 0);
     signal dest_reg         : std_logic_vector(2 downto 0);
     signal write_enable_reg : std_logic;
+    signal mem_ctrl_reg : std_logic;
 begin
     process(clock)
     begin
@@ -34,6 +35,7 @@ begin
                 data_reg         <= wb_data_in;
                 dest_reg         <= wb_dest_in;
                 write_enable_reg <= reg_write_in;
+                mem_ctrl_reg     <= mem_ctrl_in;
             end if;
         end if;
     end process;
@@ -41,4 +43,5 @@ begin
     wb_data_out   <= data_reg;
     wb_dest_out   <= dest_reg;
     reg_write_out <= write_enable_reg;
+    mem_ctrl_out  <= mem_ctrl_reg;
 end architecture;

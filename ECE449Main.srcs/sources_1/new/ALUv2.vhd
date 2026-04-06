@@ -84,7 +84,7 @@ begin
                 result_s := (mul_temp(15 downto 0));
             
             when "0000100" => -- nand
-                result_s := (rb) nand (rc);
+                result_s := signed(std_logic_vector(rb) nand std_logic_vector(rc));
             
             when "0000101"=> -- shl
                 result_s := signed(shift_left(unsigned(rb), to_integer(unsigned(shiftop))));

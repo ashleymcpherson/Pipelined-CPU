@@ -356,7 +356,7 @@ stall_pipe <= '0';
         wb_en => branch_wb_en
     );
 
-    pc_op <= branch_pc_op;
+    pc_op <= branch_pc_op when flush_count = 0 else "01";
     pc_in <= branch_set_pc;
     
     
@@ -365,7 +365,7 @@ stall_pipe <= '0';
             if rising_edge(clk) then
                 if reset = '1' then
                     flush_count <= (others => '0');
-                elsif branch_pc_op = "10" then
+                elsif pc_op = "10" then
                     flush_count <= "10";
                 elsif flush_count /= 0 then
                     flush_count <= flush_count - 1;
@@ -415,7 +415,7 @@ stall_pipe <= '0';
              rc_ex;
 
     -- final writeback
-    reg_wb_output <=  doutb when wb_mem_ctrl = '1' else wb_data_wb; --v when branch_wb_en = '1' else
+    reg_wb_output <=  doutb when wb_mem_ctrl = '1' and wb_enable_pipe = '1' else wb_data_wb; --v when branch_wb_en = '1' else
     wb_reg_dest   <=  wb_dest_wb; --r7_wb_dest when branch_wb_en = '1' else
     wb_enable     <=  wb_enable_pipe; -- branch_wb_en when branch_wb_en = '1' else
 
