@@ -41,38 +41,38 @@ begin
     end process;
 
     stimulus_process : process
-        variable cycle : std_logic_vector(15 downto 0) := x"0000";
+        variable cycle : std_logic_vector(15 downto 0) := x"ffff";
     begin
         outside_input <= x"0000";
         
-        reset <= '1';       -- hold reset for active start
-        wait for 30 ns;     
+        --reset <= '1';       -- hold reset for active start
+        --wait for 30 ns;     
         reset <= '0';       -- release reset so PC begins fetching from ROM
-        wait for 300 ns;    -- let pipeline run
+        --wait for 300 ns;    -- let pipeline run
         
         loop
             wait until rising_edge(clk);
             cycle := std_logic_vector(unsigned(cycle) + 1);
             
             case cycle is
-                when x"00eb" =>
+                when x"010a" =>
                     outside_input <= x"FFFE";
-                when x"00ec" =>
+                when x"010b" =>
                     outside_input <= x"0003";
-                when x"00ed" =>
+                when x"010c" =>
                     outside_input <= x"0001";
-                when x"00ee" =>
+                when x"010d" =>
                     outside_input <= x"0005";
-                when x"00ef" =>
+                when x"010e" =>
                     outside_input <= x"0108";
-                when x"00f0" =>
+                when x"010f" =>
                     outside_input <= x"0001";
-                when x"00f1" =>
+                when x"0110" =>
                     outside_input <= x"0005";
-                when x"00f2" =>
+                when x"0111" =>
                     outside_input <= x"0000";
                 when others =>
-                    outside_input <= x"0000";
+                    outside_input <= x"0005";
             end case;
         end loop;
         

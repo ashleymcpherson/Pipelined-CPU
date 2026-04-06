@@ -314,6 +314,9 @@ signal wb_mem_ctrl : std_logic;
 signal dump : std_logic_vector(15 downto 0);
 --signal flush_count : std_logic_vector(1 downto 0) := "11";
 
+
+signal bc_ra_val : std_logic_vector(15 downto 0);
+
 begin
 
 enable <= '1';
@@ -337,7 +340,8 @@ stall_pipe <= '0';
     port map(
         clk => clk,
         instruction => instr_out,
-        ra => rb_data,
+        ra => bc_ra_val,
+        --ra => rb_val_id,
         flag_z => z_flag_ex,
         flag_n => n_flag_ex,
         cur_pc => pc_id,
@@ -410,6 +414,11 @@ stall_pipe <= '0';
 --             rc_data;
     ra_dest_id   <= Ra;
     reg_write_id <= wb_enable_id;
+    
+    bc_ra_val <= wb_data_mem when (reg_wr_mem = '1' and wb_dest_mem = read_index1 and wb_dest_mem /= "000") else
+                 wb_data_wb  when (wb_enable_pipe = '1' and wb_dest_wb = read_index1 and wb_dest_wb /= "000") else
+                 rb_data;
+    
     
     rb_val_id <= r7_wb_data when (branch_wb_en = '1') else
              wb_data_mem when (reg_wr_mem = '1' and wb_dest_mem = read_index1 and wb_dest_mem /= "000") else
