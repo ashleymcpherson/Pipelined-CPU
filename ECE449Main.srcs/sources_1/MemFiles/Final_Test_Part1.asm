@@ -1,0 +1,22 @@
+	ORG 0x02
+	
+		IN R1    ; 5      
+		LOADIMM.LOWER 5
+		LOADIMM.UPPER 0
+		MOV R2, R7 ; 5
+		LOADIMM.LOWER 2
+		LOADIMM.UPPER 0
+		MOV R3, R7 ; 2
+		LOADIMM.LOWER 1
+		LOADIMM.UPPER 0
+		MOV R4, R7 ; 1
+		MUL R1, R1, R3 ; a = 5 * 2
+		ADD R1, R1, R4 ; b = a + 1
+		SUB R2, R2, R4 ; 4 = 5 - 1
+		TEST R2
+		BRR.Z 2
+		BRR -5
+		OUT R1
+		BRR 0
+
+	END
