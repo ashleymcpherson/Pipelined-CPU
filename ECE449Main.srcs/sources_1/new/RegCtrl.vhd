@@ -16,7 +16,8 @@ library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 
 entity RegCtrl is
-    Port ( 
+    Port (
+        clk : in std_logic;
         instruction : in std_logic_vector(15 downto 0);
         opcode : out std_logic_vector(6 downto 0);
         Ra : out std_logic_vector(2 downto 0);
