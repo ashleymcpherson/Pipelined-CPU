@@ -1,3 +1,31 @@
+----------------------------------------------------------------------------------
+-- Module Name: id-ex.vhd - Behavioral
+--
+-- Description:
+--   ID/EX Pipeline Register.
+--
+--   This module sits between the Instruction Decode (ID) stage and
+--   the Execute (EX) stage.
+--
+--   It stores:
+--     - instruction
+--     - program counter
+--     - destination register index
+--     - source register indices
+--     - source operand values
+--     - register write enable
+--
+--   Supports:
+--     - Flush: clears pipeline register (inserts bubble / NOP)
+--     - Reset: clears pipeline register
+--
+--   Behavior:
+--     - On rising edge of clock:
+--         * If reset OR flush ? clear all stored values
+--         * Else ? latch all ID-stage outputs into EX-stage registers
+--
+----------------------------------------------------------------------------------
+
 library ieee;
 use ieee.std_logic_1164.all;
 
@@ -28,6 +56,8 @@ entity id_ex_register is
 end entity;
 
 architecture rtl of id_ex_register is
+
+    -- Internal pipeline storage registers
     signal instr_reg        : std_logic_vector(15 downto 0);
     signal pc_reg           : std_logic_vector(15 downto 0);
     signal ra_reg           : std_logic_vector(2 downto 0);
@@ -36,10 +66,17 @@ architecture rtl of id_ex_register is
     signal rb_reg           : std_logic_vector(15 downto 0);
     signal rc_reg           : std_logic_vector(15 downto 0);
     signal write_enable_reg : std_logic;
+    
 begin
+    
+    -- Pipeline register process
+    -- Transfers decoded values from ID stage into EX stage
     process(clock)
     begin
+    
         if rising_edge(clock) then
+        
+            -- Reset or flush clears the pipeline register
             if reset = '1' or flush = '1' then
                 instr_reg        <= (others => '0');
                 pc_reg           <= (others => '0');
@@ -49,6 +86,8 @@ begin
                 rb_reg           <= (others => '0');
                 rc_reg           <= (others => '0');
                 write_enable_reg <= '0';
+                
+            -- Normal operation: latch all incoming ID-stage values
             else
                 instr_reg        <= instr_in;
                 pc_reg           <= pc_in;
@@ -61,7 +100,8 @@ begin
             end if;
         end if;
     end process;
-
+    
+    -- Output assignments to EX stage
     instr_out     <= instr_reg;
     pc_out        <= pc_reg;
     ra_dest_out   <= ra_reg;
@@ -70,4 +110,5 @@ begin
     rb_val_out    <= rb_reg;
     rc_val_out    <= rc_reg;
     reg_write_out <= write_enable_reg;
+    
 end architecture;

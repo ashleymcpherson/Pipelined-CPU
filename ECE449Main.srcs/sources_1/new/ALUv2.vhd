@@ -1,107 +1,131 @@
 ----------------------------------------------------------------------------------
--- Company: 
--- Engineer: 
--- 
--- Create Date: 02/08/2026 04:30:00 PM
--- Design Name: 
--- Module Name: ALUv2 - Behavioral
--- Project Name: 
--- Target Devices: 
--- Tool Versions: 
--- Description: 
--- 
--- Dependencies: 
--- 
--- Revision:
--- Revision 0.01 - File Created
--- Additional Comments:
--- 
+-- Module Name: ALUv2.vhd - Behavioral
+--
+-- Description:
+--   Arithmetic Logic Unit (ALU) for the datapath.
+--
+--   Performs arithmetic, logic, shift, I/O, memory, and control operations.
+--
+--   Inputs:
+--     - rb, rc: source operands
+--     - instruction: full instruction for opcode decoding
+--     - outside_input: external input for IN instruction
+--
+--   Outputs:
+--     - output: ALU result
+--     - z_flag: set if result is zero
+--     - n_flag: set if result is negative
+--     - v_flag: set if overflow occurs (used for BRR.Overflow)
+--     - mem_ctrl: enables memory operations
+--     - str_loc: memory address for LOAD/STORE
+--
 ----------------------------------------------------------------------------------
-
 
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
---use IEEE.STD_LOGIC_SIGNED.all;
-
--- Uncomment the following library declaration if using
--- arithmetic functions with Signed or Unsigned values
 use IEEE.NUMERIC_STD.ALL;
 
--- Uncomment the following library declaration if instantiating
--- any Xilinx leaf cells in this code.
---library UNISIM;
---use UNISIM.VComponents.all;
-
 entity ALUv2 is
-Port ( 
-    rb : in signed(15 downto 0); 
-    rc : in signed(15 downto 0);
-    instruction : in std_logic_vector(15 downto 0);
-    --opcode : in std_logic_vector(6 downto 0);
-    --shiftop : in std_logic_vector(3 downto 0);
-    outside_input : in std_logic_vector(15 downto 0);
-    output : out std_logic_vector(15 downto 0);
-    z_flag : out std_logic;
-    n_flag : out std_logic;
-    str_loc : out std_logic_vector(15 downto 0);
-    mem_ctrl : out std_logic
-);
+    port ( 
+        rb : in signed(15 downto 0); 
+        rc : in signed(15 downto 0);
+        instruction : in std_logic_vector(15 downto 0);
+        outside_input : in std_logic_vector(15 downto 0);
+        
+        output : out std_logic_vector(15 downto 0);
+        z_flag : out std_logic;
+        n_flag : out std_logic;
+        v_flag : out std_logic;
+        
+        str_loc : out std_logic_vector(15 downto 0);
+        mem_ctrl : out std_logic
+    );
 end ALUv2;
 
 architecture Behavioral of ALUv2 is
+
+    -- NOTE: currently not used externally
     signal outside_output : std_logic_vector(15 downto 0);
     
 begin
+
+    -- Main ALU process
     process(rb, rc, outside_input, instruction)
-        variable opcode : std_logic_vector(6 downto 0) ;
-        variable shiftop : std_logic_vector(3 downto 0) ;
+        
+        -- Decoded fields
+        variable opcode : std_logic_vector(6 downto 0);
+        variable shiftop : std_logic_vector(3 downto 0);
+        variable imm : std_logic_vector(7 downto 0);
+        
+        -- Intermediate results
         variable temp_s : signed(15 downto 0);
         variable mul_temp : signed(31 downto 0);
         variable result_s : signed(15 downto 0);
-        variable imm : std_logic_vector(7 downto 0);
-        --variable load : signed(15 downto 0);
-    
+            
     begin
+    
+        -- Default values (important to avoid latches)
         z_flag <= '0';
         n_flag <= '0';
+        v_flag <= '0';
         mem_ctrl <= '0';
+        str_loc <= x"0000";
+        
         opcode := instruction(15 downto 9);
         shiftop := instruction(3 downto 0);
         imm := (instruction(7 downto 0));
-        str_loc <= x"0000";
         
         case opcode is
-            when "0000001" => -- add
+        
+            -- ADD
+            when "0000001" =>
                 temp_s := signed(rb) + signed(rc);
-                result_s := (temp_s);
+                result_s := temp_s;
                 
-            when "0000010" => -- sub
+            -- SUB 
+            when "0000010" =>
                 temp_s := signed(rb) - signed(rc); 
-                result_s := (temp_s);
+                result_s := temp_s;
                 
-            when "0000011" => -- mul
+            -- MUL
+            when "0000011" =>
                 mul_temp := rb * rc;
-                result_s := (mul_temp(15 downto 0));
-            
-            when "0000100" => -- nand
+                result_s := mul_temp(15 downto 0);
+                
+                -- Overflow detection (for BRR.Overflow)
+                if (mul_temp > to_signed(32767, 32)) or 
+                   (mul_temp < to_signed(-32768, 32)) then
+                    v_flag <= '1';
+                end if;
+                
+            -- NAND
+            when "0000100" =>
                 result_s := signed(std_logic_vector(rb) nand std_logic_vector(rc));
             
-            when "0000101"=> -- shl
+            -- SHL
+            when "0000101"=>
                 result_s := signed(shift_left(unsigned(rb), to_integer(unsigned(shiftop))));
                 
-            when "0000110"=> -- shr
+            -- SHR
+            when "0000110"=>
                 result_s := signed(shift_right(unsigned(rb), to_integer(unsigned(shiftop))));
                 
-            when "0100000" => -- output
+            -- OUT
+            when "0100000" =>
                 outside_output <= std_logic_vector(rb);
                 result_s := (rb);
                 
-            when "0100001" => -- input
+            -- IN
+            when "0100001" =>
                 result_s := signed(outside_input);
                 outside_output <= outside_input;
+                
+            -- BR.SUB pass through
             when "1000110" =>
-                result_s := rb;     
-            when "0000111" => -- test
+                result_s := rb;  
+                
+            -- TEST   
+            when "0000111" =>
                 result_s := (rb);
                 
                 if rb = to_signed(0, 16) then
@@ -112,45 +136,43 @@ begin
                     n_flag <= '1';
                 end if;
             
-            when "0010000" => -- LOAD: pass address through for memory stage
+            -- LOAD
+            when "0010000" => 
+                -- Pass address through for memory stage
                 mem_ctrl <= '1';
                 result_s := rc;
                 str_loc <= std_logic_vector(rb);
                 
-            when "0010001" => -- STORE: pass address through
+            -- STORE
+            when "0010001" =>
+            -- Pass address through
                 mem_ctrl <= '1';
                 result_s := rb;
                 str_loc <= std_logic_vector(rc);
             
-            when "0010011" => -- MOV: pass Rb value to Ra
+            -- MOV
+            when "0010011" =>
+                -- Pass Rb value to Ra
                 result_s := rb;
             
+            -- LOADIMM
             when "0010010" => -- LOADIMM: handled in a separate merge step (see below)
                 result_s := rb;
+                
+                -- Upper/lower byte control
                 if instruction(8) = '1' then
                    result_s(15 downto 8) := signed(imm);
                 else
                    result_s(7 downto 0) := signed(imm); 
                 end if;
-                --result_s := ;
             
             when others => 
                 result_s := (others => '0');
-        end case;
+                
+        end case;   
         
---        if result_s = to_signed(0, 16) then
---            z_flag <= '1';
---        else
---            z_flag <= '0';
---        end if;
---        
---        if result_s < to_signed(0, 16) then
---            n_flag <= '1';
---        else
---            n_flag <= '0';
---        end if;      
-        
-        output <= std_logic_Vector(result_s);
+        -- Final ALU output
+        output <= std_logic_vector(result_s);
 
     end process;
 
