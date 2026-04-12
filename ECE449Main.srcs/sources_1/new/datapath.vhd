@@ -142,6 +142,7 @@ port(
     ra : in std_logic_vector(15 downto 0);
     flag_z : in std_logic;
     flag_n : in std_logic;
+    flag_v : in std_logic;
     cur_pc : in std_logic_vector(15 downto 0);
     
     pc_op : out std_logic_vector(1 downto 0);
@@ -211,13 +212,15 @@ port(
     str_loc : out std_logic_vector(15 downto 0);
     mem_ctrl : out std_logic;
     z_flag : out std_logic;
-    n_flag : out std_logic
+    n_flag : out std_logic;
+    v_flag : out std_logic
     );
 end component;
 
 signal alu_out : std_logic_vector(15 downto 0);
 signal z_flag_ex : std_logic;
 signal n_flag_ex : std_logic;
+signal v_flag_ex : std_logic;
 
 signal z_reg : std_logic := '0';
 signal n_reg: std_logic := '0';
@@ -386,6 +389,7 @@ wb_data_to_wb <= io_in_port  when mem_mem_ctrl = '1' and mem_location = x"FFF0"
         --ra => rb_val_id,
         flag_z => z_flag_ex,
         flag_n => n_flag_ex,
+        flag_v => v_flag_ex,
         cur_pc => pc_id,
         pc_op => branch_pc_op,
         set_pc => branch_set_pc,
@@ -395,8 +399,12 @@ wb_data_to_wb <= io_in_port  when mem_mem_ctrl = '1' and mem_location = x"FFF0"
         wb_en => branch_wb_en
     );
 
-    pc_op <= branch_pc_op when flush_count = 0 else "01";
-    pc_in <= branch_set_pc;
+    pc_op <= "11"           when full_reset = '1' else
+             branch_pc_op   when flush_count = 0  else
+             "01";
+    
+    pc_in <= X"0000"        when full_reset = '1' else
+             branch_set_pc;
     
     
     process(clk)
@@ -416,10 +424,10 @@ wb_data_to_wb <= io_in_port  when mem_mem_ctrl = '1' and mem_location = x"FFF0"
     flush_idex <= '1' when flush_count /= 0 else '0';
     
     
-    if full_reset = '1' then
-        pc_op <= "11";
-        pc_in <= X"0000";  -- start of your program
-    end if;
+--    if full_reset = '1' then
+--        pc_op <= "11";
+--        pc_in <= X"0000";  -- start of your program
+--    end if;
    --reset_all <= reset_execute or reset_load;
     
 --    flush_ifid <= '1' when branch_pc_op = "10" else '0';
@@ -625,7 +633,8 @@ port map(
     str_loc=>ex_location,
     mem_ctrl=>ex_mem_ctrl,
     z_flag=>z_flag_ex,
-    n_flag=>n_flag_ex
+    n_flag=>n_flag_ex,
+    v_flag=>v_flag_ex
 );
 
 pr3: ex_mem_register

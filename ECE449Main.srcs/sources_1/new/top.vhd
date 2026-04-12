@@ -40,7 +40,7 @@ architecture Behavioral of top is
 begin
 
     -- Either button triggers a full pipeline + PC reset
-    --reset <= rst_ex or rst_ld;
+    reset <= rst_ex or rst_ld;
     full_reset <= rst_ex or rst_ld;
 
     cpu: datapath
