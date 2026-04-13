@@ -19,6 +19,7 @@ Compiling package ieee.vital_timing
 Compiling package ieee.vital_primitives
 Compiling package unisim.vpkg
 Compiling architecture behavioral of entity xil_defaultlib.BranchController [branchcontroller_default]
+Compiling architecture behavioral of entity xil_defaultlib.led_display [led_display_default]
 Compiling architecture behavioral of entity xil_defaultlib.PC [pc_default]
 Compiling architecture gnd_v of entity unisim.GND [gnd_default]
 Compiling architecture rb18_internal_vhdl_v of entity unisim.RB18_INTERNAL_VHDL [\RB18_INTERNAL_VHDL(bram_size=18...]

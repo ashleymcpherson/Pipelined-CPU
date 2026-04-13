@@ -1,2 +1,6 @@
-INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/arockson/Documents/ECE449/ECE-499/ECE449Main.srcs/sources_1/new/top_tb.vhd" into library xil_defaultlib
-INFO: [VRFC 10-307] analyzing entity top_tb
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/arockson/Documents/ECE449/ECE-499/ECE449Main.srcs/sources_1/new/datapath.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity datapath
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/arockson/Documents/ECE449/ECE-499/led_display.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity led_display
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/arockson/Documents/ECE449/ECE-499/ECE449Main.srcs/sources_1/new/top.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity top

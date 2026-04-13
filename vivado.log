@@ -2477,3 +2477,12 @@ RTL Elaboration Complete:  : Time (s): cpu = 00:00:28 ; elapsed = 00:00:25 . Mem
 47 Infos, 2 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
 synth_design: Time (s): cpu = 00:00:28 ; elapsed = 00:00:25 . Memory (MB): peak = 2001.324 ; gain = 313.938
+reset_run synth_1
+WARNING: [Vivado 12-1017] Problems encountered:
+1. Failed to delete one or more files in run directory C:/Users/arockson/Documents/ECE449/ECE-499/ECE449Main.runs/synth_1
+
+launch_runs impl_1 -to_step write_bitstream -jobs 4
+[Mon Apr 13 12:14:50 2026] Launched synth_1...
+Run output will be captured here: C:/Users/arockson/Documents/ECE449/ECE-499/ECE449Main.runs/synth_1/runme.log
+[Mon Apr 13 12:14:50 2026] Launched impl_1...
+Run output will be captured here: C:/Users/arockson/Documents/ECE449/ECE-499/ECE449Main.runs/impl_1/runme.log

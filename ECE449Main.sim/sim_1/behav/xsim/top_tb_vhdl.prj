@@ -11,6 +11,7 @@ vhdl xil_defaultlib  \
 "../../../../ECE449Main.srcs/sources_1/new/pipeline_registers/ex-mem.vhd" \
 "../../../../ECE449Main.srcs/sources_1/new/pipeline_registers/id-ex.vhd" \
 "../../../../ECE449Main.srcs/sources_1/new/pipeline_registers/if-id.vhd" \
+"../../../../led_display.vhd" \
 "../../../../ECE449Main.srcs/sources_1/new/pipeline_registers/mem-wb.vhd" \
 "../../../../ECE449Main.srcs/sources_1/new/top.vhd" \
 "../../../../ECE449Main.srcs/sources_1/new/top_tb.vhd" \
