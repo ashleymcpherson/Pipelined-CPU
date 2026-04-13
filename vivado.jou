@@ -2,13 +2,169 @@
 # Vivado v2017.4 (64-bit)
 # SW Build 2086221 on Fri Dec 15 20:55:39 MST 2017
 # IP Build 2085800 on Fri Dec 15 22:25:07 MST 2017
-# Start of session at: Thu Feb 19 19:15:17 2026
-# Process ID: 18344
-# Current directory: C:/ECE449Main
-# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent20308 C:\ECE449Main\ECE449Main.xpr
-# Log file: C:/ECE449Main/vivado.log
-# Journal file: C:/ECE449Main\vivado.jou
+# Start of session at: Mon Apr 13 10:15:47 2026
+# Process ID: 10320
+# Current directory: C:/Users/arockson/Documents/ECE449/ECE-499
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent6300 C:\Users\arockson\Documents\ECE449\ECE-499\ECE449Main.xpr
+# Log file: C:/Users/arockson/Documents/ECE449/ECE-499/vivado.log
+# Journal file: C:/Users/arockson/Documents/ECE449/ECE-499\vivado.jou
 #-----------------------------------------------------------
 start_gui
-open_project C:/ECE449Main/ECE449Main.xpr
+open_project C:/Users/arockson/Documents/ECE449/ECE-499/ECE449Main.xpr
 update_compile_order -fileset sources_1
+export_ip_user_files -of_objects  [get_files C:/Users/arockson/Documents/ECE449/ECE-499/ECE449Main.srcs/sources_1/new/ALUTest.vhd] -no_script -reset -force -quiet
+remove_files  C:/Users/arockson/Documents/ECE449/ECE-499/ECE449Main.srcs/sources_1/new/ALUTest.vhd
+export_ip_user_files -of_objects  [get_files C:/Users/arockson/Documents/ECE449/ECE-499/ECE449Main.srcs/sources_1/new/KSA_Nbit.vhd] -no_script -reset -force -quiet
+remove_files  C:/Users/arockson/Documents/ECE449/ECE-499/ECE449Main.srcs/sources_1/new/KSA_Nbit.vhd
+update_compile_order -fileset sources_1
+update_compile_order -fileset sources_1
+add_files -norecurse {C:/Users/arockson/Documents/ECE449/ECE-499/ECE449Main.srcs/sources_1/new/datapath.vhd C:/Users/arockson/Documents/ECE449/ECE-499/ECE449Main.srcs/sources_1/new/top_tb.vhd C:/Users/arockson/Documents/ECE449/ECE-499/ECE449Main.srcs/sources_1/new/pipeline_registers/id-ex.vhd C:/Users/arockson/Documents/ECE449/ECE-499/ECE449Main.srcs/sources_1/new/pipeline_registers/ex-mem.vhd C:/Users/arockson/Documents/ECE449/ECE-499/ECE449Main.srcs/sources_1/new/BranchController.vhd C:/Users/arockson/Documents/ECE449/ECE-499/ECE449Main.srcs/sources_1/new/top.vhd C:/Users/arockson/Documents/ECE449/ECE-499/ECE449Main.srcs/sources_1/new/pipeline_registers/if-id.vhd C:/Users/arockson/Documents/ECE449/ECE-499/ECE449Main.srcs/sources_1/new/RF8_16.vhd C:/Users/arockson/Documents/ECE449/ECE-499/ECE449Main.srcs/sources_1/new/RegCtrl.vhd C:/Users/arockson/Documents/ECE449/ECE-499/ECE449Main.srcs/sources_1/new/pipeline_registers/mem-wb.vhd}
+update_compile_order -fileset sources_1
+update_compile_order -fileset sources_1
+add_files {C:/Users/arockson/Documents/ECE449/ECE-499/ECE449Main.srcs/sources_1/ip/blk_mem_gen_0/blk_mem_gen_0.xci C:/Users/arockson/Documents/ECE449/ECE-499/ECE449Main.srcs/sources_1/ip/blk_mem_gen_1/blk_mem_gen_1.xci C:/Users/arockson/Documents/ECE449/ECE-499/ECE449Main.srcs/sources_1/ip/blk_mem_gen_0_1/blk_mem_gen_0.xci}
+export_ip_user_files -of_objects  [get_files  {C:/Users/arockson/Documents/ECE449/ECE-499/ECE449Main.srcs/sources_1/ip/blk_mem_gen_0/blk_mem_gen_0.xci C:/Users/arockson/Documents/ECE449/ECE-499/ECE449Main.srcs/sources_1/ip/blk_mem_gen_1/blk_mem_gen_1.xci}] -lib_map_path [list {modelsim=C:/Users/arockson/Documents/ECE449/ECE-499/ECE449Main.cache/compile_simlib/modelsim} {questa=C:/Users/arockson/Documents/ECE449/ECE-499/ECE449Main.cache/compile_simlib/questa} {riviera=C:/Users/arockson/Documents/ECE449/ECE-499/ECE449Main.cache/compile_simlib/riviera} {activehdl=C:/Users/arockson/Documents/ECE449/ECE-499/ECE449Main.cache/compile_simlib/activehdl}] -force -quiet
+update_compile_order -fileset sources_1
+generate_target all [get_files C:/Users/arockson/Documents/ECE449/ECE-499/ECE449Main.srcs/sources_1/ip/blk_mem_gen_0/blk_mem_gen_0.xci]
+export_ip_user_files -of_objects [get_files C:/Users/arockson/Documents/ECE449/ECE-499/ECE449Main.srcs/sources_1/ip/blk_mem_gen_0/blk_mem_gen_0.xci] -no_script -sync -force -quiet
+export_simulation -of_objects [get_files C:/Users/arockson/Documents/ECE449/ECE-499/ECE449Main.srcs/sources_1/ip/blk_mem_gen_0/blk_mem_gen_0.xci] -directory C:/Users/arockson/Documents/ECE449/ECE-499/ECE449Main.ip_user_files/sim_scripts -ip_user_files_dir C:/Users/arockson/Documents/ECE449/ECE-499/ECE449Main.ip_user_files -ipstatic_source_dir C:/Users/arockson/Documents/ECE449/ECE-499/ECE449Main.ip_user_files/ipstatic -lib_map_path [list {modelsim=C:/Users/arockson/Documents/ECE449/ECE-499/ECE449Main.cache/compile_simlib/modelsim} {questa=C:/Users/arockson/Documents/ECE449/ECE-499/ECE449Main.cache/compile_simlib/questa} {riviera=C:/Users/arockson/Documents/ECE449/ECE-499/ECE449Main.cache/compile_simlib/riviera} {activehdl=C:/Users/arockson/Documents/ECE449/ECE-499/ECE449Main.cache/compile_simlib/activehdl}] -use_ip_compiled_libs -force -quiet
+launch_simulation
+export_ip_user_files -of_objects  [get_files C:/Users/arockson/Documents/ECE449/ECE-499/ECE449Main.srcs/sources_1/new/ALUv2.vhd] -no_script -reset -force -quiet
+remove_files  C:/Users/arockson/Documents/ECE449/ECE-499/ECE449Main.srcs/sources_1/new/ALUv2.vhd
+add_files -norecurse C:/Users/arockson/Documents/ECE449/ECE-499/ECE449Main.srcs/sources_1/new/ALUv2.vhd
+update_compile_order -fileset sources_1
+generate_target all [get_files C:/Users/arockson/Documents/ECE449/ECE-499/ECE449Main.srcs/sources_1/ip/blk_mem_gen_0/blk_mem_gen_0.xci]
+export_ip_user_files -of_objects [get_files C:/Users/arockson/Documents/ECE449/ECE-499/ECE449Main.srcs/sources_1/ip/blk_mem_gen_0/blk_mem_gen_0.xci] -no_script -sync -force -quiet
+export_simulation -of_objects [get_files C:/Users/arockson/Documents/ECE449/ECE-499/ECE449Main.srcs/sources_1/ip/blk_mem_gen_0/blk_mem_gen_0.xci] -directory C:/Users/arockson/Documents/ECE449/ECE-499/ECE449Main.ip_user_files/sim_scripts -ip_user_files_dir C:/Users/arockson/Documents/ECE449/ECE-499/ECE449Main.ip_user_files -ipstatic_source_dir C:/Users/arockson/Documents/ECE449/ECE-499/ECE449Main.ip_user_files/ipstatic -lib_map_path [list {modelsim=C:/Users/arockson/Documents/ECE449/ECE-499/ECE449Main.cache/compile_simlib/modelsim} {questa=C:/Users/arockson/Documents/ECE449/ECE-499/ECE449Main.cache/compile_simlib/questa} {riviera=C:/Users/arockson/Documents/ECE449/ECE-499/ECE449Main.cache/compile_simlib/riviera} {activehdl=C:/Users/arockson/Documents/ECE449/ECE-499/ECE449Main.cache/compile_simlib/activehdl}] -use_ip_compiled_libs -force -quiet
+launch_simulation
+set_property -dict [list CONFIG.Write_Depth_A {1024}] [get_ips blk_mem_gen_0]
+generate_target all [get_files  C:/Users/arockson/Documents/ECE449/ECE-499/ECE449Main.srcs/sources_1/ip/blk_mem_gen_0/blk_mem_gen_0.xci]
+catch { config_ip_cache -export [get_ips -all blk_mem_gen_0] }
+export_ip_user_files -of_objects [get_files C:/Users/arockson/Documents/ECE449/ECE-499/ECE449Main.srcs/sources_1/ip/blk_mem_gen_0/blk_mem_gen_0.xci] -no_script -sync -force -quiet
+create_ip_run [get_files -of_objects [get_fileset sources_1] C:/Users/arockson/Documents/ECE449/ECE-499/ECE449Main.srcs/sources_1/ip/blk_mem_gen_0/blk_mem_gen_0.xci]
+launch_runs -jobs 4 blk_mem_gen_0_synth_1
+wait_on_run blk_mem_gen_0_synth_1
+add_files -fileset constrs_1 -norecurse C:/Users/arockson/Documents/ECE449/ECE-499/ECE449Main.srcs/sources_1/MemFiles/constraints.xdc
+set_property -dict [list CONFIG.Coe_File {C:/Users/arockson/Documents/ECE449/ECE-499/ECE449Main.srcs/sources_1/MemFiles/testFactOverflow.coe}] [get_ips blk_mem_gen_0]
+generate_target all [get_files  C:/Users/arockson/Documents/ECE449/ECE-499/ECE449Main.srcs/sources_1/ip/blk_mem_gen_0/blk_mem_gen_0.xci]
+catch { config_ip_cache -export [get_ips -all blk_mem_gen_0] }
+export_ip_user_files -of_objects [get_files C:/Users/arockson/Documents/ECE449/ECE-499/ECE449Main.srcs/sources_1/ip/blk_mem_gen_0/blk_mem_gen_0.xci] -no_script -sync -force -quiet
+reset_run blk_mem_gen_0_synth_1
+launch_runs -jobs 4 blk_mem_gen_0_synth_1
+wait_on_run blk_mem_gen_0_synth_1
+export_simulation -of_objects [get_files C:/Users/arockson/Documents/ECE449/ECE-499/ECE449Main.srcs/sources_1/ip/blk_mem_gen_0/blk_mem_gen_0.xci] -directory C:/Users/arockson/Documents/ECE449/ECE-499/ECE449Main.ip_user_files/sim_scripts -ip_user_files_dir C:/Users/arockson/Documents/ECE449/ECE-499/ECE449Main.ip_user_files -ipstatic_source_dir C:/Users/arockson/Documents/ECE449/ECE-499/ECE449Main.ip_user_files/ipstatic -lib_map_path [list {modelsim=C:/Users/arockson/Documents/ECE449/ECE-499/ECE449Main.cache/compile_simlib/modelsim} {questa=C:/Users/arockson/Documents/ECE449/ECE-499/ECE449Main.cache/compile_simlib/questa} {riviera=C:/Users/arockson/Documents/ECE449/ECE-499/ECE449Main.cache/compile_simlib/riviera} {activehdl=C:/Users/arockson/Documents/ECE449/ECE-499/ECE449Main.cache/compile_simlib/activehdl}] -use_ip_compiled_libs -force -quiet
+launch_simulation
+set_property -dict [list CONFIG.Memory_Type {True_Dual_Port_RAM} CONFIG.Register_PortA_Output_of_Memory_Primitives {true} CONFIG.Register_PortB_Output_of_Memory_Primitives {false} CONFIG.Fill_Remaining_Memory_Locations {true} CONFIG.Port_B_Write_Rate {50}] [get_ips blk_mem_gen_1]
+generate_target all [get_files  C:/Users/arockson/Documents/ECE449/ECE-499/ECE449Main.srcs/sources_1/ip/blk_mem_gen_1/blk_mem_gen_1.xci]
+catch { config_ip_cache -export [get_ips -all blk_mem_gen_1] }
+export_ip_user_files -of_objects [get_files C:/Users/arockson/Documents/ECE449/ECE-499/ECE449Main.srcs/sources_1/ip/blk_mem_gen_1/blk_mem_gen_1.xci] -no_script -sync -force -quiet
+create_ip_run [get_files -of_objects [get_fileset sources_1] C:/Users/arockson/Documents/ECE449/ECE-499/ECE449Main.srcs/sources_1/ip/blk_mem_gen_1/blk_mem_gen_1.xci]
+launch_runs -jobs 4 blk_mem_gen_1_synth_1
+wait_on_run blk_mem_gen_1_synth_1
+export_simulation -of_objects [get_files C:/Users/arockson/Documents/ECE449/ECE-499/ECE449Main.srcs/sources_1/ip/blk_mem_gen_1/blk_mem_gen_1.xci] -directory C:/Users/arockson/Documents/ECE449/ECE-499/ECE449Main.ip_user_files/sim_scripts -ip_user_files_dir C:/Users/arockson/Documents/ECE449/ECE-499/ECE449Main.ip_user_files -ipstatic_source_dir C:/Users/arockson/Documents/ECE449/ECE-499/ECE449Main.ip_user_files/ipstatic -lib_map_path [list {modelsim=C:/Users/arockson/Documents/ECE449/ECE-499/ECE449Main.cache/compile_simlib/modelsim} {questa=C:/Users/arockson/Documents/ECE449/ECE-499/ECE449Main.cache/compile_simlib/questa} {riviera=C:/Users/arockson/Documents/ECE449/ECE-499/ECE449Main.cache/compile_simlib/riviera} {activehdl=C:/Users/arockson/Documents/ECE449/ECE-499/ECE449Main.cache/compile_simlib/activehdl}] -use_ip_compiled_libs -force -quiet
+launch_simulation
+source top_tb.tcl
+add_wave {{/top_tb/uut/cpu/pc1/in_PC}} 
+add_wave {{/top_tb/uut/cpu/pc1/Op_PC}} 
+add_wave {{/top_tb/uut/cpu/pc1/out_PC}} 
+add_wave {{/top_tb/uut/cpu/rom1/addra}} 
+add_wave {{/top_tb/uut/cpu/rom1/douta}} 
+add_wave {{/top_tb/uut/cpu/pr1/flush}} 
+add_wave {{/top_tb/uut/cpu/pr1/instr_out}} 
+add_wave {{/top_tb/uut/cpu/pr1/pc_out}} 
+add_wave {{/top_tb/uut/cpu/regc/opcode}} 
+add_wave {{/top_tb/uut/cpu/regc/Ra}} 
+add_wave {{/top_tb/uut/cpu/regc/Rb}} 
+add_wave {{/top_tb/uut/cpu/regc/Rc}} 
+add_wave {{/top_tb/uut/cpu/regc/wb_enable}} 
+add_wave {{/top_tb/uut/cpu/mreg/rd_index1}} 
+add_wave {{/top_tb/uut/cpu/mreg/rd_index2}} 
+add_wave {{/top_tb/uut/cpu/mreg/rd_data1}} 
+add_wave {{/top_tb/uut/cpu/mreg/rd_data2}} 
+add_wave {{/top_tb/uut/cpu/mreg/wr_index}} 
+add_wave {{/top_tb/uut/cpu/pr2/instr_out}} 
+add_wave {{/top_tb/uut/cpu/pr2/rb_val_out}} 
+add_wave {{/top_tb/uut/cpu/pr2/rc_val_out}} 
+add_wave {{/top_tb/uut/cpu/pr2/ra_dest_out}} 
+add_wave {{/top_tb/uut/cpu/pr2/rb_src_out}} 
+add_wave {{/top_tb/uut/cpu/pr2/rc_src_out}} 
+add_wave {{/top_tb/uut/cpu/pr2/reg_write_out}} 
+add_wave {{/top_tb/uut/cpu/al/rb}} 
+add_wave {{/top_tb/uut/cpu/al/rc}} 
+add_wave {{/top_tb/uut/cpu/al/instruction}} 
+add_wave {{/top_tb/uut/cpu/al/output}} 
+add_wave {{/top_tb/uut/cpu/al/z_flag}} 
+add_wave {{/top_tb/uut/cpu/al/n_flag}} 
+add_wave {{/top_tb/uut/cpu/al/v_flag}} 
+add_wave {{/top_tb/uut/cpu/al/str_loc}} 
+add_wave {{/top_tb/uut/cpu/pr3/mem_addr_out}} 
+add_wave {{/top_tb/uut/cpu/pr3/wb_dest_out}} 
+add_wave {{/top_tb/uut/cpu/pr3/wb_data_out}} 
+add_wave {{/top_tb/uut/cpu/pr3/reg_write_out}} 
+add_wave {{/top_tb/uut/cpu/pr3/mem_ctrl_out}} 
+add_wave {{/top_tb/uut/cpu/ram/addrb}} 
+add_wave {{/top_tb/uut/cpu/ram/web}} 
+add_wave {{/top_tb/uut/cpu/ram/dinb}} 
+add_wave {{/top_tb/uut/cpu/ram/doutb}} 
+add_wave {{/top_tb/uut/cpu/mreg/wr_index}} 
+add_wave {{/top_tb/uut/cpu/mreg/wr_data}} 
+add_wave {{/top_tb/uut/cpu/mreg/wr_enable}} 
+save_wave_config {C:/Users/arockson/Documents/ECE449/ECE-499/top_tb_behav.wcfg}
+add_files -fileset sim_1 -norecurse C:/Users/arockson/Documents/ECE449/ECE-499/top_tb_behav.wcfg
+set_property xsim.view C:/Users/arockson/Documents/ECE449/ECE-499/top_tb_behav.wcfg [get_filesets sim_1]
+close_sim
+launch_simulation
+open_wave_config C:/Users/arockson/Documents/ECE449/ECE-499/top_tb_behav.wcfg
+source top_tb.tcl
+close_sim
+launch_simulation
+open_wave_config C:/Users/arockson/Documents/ECE449/ECE-499/top_tb_behav.wcfg
+source top_tb.tcl
+add_wave {{/top_tb/uut/cpu/mem_fwd_data}} 
+save_wave_config {C:/Users/arockson/Documents/ECE449/ECE-499/top_tb_behav.wcfg}
+close_sim
+launch_simulation
+open_wave_config C:/Users/arockson/Documents/ECE449/ECE-499/top_tb_behav.wcfg
+source top_tb.tcl
+close_sim
+launch_simulation
+open_wave_config C:/Users/arockson/Documents/ECE449/ECE-499/top_tb_behav.wcfg
+source top_tb.tcl
+add_wave {{/top_tb/uut/cpu/flush_ifid}} 
+add_wave {{/top_tb/uut/cpu/flush_idex}} 
+save_wave_config {C:/Users/arockson/Documents/ECE449/ECE-499/top_tb_behav.wcfg}
+close_sim
+launch_simulation
+open_wave_config C:/Users/arockson/Documents/ECE449/ECE-499/top_tb_behav.wcfg
+source top_tb.tcl
+set_property -dict [list CONFIG.Register_PortA_Output_of_Memory_Primitives {false}] [get_ips blk_mem_gen_0]
+generate_target all [get_files  C:/Users/arockson/Documents/ECE449/ECE-499/ECE449Main.srcs/sources_1/ip/blk_mem_gen_0/blk_mem_gen_0.xci]
+catch { config_ip_cache -export [get_ips -all blk_mem_gen_0] }
+export_ip_user_files -of_objects [get_files C:/Users/arockson/Documents/ECE449/ECE-499/ECE449Main.srcs/sources_1/ip/blk_mem_gen_0/blk_mem_gen_0.xci] -no_script -sync -force -quiet
+reset_run blk_mem_gen_0_synth_1
+launch_runs -jobs 4 blk_mem_gen_0_synth_1
+wait_on_run blk_mem_gen_0_synth_1
+export_simulation -of_objects [get_files C:/Users/arockson/Documents/ECE449/ECE-499/ECE449Main.srcs/sources_1/ip/blk_mem_gen_0/blk_mem_gen_0.xci] -directory C:/Users/arockson/Documents/ECE449/ECE-499/ECE449Main.ip_user_files/sim_scripts -ip_user_files_dir C:/Users/arockson/Documents/ECE449/ECE-499/ECE449Main.ip_user_files -ipstatic_source_dir C:/Users/arockson/Documents/ECE449/ECE-499/ECE449Main.ip_user_files/ipstatic -lib_map_path [list {modelsim=C:/Users/arockson/Documents/ECE449/ECE-499/ECE449Main.cache/compile_simlib/modelsim} {questa=C:/Users/arockson/Documents/ECE449/ECE-499/ECE449Main.cache/compile_simlib/questa} {riviera=C:/Users/arockson/Documents/ECE449/ECE-499/ECE449Main.cache/compile_simlib/riviera} {activehdl=C:/Users/arockson/Documents/ECE449/ECE-499/ECE449Main.cache/compile_simlib/activehdl}] -use_ip_compiled_libs -force -quiet
+close_sim
+launch_simulation
+open_wave_config C:/Users/arockson/Documents/ECE449/ECE-499/top_tb_behav.wcfg
+source top_tb.tcl
+close_sim
+launch_simulation
+open_wave_config C:/Users/arockson/Documents/ECE449/ECE-499/top_tb_behav.wcfg
+source top_tb.tcl
+set_property is_enabled false [get_files  C:/Users/arockson/Documents/ECE449/ECE-499/ECE449Main.srcs/sources_1/new/top_tb.vhd]
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 4
+wait_on_run impl_1
+open_hw
+connect_hw_server
+open_hw_target
+set_property PROGRAM.FILE {C:/Users/arockson/Documents/ECE449/ECE-499/ECE449Main.runs/impl_1/top.bit} [get_hw_devices xc7a35t_0]
+current_hw_device [get_hw_devices xc7a35t_0]
+refresh_hw_device -update_hw_probes false [lindex [get_hw_devices xc7a35t_0] 0]
+set_property PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property PROGRAM.FILE {C:/Users/arockson/Documents/ECE449/ECE-499/ECE449Main.runs/impl_1/top.bit} [get_hw_devices xc7a35t_0]
+program_hw_devices [get_hw_devices xc7a35t_0]
+refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
+synth_design -rtl -name rtl_1

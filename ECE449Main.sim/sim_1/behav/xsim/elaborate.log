@@ -1,6 +1,6 @@
 Vivado Simulator 2017.4
 Copyright 1986-1999, 2001-2016 Xilinx, Inc. All Rights Reserved.
-Running: E:/Vivado/Vivado/2017.4/bin/unwrapped/win64.o/xelab.exe -wto bd56acb4f8004fa8831a86f65c5f783c --incr --debug typical --relax --mt 2 -L xil_defaultlib -L secureip --snapshot ALUTest_behav xil_defaultlib.ALUTest -log elaborate.log 
+Running: C:/Xilinx/Vivado/2017.4/bin/unwrapped/win64.o/xelab.exe -wto bd56acb4f8004fa8831a86f65c5f783c --incr --debug typical --relax --mt 2 -L xil_defaultlib -L secureip -L xpm --snapshot top_tb_behav xil_defaultlib.top_tb -log elaborate.log 
 Using 2 slave threads.
 Starting static elaboration
 Completed static elaboration
@@ -11,6 +11,42 @@ Compiling package std.standard
 Compiling package std.textio
 Compiling package ieee.std_logic_1164
 Compiling package ieee.numeric_std
+Compiling package unisim.vcomponents
+Compiling package ieee.std_logic_arith
+Compiling package ieee.std_logic_signed
+Compiling package ieee.std_logic_textio
+Compiling package ieee.vital_timing
+Compiling package ieee.vital_primitives
+Compiling package unisim.vpkg
+Compiling architecture behavioral of entity xil_defaultlib.BranchController [branchcontroller_default]
+Compiling architecture behavioral of entity xil_defaultlib.PC [pc_default]
+Compiling architecture gnd_v of entity unisim.GND [gnd_default]
+Compiling architecture rb18_internal_vhdl_v of entity unisim.RB18_INTERNAL_VHDL [\RB18_INTERNAL_VHDL(bram_size=18...]
+Compiling architecture ramb18e1_v of entity unisim.RAMB18E1 [\RAMB18E1(init_00="0000011001001...]
+Compiling architecture structure of entity xil_defaultlib.blk_mem_gen_0_blk_mem_gen_prim_wrapper_init [blk_mem_gen_0_blk_mem_gen_prim_w...]
+Compiling architecture structure of entity xil_defaultlib.blk_mem_gen_0_blk_mem_gen_prim_width [blk_mem_gen_0_blk_mem_gen_prim_w...]
+Compiling architecture structure of entity xil_defaultlib.blk_mem_gen_0_blk_mem_gen_generic_cstr [blk_mem_gen_0_blk_mem_gen_generi...]
+Compiling architecture structure of entity xil_defaultlib.blk_mem_gen_0_blk_mem_gen_top [blk_mem_gen_0_blk_mem_gen_top_de...]
+Compiling architecture structure of entity xil_defaultlib.blk_mem_gen_0_blk_mem_gen_v8_4_1_synth [blk_mem_gen_0_blk_mem_gen_v8_4_1...]
+Compiling architecture structure of entity xil_defaultlib.blk_mem_gen_0_blk_mem_gen_v8_4_1 [blk_mem_gen_0_blk_mem_gen_v8_4_1...]
+Compiling architecture structure of entity xil_defaultlib.blk_mem_gen_0 [blk_mem_gen_0_default]
+Compiling architecture rtl of entity xil_defaultlib.if_id_register [if_id_register_default]
+Compiling architecture behavioral of entity xil_defaultlib.RegCtrl [regctrl_default]
+Compiling architecture behavioral of entity xil_defaultlib.register_file [register_file_default]
+Compiling architecture rtl of entity xil_defaultlib.id_ex_register [id_ex_register_default]
 Compiling architecture behavioral of entity xil_defaultlib.ALUv2 [aluv2_default]
-Compiling architecture simulate of entity xil_defaultlib.alutest
-Built simulation snapshot ALUTest_behav
+Compiling architecture rtl of entity xil_defaultlib.ex_mem_register [ex_mem_register_default]
+Compiling architecture rb18_internal_vhdl_v of entity unisim.RB18_INTERNAL_VHDL [\RB18_INTERNAL_VHDL(bram_size=18...]
+Compiling architecture ramb18e1_v of entity unisim.RAMB18E1 [\RAMB18E1(doa_reg=1,read_width_a...]
+Compiling architecture structure of entity xil_defaultlib.blk_mem_gen_1_blk_mem_gen_prim_wrapper_init [blk_mem_gen_1_blk_mem_gen_prim_w...]
+Compiling architecture structure of entity xil_defaultlib.blk_mem_gen_1_blk_mem_gen_prim_width [blk_mem_gen_1_blk_mem_gen_prim_w...]
+Compiling architecture structure of entity xil_defaultlib.blk_mem_gen_1_blk_mem_gen_generic_cstr [blk_mem_gen_1_blk_mem_gen_generi...]
+Compiling architecture structure of entity xil_defaultlib.blk_mem_gen_1_blk_mem_gen_top [blk_mem_gen_1_blk_mem_gen_top_de...]
+Compiling architecture structure of entity xil_defaultlib.blk_mem_gen_1_blk_mem_gen_v8_4_1_synth [blk_mem_gen_1_blk_mem_gen_v8_4_1...]
+Compiling architecture structure of entity xil_defaultlib.blk_mem_gen_1_blk_mem_gen_v8_4_1 [blk_mem_gen_1_blk_mem_gen_v8_4_1...]
+Compiling architecture structure of entity xil_defaultlib.blk_mem_gen_1 [blk_mem_gen_1_default]
+Compiling architecture rtl of entity xil_defaultlib.mem_wb_register [mem_wb_register_default]
+Compiling architecture behavioral of entity xil_defaultlib.datapath [datapath_default]
+Compiling architecture behavioral of entity xil_defaultlib.top [top_default]
+Compiling architecture simulate of entity xil_defaultlib.top_tb
+Built simulation snapshot top_tb_behav

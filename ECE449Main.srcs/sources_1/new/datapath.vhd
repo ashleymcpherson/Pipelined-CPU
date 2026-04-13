@@ -472,12 +472,12 @@ mem_fwd_data <= io_in_port when mem_mem_ctrl = '1' and mem_location = x"FFF0"
    --           wb_data_wb  when (wb_enable_pipe = '1' and wb_dest_wb = rc_src_ex and wb_dest_wb /= "000") else
    --           rc_ex;
 
-       fwd_a <= mem_fwd_data when (reg_wr_mem = '1' and wb_dest_mem = rb_src_ex and wb_dest_mem /= "000") else
-         wb_data_wb   when (wb_enable_pipe = '1' and wb_dest_wb = rb_src_ex and wb_dest_wb /= "000") else
+       fwd_a <= mem_fwd_data when (reg_wr_mem = '1' and wb_dest_mem = rb_src_ex ) else
+         wb_data_wb   when (wb_enable_pipe = '1' and wb_dest_wb = rb_src_ex ) else
          rb_ex;
 
-       fwd_b <= mem_fwd_data when (reg_wr_mem = '1' and wb_dest_mem = rc_src_ex and wb_dest_mem /= "000") else
-         wb_data_wb   when (wb_enable_pipe = '1' and wb_dest_wb = rc_src_ex and wb_dest_wb /= "000") else
+       fwd_b <= mem_fwd_data when (reg_wr_mem = '1' and wb_dest_mem = rc_src_ex ) else
+         wb_data_wb   when (wb_enable_pipe = '1' and wb_dest_wb = rc_src_ex ) else
          rc_ex;
 
     -- final writeback
@@ -515,17 +515,17 @@ mem_fwd_data <= io_in_port when mem_mem_ctrl = '1' and mem_location = x"FFF0"
     --          wb_data_wb  when (wb_enable_pipe = '1' and wb_dest_wb = Rc and wb_dest_wb /= "000") else
     --          rc_data;
 
-    bc_ra_val <= mem_fwd_data when (reg_wr_mem = '1' and wb_dest_mem = read_index1 and wb_dest_mem /= "000") else
-             wb_data_wb   when (wb_enable_pipe = '1' and wb_dest_wb = read_index1 and wb_dest_wb /= "000") else
+    bc_ra_val <= mem_fwd_data when (reg_wr_mem = '1' and wb_dest_mem = read_index1 ) else
+             wb_data_wb   when (wb_enable_pipe = '1' and wb_dest_wb = read_index1 ) else
              rb_data;
 
     rb_val_id <= r7_wb_data   when (branch_wb_en = '1') else
-             mem_fwd_data  when (reg_wr_mem = '1' and wb_dest_mem = read_index1 and wb_dest_mem /= "000") else
-             wb_data_wb    when (wb_enable_pipe = '1' and wb_dest_wb = read_index1 and wb_dest_wb /= "000") else
+             mem_fwd_data  when (reg_wr_mem = '1' and wb_dest_mem = read_index1 ) else
+             wb_data_wb    when (wb_enable_pipe = '1' and wb_dest_wb = read_index1 ) else
              rb_data;
 
-    rc_val_id <= mem_fwd_data when (reg_wr_mem = '1' and wb_dest_mem = Rc and wb_dest_mem /= "000") else
-             wb_data_wb   when (wb_enable_pipe = '1' and wb_dest_wb = Rc and wb_dest_wb /= "000") else
+    rc_val_id <= mem_fwd_data when (reg_wr_mem = '1' and wb_dest_mem = Rc ) else
+             wb_data_wb   when (wb_enable_pipe = '1' and wb_dest_wb = Rc ) else
              rc_data;
     
 

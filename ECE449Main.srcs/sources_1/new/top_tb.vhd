@@ -54,7 +54,7 @@ begin
         rst_ex <= '0';
 
         -- Set switch input for first factorial test: N=5 (expect 5!=120=0x0078)
-        sw <= x"0005";
+        sw <= x"0008";
         wait for 500 ns;
 
         -- Change input to N=4 (expect 4!=24=0x0018)

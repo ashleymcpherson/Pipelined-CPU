@@ -1,0 +1,19 @@
+# compile vhdl design source files
+vhdl xil_defaultlib  \
+"../../../../ECE449Main.srcs/sources_1/ip/blk_mem_gen_1/blk_mem_gen_1_sim_netlist.vhdl" \
+"../../../../ECE449Main.srcs/sources_1/ip/blk_mem_gen_0/blk_mem_gen_0_sim_netlist.vhdl" \
+"../../../../ECE449Main.srcs/sources_1/new/ALUv2.vhd" \
+"../../../../ECE449Main.srcs/sources_1/new/BranchController.vhd" \
+"../../../../ECE449Main.srcs/sources_1/new/PC.vhd" \
+"../../../../ECE449Main.srcs/sources_1/new/RF8_16.vhd" \
+"../../../../ECE449Main.srcs/sources_1/new/RegCtrl.vhd" \
+"../../../../ECE449Main.srcs/sources_1/new/datapath.vhd" \
+"../../../../ECE449Main.srcs/sources_1/new/pipeline_registers/ex-mem.vhd" \
+"../../../../ECE449Main.srcs/sources_1/new/pipeline_registers/id-ex.vhd" \
+"../../../../ECE449Main.srcs/sources_1/new/pipeline_registers/if-id.vhd" \
+"../../../../ECE449Main.srcs/sources_1/new/pipeline_registers/mem-wb.vhd" \
+"../../../../ECE449Main.srcs/sources_1/new/top.vhd" \
+"../../../../ECE449Main.srcs/sources_1/new/top_tb.vhd" \
+
+# Do not sort compile order
+nosort
