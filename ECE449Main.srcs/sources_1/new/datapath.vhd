@@ -39,7 +39,10 @@ entity datapath is
         outside_input : in std_logic_vector(15 downto 0);
         
         io_in_port : in std_logic_vector(15 downto 0);
-        io_out_port : out std_logic_vector(15 downto 0)
+        io_out_port : out std_logic_vector(15 downto 0);
+
+        led_segments : out std_logic_vector(6 downto 0);
+        led_digits   : out std_logic_vector(3 downto 0)
   );
 end datapath;
 
@@ -51,6 +54,20 @@ signal enable : std_logic := '1';
 signal stall_pipe : std_logic := '0';
 signal flush_ifid : std_logic := '0';
 signal flush_idex : std_logic := '0';
+
+component led_display is
+    Port (
+        addr_write   : in  STD_LOGIC_VECTOR (15 downto 0);
+        clk          : in  STD_LOGIC;
+        data_in      : in  STD_LOGIC_VECTOR (15 downto 0);
+        en_write     : in  STD_LOGIC;
+        board_clock  : in  STD_LOGIC;
+        led_segments : out STD_LOGIC_VECTOR(6 downto 0);
+        led_digits   : out STD_LOGIC_VECTOR(3 downto 0)
+    );
+end component;
+
+signal led_disp_en : std_logic;
 
 component PC is
 port(
@@ -349,6 +366,8 @@ mmio_hit <= '1' when mem_location = x"FFF0" or mem_location = x"FFF2" else '0';
 mem_wenb <= "1" when reg_wr_mem = '0' and mem_mem_ctrl = '1' and mmio_hit = '0' else "0";
 mem_enb  <= mem_mem_ctrl and not mmio_hit;
 
+led_disp_en <= '1' when mem_mem_ctrl = '1' and reg_wr_mem = '0' else '0';
+
 -- Latch output port on STORE to 0xFFFF
 process(clk)
 begin
@@ -563,6 +582,17 @@ dinb <= wb_data_mem;
 --        end if;
 --    end process;
 
+led_display_inst : led_display
+port map(
+    addr_write   => mem_location,
+    clk          => clk,
+    data_in      => wb_data_mem,
+    en_write     => led_disp_en,
+    board_clock  => clk,
+    led_segments => led_segments,
+    led_digits   => led_digits
+);
+               
 -- define port maps for entities here they should be mostly sequential
 pc1: PC
 port map(
