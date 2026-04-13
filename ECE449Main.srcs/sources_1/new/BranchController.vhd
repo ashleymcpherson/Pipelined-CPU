@@ -158,7 +158,7 @@ begin
                 
             -- BR.SUB
             when "1000110" =>
-                -- Jumpp to target and save return address in R7 
+                -- Jump to target and save return address in R7 
                 set_pc <= std_logic_vector(signed(ra) + signed(disps_x2));
                 r7_wb_data <= std_logic_vector(signed(cur_pc) + 1);
                 r7_wb_dest <= "111";
