@@ -17,7 +17,9 @@ entity top is
         rst_ex  : in  std_logic;                       -- button W19
         rst_ld  : in  std_logic;                       -- button T17
         sw      : in  std_logic_vector(15 downto 0);   -- onboard switches
-        leds    : out std_logic_vector(15 downto 0)    -- onboard LEDs
+        leds    : out std_logic_vector(15 downto 0);    -- onboard LEDs
+        led_segments : out std_logic_vector(6 downto 0);
+        led_digits   : out std_logic_vector(3 downto 0)
     );
 end top;
 
@@ -33,7 +35,9 @@ architecture Behavioral of top is
             full_reset    : in std_logic;
             outside_input : in  std_logic_vector(15 downto 0);
             io_in_port    : in  std_logic_vector(15 downto 0);
-            io_out_port   : out std_logic_vector(15 downto 0)
+            io_out_port   : out std_logic_vector(15 downto 0);
+            led_segments  : out std_logic_vector(6 downto 0);
+            led_digits    : out std_logic_vector(3 downto 0)
         );
     end component;
 
@@ -50,7 +54,9 @@ begin
             full_reset    => full_reset,
             outside_input => x"0000",   -- legacy port, unused
             io_in_port    => sw,
-            io_out_port   => leds
+            io_out_port   => leds,
+            led_segments  => led_segments,
+            led_digits    => led_digits
         );
 
 end Behavioral;
