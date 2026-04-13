@@ -1,7 +1,7 @@
 Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 ------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2017.4 (win64) Build 2086221 Fri Dec 15 20:55:39 MST 2017
-| Date         : Mon Apr 13 12:48:37 2026
+| Date         : Mon Apr 13 15:11:46 2026
 | Host         : ws11-12 running 64-bit major release  (build 9200)
 | Command      : report_control_sets -verbose -file top_control_sets_placed.rpt
 | Design       : top
@@ -22,8 +22,8 @@ Table of Contents
 +----------------------------------------------------------+-------+
 |                          Status                          | Count |
 +----------------------------------------------------------+-------+
-| Number of unique control sets                            |    16 |
-| Unused register locations in slices containing registers |    14 |
+| Number of unique control sets                            |    22 |
+| Unused register locations in slices containing registers |    58 |
 +----------------------------------------------------------+-------+
 
 
@@ -33,44 +33,56 @@ Table of Contents
 +--------------+-----------------------+------------------------+-----------------+--------------+
 | Clock Enable | Synchronous Set/Reset | Asynchronous Set/Reset | Total Registers | Total Slices |
 +--------------+-----------------------+------------------------+-----------------+--------------+
-| No           | No                    | No                     |               6 |            2 |
+| No           | No                    | No                     |              49 |           25 |
 | No           | No                    | Yes                    |               0 |            0 |
-| No           | Yes                   | No                     |             132 |           73 |
-| Yes          | No                    | No                     |              48 |           15 |
+| No           | Yes                   | No                     |             170 |           81 |
+| Yes          | No                    | No                     |              41 |           18 |
 | Yes          | No                    | Yes                    |               0 |            0 |
-| Yes          | Yes                   | No                     |             144 |           61 |
+| Yes          | Yes                   | No                     |             154 |           78 |
 +--------------+-----------------------+------------------------+-----------------+--------------+
 
 
 3. Detailed Control Set Information
 -----------------------------------
 
-+----------------+----------------------------------+---------------------------------+------------------+----------------+
-|  Clock Signal  |           Enable Signal          |         Set/Reset Signal        | Slice Load Count | Bel Load Count |
-+----------------+----------------------------------+---------------------------------+------------------+----------------+
-|  clk_IBUF_BUFG |                                  |                                 |                2 |              6 |
-|  clk_IBUF_BUFG | cpu/pr4/E[0]                     | cpu/mreg/reset                  |                8 |             16 |
-|  clk_IBUF_BUFG | cpu/pr3/mem_addr_reg[15]_i_2_n_0 | cpu/pr2/mem_addr_reg_reg[15]    |                4 |             16 |
-|  clk_IBUF_BUFG | cpu/pr3/E[0]                     |                                 |                3 |             16 |
-|  clk_IBUF_BUFG | cpu/pr3/led_data_reg[15]_1[0]    |                                 |                6 |             16 |
-|  clk_IBUF_BUFG | cpu/pr1/E[0]                     |                                 |                6 |             16 |
-|  clk_IBUF_BUFG | cpu/pr4/reg_file_reg[2][15][0]   | cpu/mreg/reset                  |                6 |             16 |
-|  clk_IBUF_BUFG | cpu/pr4/reg_file_reg[6][15][0]   | cpu/mreg/reset                  |                9 |             16 |
-|  clk_IBUF_BUFG | cpu/pr4/reg_file_reg[4][15][0]   | cpu/mreg/reset                  |                3 |             16 |
-|  clk_IBUF_BUFG | cpu/pr4/reg_file_reg[5][15][0]   | cpu/mreg/reset                  |                8 |             16 |
-|  clk_IBUF_BUFG | cpu/pr4/reg_file_reg[3][15][0]   | cpu/mreg/reset                  |                7 |             16 |
-|  clk_IBUF_BUFG | cpu/pr4/reg_file_reg[7][15][0]   | cpu/mreg/reset                  |               11 |             16 |
-|  clk_IBUF_BUFG | cpu/pr4/reg_file_reg[0][15][0]   | cpu/mreg/reset                  |                5 |             16 |
-|  clk_IBUF_BUFG |                                  | cpu/pr1/instr_if_id[15]_i_1_n_0 |               11 |             32 |
-|  clk_IBUF_BUFG |                                  | cpu/mreg/reset                  |               31 |             42 |
-|  clk_IBUF_BUFG |                                  | cpu/pr2/instr_reg[15]_i_1_n_0   |               31 |             58 |
-+----------------+----------------------------------+---------------------------------+------------------+----------------+
++------------------------------+-------------------------------------------------+---------------------------------------+------------------+----------------+
+|         Clock Signal         |                  Enable Signal                  |            Set/Reset Signal           | Slice Load Count | Bel Load Count |
++------------------------------+-------------------------------------------------+---------------------------------------+------------------+----------------+
+|  console_display/video_clock |                                                 | cpu/console_display/timing/h_sync0    |                1 |              1 |
+|  board_clk_IBUF_BUFG         |                                                 |                                       |                2 |              4 |
+|  console_display/video_clock | cpu/console_display/timing/main_buffer_reg_i_16 |                                       |                3 |              9 |
+|  console_display/video_clock | cpu/console_display/timing/h_dot0               | cpu/console_display/timing/v_line_int |                5 |             10 |
+|  console_display/video_clock |                                                 | cpu/console_display/timing/h_dot0     |                4 |             11 |
+|  console_display/video_clock |                                                 | cpu/console_display/timing/SS[0]      |                4 |             12 |
+|  board_clk_IBUF_BUFG         |                                                 | cpu/led_display_inst/clear            |                4 |             14 |
+|  clk_IBUF_BUFG               | cpu/pr3/mem_addr_reg_reg[15]_2                  | cpu/pr2/mem_addr_reg_reg[0]           |                5 |             16 |
+|  clk_IBUF_BUFG               | cpu/pr4/E[0]                                    | cpu/mreg/reset                        |                7 |             16 |
+|  clk_IBUF_BUFG               | cpu/pr4/reg_file_reg[5][15][0]                  | cpu/mreg/reset                        |               11 |             16 |
+|  clk_IBUF_BUFG               | cpu/pr4/reg_file_reg[2][15][0]                  | cpu/mreg/reset                        |               12 |             16 |
+|  clk_IBUF_BUFG               | cpu/pr4/reg_file_reg[3][15][0]                  | cpu/mreg/reset                        |                8 |             16 |
+|  clk_IBUF_BUFG               | cpu/pr4/reg_file_reg[4][15][0]                  | cpu/mreg/reset                        |                8 |             16 |
+|  clk_IBUF_BUFG               | cpu/pr4/reg_file_reg[7][15][0]                  | cpu/mreg/reset                        |                6 |             16 |
+|  clk_IBUF_BUFG               | cpu/pr4/reg_file_reg[6][15][0]                  | cpu/mreg/reset                        |                8 |             16 |
+|  clk_IBUF_BUFG               | cpu/pr4/reg_file_reg[0][15][0]                  | cpu/mreg/reset                        |                8 |             16 |
+|  clk_IBUF_BUFG               |                                                 |                                       |               10 |             17 |
+|  console_display/video_clock |                                                 |                                       |               13 |             28 |
+|  clk_IBUF_BUFG               |                                                 | cpu/pr1/instr_if_id[15]_i_1_n_0       |                9 |             32 |
+|  clk_IBUF_BUFG               | cpu/pr3/E[0]                                    |                                       |               15 |             32 |
+|  clk_IBUF_BUFG               |                                                 | cpu/mreg/reset                        |               31 |             42 |
+|  clk_IBUF_BUFG               |                                                 | cpu/pr2/instr_reg[15]_i_1_n_0         |               28 |             58 |
++------------------------------+-------------------------------------------------+---------------------------------------+------------------+----------------+
 
 
 +--------+-----------------------+
 | Fanout | Number of ControlSets |
 +--------+-----------------------+
-| 6      |                     1 |
+| 1      |                     1 |
+| 4      |                     1 |
+| 9      |                     1 |
+| 10     |                     1 |
+| 11     |                     1 |
+| 12     |                     1 |
+| 14     |                     1 |
 | 16+    |                    15 |
 +--------+-----------------------+
 

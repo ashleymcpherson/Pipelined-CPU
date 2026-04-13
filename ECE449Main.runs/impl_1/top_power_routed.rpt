@@ -1,7 +1,7 @@
 Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2017.4 (win64) Build 2086221 Fri Dec 15 20:55:39 MST 2017
-| Date             : Mon Apr 13 12:49:02 2026
+| Date             : Mon Apr 13 15:12:12 2026
 | Host             : ws11-12 running 64-bit major release  (build 9200)
 | Command          : report_power -file top_power_routed.rpt -pb top_power_summary_routed.pb -rpx top_power_routed.rpx
 | Design           : top
@@ -29,20 +29,20 @@ Table of Contents
 1. Summary
 ----------
 
-+--------------------------+----------------------------------+
-| Total On-Chip Power (W)  | 21.258 (Junction temp exceeded!) |
-| Design Power Budget (W)  | Unspecified*                     |
-| Power Budget Margin (W)  | NA                               |
-| Dynamic (W)              | 20.771                           |
-| Device Static (W)        | 0.487                            |
-| Effective TJA (C/W)      | 5.0                              |
-| Max Ambient (C)          | 0.0                              |
-| Junction Temperature (C) | 125.0                            |
-| Confidence Level         | Low                              |
-| Setting File             | ---                              |
-| Simulation Activity File | ---                              |
-| Design Nets Matched      | NA                               |
-+--------------------------+----------------------------------+
++--------------------------+--------------+
+| Total On-Chip Power (W)  | 0.082        |
+| Design Power Budget (W)  | Unspecified* |
+| Power Budget Margin (W)  | NA           |
+| Dynamic (W)              | 0.011        |
+| Device Static (W)        | 0.072        |
+| Effective TJA (C/W)      | 5.0          |
+| Max Ambient (C)          | 84.6         |
+| Junction Temperature (C) | 25.4         |
+| Confidence Level         | Low          |
+| Setting File             | ---          |
+| Simulation Activity File | ---          |
+| Design Nets Matched      | NA           |
++--------------------------+--------------+
 * Specify Design Power Budget using, set_operating_conditions -design_power_budget <value in Watts>
 
 
@@ -52,19 +52,20 @@ Table of Contents
 +----------------+-----------+----------+-----------+-----------------+
 | On-Chip        | Power (W) | Used     | Available | Utilization (%) |
 +----------------+-----------+----------+-----------+-----------------+
-| Slice Logic    |     2.885 |     1203 |       --- |             --- |
-|   LUT as Logic |     2.746 |      718 |     20800 |            3.45 |
-|   CARRY4       |     0.106 |       34 |      8150 |            0.42 |
-|   Register     |     0.027 |      330 |     41600 |            0.79 |
-|   BUFG         |     0.006 |        1 |        32 |            3.13 |
-|   F7/F8 Muxes  |    <0.001 |       16 |     32600 |            0.05 |
-|   Others       |     0.000 |       19 |       --- |             --- |
-| Signals        |     3.105 |     1131 |       --- |             --- |
-| Block RAM      |     0.066 |        1 |        50 |            2.00 |
-| DSPs           |     0.080 |        1 |        90 |            1.11 |
-| I/O            |    14.634 |       46 |       106 |           43.40 |
-| Static Power   |     0.487 |          |           |                 |
-| Total          |    21.258 |          |           |                 |
+| Clocks         |    <0.001 |        3 |       --- |             --- |
+| Slice Logic    |     0.004 |     1658 |       --- |             --- |
+|   LUT as Logic |     0.004 |      954 |     20800 |            4.59 |
+|   CARRY4       |    <0.001 |       47 |      8150 |            0.58 |
+|   F7/F8 Muxes  |    <0.001 |       51 |     32600 |            0.16 |
+|   Register     |    <0.001 |      414 |     41600 |            1.00 |
+|   BUFG         |    <0.001 |        2 |        32 |            6.25 |
+|   Others       |     0.000 |       25 |       --- |             --- |
+| Signals        |     0.004 |     1476 |       --- |             --- |
+| Block RAM      |    <0.001 |      1.5 |        50 |            3.00 |
+| DSPs           |    <0.001 |        1 |        90 |            1.11 |
+| I/O            |     0.001 |       60 |       106 |           56.60 |
+| Static Power   |     0.072 |          |           |                 |
+| Total          |     0.082 |          |           |                 |
 +----------------+-----------+----------+-----------+-----------------+
 
 
@@ -74,16 +75,16 @@ Table of Contents
 +-----------+-------------+-----------+-------------+------------+
 | Source    | Voltage (V) | Total (A) | Dynamic (A) | Static (A) |
 +-----------+-------------+-----------+-------------+------------+
-| Vccint    |       1.000 |     6.550 |       6.208 |      0.341 |
-| Vccaux    |       1.800 |     0.587 |       0.533 |      0.053 |
-| Vcco33    |       3.300 |     4.121 |       4.120 |      0.001 |
+| Vccint    |       1.000 |     0.019 |       0.010 |      0.010 |
+| Vccaux    |       1.800 |     0.013 |       0.000 |      0.013 |
+| Vcco33    |       3.300 |     0.001 |       0.000 |      0.001 |
 | Vcco25    |       2.500 |     0.000 |       0.000 |      0.000 |
 | Vcco18    |       1.800 |     0.000 |       0.000 |      0.000 |
 | Vcco15    |       1.500 |     0.000 |       0.000 |      0.000 |
 | Vcco135   |       1.350 |     0.000 |       0.000 |      0.000 |
 | Vcco12    |       1.200 |     0.000 |       0.000 |      0.000 |
 | Vccaux_io |       1.800 |     0.000 |       0.000 |      0.000 |
-| Vccbram   |       1.000 |     0.015 |       0.005 |      0.010 |
+| Vccbram   |       1.000 |     0.000 |       0.000 |      0.000 |
 | MGTAVcc   |       1.000 |     0.000 |       0.000 |      0.000 |
 | MGTAVtt   |       1.200 |     0.000 |       0.000 |      0.000 |
 | Vccadc    |       1.800 |     0.020 |       0.000 |      0.020 |
@@ -127,9 +128,11 @@ Table of Contents
 2.2 Clock Constraints
 ---------------------
 
-+-------+--------+-----------------+
-| Clock | Domain | Constraint (ns) |
-+-------+--------+-----------------+
++-------------+-----------+-----------------+
+| Clock       | Domain    | Constraint (ns) |
++-------------+-----------+-----------------+
+| sys_clk_pin | board_clk |            10.0 |
++-------------+-----------+-----------------+
 
 
 3. Detailed Reports
@@ -141,31 +144,33 @@ Table of Contents
 +------------------------------------------------+-----------+
 | Name                                           | Power (W) |
 +------------------------------------------------+-----------+
-| top                                            |    20.771 |
-|   cpu                                          |     5.974 |
-|     al                                         |     0.298 |
-|     bc1                                        |     0.488 |
-|     led_display_inst                           |     0.226 |
-|     mreg                                       |     0.260 |
-|     pc1                                        |     0.022 |
-|     pr1                                        |     2.567 |
-|     pr2                                        |     0.885 |
-|     pr3                                        |     0.245 |
-|     pr4                                        |     0.825 |
-|     ram                                        |     0.008 |
-|       U0                                       |     0.008 |
-|         inst_blk_mem_gen                       |     0.008 |
-|           gnbram.gnativebmg.native_blk_mem_gen |     0.008 |
-|             valid.cstr                         |     0.008 |
-|               ramloop[0].ram.r                 |     0.008 |
-|                 prim_init.ram                  |     0.008 |
-|     rom1                                       |     0.141 |
-|       U0                                       |     0.141 |
-|         inst_blk_mem_gen                       |     0.141 |
-|           gnbram.gnativebmg.native_blk_mem_gen |     0.141 |
-|             valid.cstr                         |     0.141 |
-|               ramloop[0].ram.r                 |     0.141 |
-|                 prim_init.ram                  |     0.141 |
+| top                                            |     0.011 |
+|   cpu                                          |     0.009 |
+|     al                                         |    <0.001 |
+|     bc1                                        |    <0.001 |
+|     console_display                            |     0.002 |
+|       timing                                   |    <0.001 |
+|     led_display_inst                           |    <0.001 |
+|     mreg                                       |    <0.001 |
+|     pc1                                        |    <0.001 |
+|     pr1                                        |     0.003 |
+|     pr2                                        |     0.001 |
+|     pr3                                        |    <0.001 |
+|     pr4                                        |    <0.001 |
+|     ram                                        |    <0.001 |
+|       U0                                       |    <0.001 |
+|         inst_blk_mem_gen                       |    <0.001 |
+|           gnbram.gnativebmg.native_blk_mem_gen |    <0.001 |
+|             valid.cstr                         |    <0.001 |
+|               ramloop[0].ram.r                 |    <0.001 |
+|                 prim_init.ram                  |    <0.001 |
+|     rom1                                       |    <0.001 |
+|       U0                                       |    <0.001 |
+|         inst_blk_mem_gen                       |    <0.001 |
+|           gnbram.gnativebmg.native_blk_mem_gen |    <0.001 |
+|             valid.cstr                         |    <0.001 |
+|               ramloop[0].ram.r                 |    <0.001 |
+|                 prim_init.ram                  |    <0.001 |
 +------------------------------------------------+-----------+
 
 

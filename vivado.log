@@ -2486,3 +2486,1723 @@ launch_runs impl_1 -to_step write_bitstream -jobs 4
 Run output will be captured here: C:/Users/arockson/Documents/ECE449/ECE-499/ECE449Main.runs/synth_1/runme.log
 [Mon Apr 13 12:14:50 2026] Launched impl_1...
 Run output will be captured here: C:/Users/arockson/Documents/ECE449/ECE-499/ECE449Main.runs/impl_1/runme.log
+reset_run synth_1
+WARNING: [Vivado 12-1017] Problems encountered:
+1. Failed to delete one or more files in run directory C:/Users/arockson/Documents/ECE449/ECE-499/ECE449Main.runs/synth_1
+
+launch_runs impl_1 -to_step write_bitstream -jobs 4
+[Mon Apr 13 12:17:18 2026] Launched synth_1...
+Run output will be captured here: C:/Users/arockson/Documents/ECE449/ECE-499/ECE449Main.runs/synth_1/runme.log
+[Mon Apr 13 12:17:18 2026] Launched impl_1...
+Run output will be captured here: C:/Users/arockson/Documents/ECE449/ECE-499/ECE449Main.runs/impl_1/runme.log
+add_files -norecurse C:/Users/arockson/Documents/ECE449/ECE-499/led_display.vhd
+update_compile_order -fileset sources_1
+reset_run synth_1
+WARNING: [Vivado 12-1017] Problems encountered:
+1. Failed to delete one or more files in run directory C:/Users/arockson/Documents/ECE449/ECE-499/ECE449Main.runs/synth_1
+
+launch_runs synth_1 -jobs 4
+[Mon Apr 13 12:21:49 2026] Launched synth_1...
+Run output will be captured here: C:/Users/arockson/Documents/ECE449/ECE-499/ECE449Main.runs/synth_1/runme.log
+launch_runs impl_1 -jobs 4
+[Mon Apr 13 12:23:23 2026] Launched impl_1...
+Run output will be captured here: C:/Users/arockson/Documents/ECE449/ECE-499/ECE449Main.runs/impl_1/runme.log
+launch_runs impl_1 -to_step write_bitstream -jobs 4
+[Mon Apr 13 12:24:38 2026] Launched impl_1...
+Run output will be captured here: C:/Users/arockson/Documents/ECE449/ECE-499/ECE449Main.runs/impl_1/runme.log
+set_property PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property PROGRAM.FILE {C:/Users/arockson/Documents/ECE449/ECE-499/ECE449Main.runs/impl_1/top.bit} [get_hw_devices xc7a35t_0]
+program_hw_devices [get_hw_devices xc7a35t_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
+INFO: [Labtools 27-1434] Device xc7a35t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+WARNING: [Labtools 27-3361] The debug hub core was not detected.
+Resolution: 
+1. Make sure the clock connected to the debug hub (dbg_hub) core is a free running clock and is active.
+2. Make sure the BSCAN_SWITCH_USER_MASK device property in Vivado Hardware Manager reflects the user scan chain setting in the design and refresh the device.  To determine the user scan chain setting in the design, open the implemented design and use 'get_property C_USER_SCAN_CHAIN [get_debug_cores dbg_hub]'.
+For more details on setting the scan chain property, consult the Vivado Debug and Programming User Guide (UG908).
+close_hw
+reset_run synth_1
+WARNING: [Vivado 12-1017] Problems encountered:
+1. Failed to delete one or more files in run directory C:/Users/arockson/Documents/ECE449/ECE-499/ECE449Main.runs/synth_1
+
+launch_runs impl_1 -to_step write_bitstream -jobs 4
+[Mon Apr 13 12:31:44 2026] Launched synth_1...
+Run output will be captured here: C:/Users/arockson/Documents/ECE449/ECE-499/ECE449Main.runs/synth_1/runme.log
+[Mon Apr 13 12:31:44 2026] Launched impl_1...
+Run output will be captured here: C:/Users/arockson/Documents/ECE449/ECE-499/ECE449Main.runs/impl_1/runme.log
+open_hw
+connect_hw_server
+INFO: [Labtools 27-2285] Connecting to hw_server url TCP:localhost:3121
+INFO: [Labtools 27-2222] Launching hw_server...
+INFO: [Labtools 27-2221] Launch Output:
+
+****** Xilinx hw_server v2017.4
+  **** Build date : Dec 15 2017-21:08:27
+    ** Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
+
+
+open_hw_target
+INFO: [Labtoolstcl 44-466] Opening hw_target localhost:3121/xilinx_tcf/Digilent/210183A8A7D3A
+set_property PROGRAM.FILE {C:/Users/arockson/Documents/ECE449/ECE-499/ECE449Main.runs/impl_1/top.bit} [get_hw_devices xc7a35t_0]
+current_hw_device [get_hw_devices xc7a35t_0]
+refresh_hw_device -update_hw_probes false [lindex [get_hw_devices xc7a35t_0] 0]
+INFO: [Labtools 27-1434] Device xc7a35t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+WARNING: [Labtools 27-3361] The debug hub core was not detected.
+Resolution: 
+1. Make sure the clock connected to the debug hub (dbg_hub) core is a free running clock and is active.
+2. Make sure the BSCAN_SWITCH_USER_MASK device property in Vivado Hardware Manager reflects the user scan chain setting in the design and refresh the device.  To determine the user scan chain setting in the design, open the implemented design and use 'get_property C_USER_SCAN_CHAIN [get_debug_cores dbg_hub]'.
+For more details on setting the scan chain property, consult the Vivado Debug and Programming User Guide (UG908).
+set_property PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property PROGRAM.FILE {C:/Users/arockson/Documents/ECE449/ECE-499/ECE449Main.runs/impl_1/top.bit} [get_hw_devices xc7a35t_0]
+program_hw_devices [get_hw_devices xc7a35t_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
+INFO: [Labtools 27-1434] Device xc7a35t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+WARNING: [Labtools 27-3361] The debug hub core was not detected.
+Resolution: 
+1. Make sure the clock connected to the debug hub (dbg_hub) core is a free running clock and is active.
+2. Make sure the BSCAN_SWITCH_USER_MASK device property in Vivado Hardware Manager reflects the user scan chain setting in the design and refresh the device.  To determine the user scan chain setting in the design, open the implemented design and use 'get_property C_USER_SCAN_CHAIN [get_debug_cores dbg_hub]'.
+For more details on setting the scan chain property, consult the Vivado Debug and Programming User Guide (UG908).
+reset_run synth_1
+WARNING: [Vivado 12-1017] Problems encountered:
+1. Failed to delete one or more files in run directory C:/Users/arockson/Documents/ECE449/ECE-499/ECE449Main.runs/synth_1
+
+launch_runs impl_1 -to_step write_bitstream -jobs 4
+[Mon Apr 13 12:35:14 2026] Launched synth_1...
+Run output will be captured here: C:/Users/arockson/Documents/ECE449/ECE-499/ECE449Main.runs/synth_1/runme.log
+[Mon Apr 13 12:35:14 2026] Launched impl_1...
+Run output will be captured here: C:/Users/arockson/Documents/ECE449/ECE-499/ECE449Main.runs/impl_1/runme.log
+set_property PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property PROGRAM.FILE {C:/Users/arockson/Documents/ECE449/ECE-499/ECE449Main.runs/impl_1/top.bit} [get_hw_devices xc7a35t_0]
+program_hw_devices [get_hw_devices xc7a35t_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
+INFO: [Labtools 27-1434] Device xc7a35t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+WARNING: [Labtools 27-3361] The debug hub core was not detected.
+Resolution: 
+1. Make sure the clock connected to the debug hub (dbg_hub) core is a free running clock and is active.
+2. Make sure the BSCAN_SWITCH_USER_MASK device property in Vivado Hardware Manager reflects the user scan chain setting in the design and refresh the device.  To determine the user scan chain setting in the design, open the implemented design and use 'get_property C_USER_SCAN_CHAIN [get_debug_cores dbg_hub]'.
+For more details on setting the scan chain property, consult the Vivado Debug and Programming User Guide (UG908).
+reset_run synth_1
+WARNING: [Vivado 12-1017] Problems encountered:
+1. Failed to delete one or more files in run directory C:/Users/arockson/Documents/ECE449/ECE-499/ECE449Main.runs/synth_1
+
+launch_runs impl_1 -to_step write_bitstream -jobs 4
+[Mon Apr 13 12:41:34 2026] Launched synth_1...
+Run output will be captured here: C:/Users/arockson/Documents/ECE449/ECE-499/ECE449Main.runs/synth_1/runme.log
+[Mon Apr 13 12:41:34 2026] Launched impl_1...
+Run output will be captured here: C:/Users/arockson/Documents/ECE449/ECE-499/ECE449Main.runs/impl_1/runme.log
+open_run impl_1
+INFO: [Netlist 29-17] Analyzing 72 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-479] Netlist was created with Vivado 2017.4
+INFO: [Project 1-570] Preparing netlist for logic optimization
+Parsing XDC File [C:/Users/arockson/Documents/ECE449/ECE-499/.Xil/Vivado-10320-ws11-12/dcp20/top.xdc]
+Finished Parsing XDC File [C:/Users/arockson/Documents/ECE449/ECE-499/.Xil/Vivado-10320-ws11-12/dcp20/top.xdc]
+Reading XDEF placement.
+Reading placer database...
+Reading XDEF routing.
+Read XDEF File: Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.172 . Memory (MB): peak = 2231.754 ; gain = 1.406
+Restored from archive | CPU: 1.000000 secs | Memory: 0.000000 MB |
+Finished XDEF File Restore: Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.172 . Memory (MB): peak = 2231.754 ; gain = 1.406
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+WARNING: [Timing 38-313] There are no user specified timing constraints. Timing constraints are needed for proper timing analysis.
+set_property PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property PROGRAM.FILE {C:/Users/arockson/Documents/ECE449/ECE-499/ECE449Main.runs/impl_1/top.bit} [get_hw_devices xc7a35t_0]
+program_hw_devices [get_hw_devices xc7a35t_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
+INFO: [Labtools 27-1434] Device xc7a35t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+WARNING: [Labtools 27-3361] The debug hub core was not detected.
+Resolution: 
+1. Make sure the clock connected to the debug hub (dbg_hub) core is a free running clock and is active.
+2. Make sure the BSCAN_SWITCH_USER_MASK device property in Vivado Hardware Manager reflects the user scan chain setting in the design and refresh the device.  To determine the user scan chain setting in the design, open the implemented design and use 'get_property C_USER_SCAN_CHAIN [get_debug_cores dbg_hub]'.
+For more details on setting the scan chain property, consult the Vivado Debug and Programming User Guide (UG908).
+reset_run synth_1
+WARNING: [Vivado 12-1017] Problems encountered:
+1. Failed to delete one or more files in run directory C:/Users/arockson/Documents/ECE449/ECE-499/ECE449Main.runs/synth_1
+
+launch_runs impl_1 -to_step write_bitstream -jobs 4
+[Mon Apr 13 12:46:55 2026] Launched synth_1...
+Run output will be captured here: C:/Users/arockson/Documents/ECE449/ECE-499/ECE449Main.runs/synth_1/runme.log
+[Mon Apr 13 12:46:55 2026] Launched impl_1...
+Run output will be captured here: C:/Users/arockson/Documents/ECE449/ECE-499/ECE449Main.runs/impl_1/runme.log
+set_property PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property PROGRAM.FILE {C:/Users/arockson/Documents/ECE449/ECE-499/ECE449Main.runs/impl_1/top.bit} [get_hw_devices xc7a35t_0]
+program_hw_devices [get_hw_devices xc7a35t_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
+INFO: [Labtools 27-1434] Device xc7a35t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+WARNING: [Labtools 27-3361] The debug hub core was not detected.
+Resolution: 
+1. Make sure the clock connected to the debug hub (dbg_hub) core is a free running clock and is active.
+2. Make sure the BSCAN_SWITCH_USER_MASK device property in Vivado Hardware Manager reflects the user scan chain setting in the design and refresh the device.  To determine the user scan chain setting in the design, open the implemented design and use 'get_property C_USER_SCAN_CHAIN [get_debug_cores dbg_hub]'.
+For more details on setting the scan chain property, consult the Vivado Debug and Programming User Guide (UG908).
+close_hw
+set_property is_enabled true [get_files  C:/Users/arockson/Documents/ECE449/ECE-499/ECE449Main.srcs/sources_1/new/top_tb.vhd]
+update_compile_order -fileset sources_1
+update_compile_order -fileset sources_1
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+launch_simulation
+INFO: [Vivado 12-5698] Checking validity of IPs in the design for the 'XSim' simulator...
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'C:/Users/arockson/Documents/ECE449/ECE-499/ECE449Main.sim/sim_1/behav/xsim'
+INFO: [Vivado 12-4795] Using compiled simulation libraries for IPs
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [USF-XSim-7] Finding pre-compiled libraries...
+INFO: [USF-XSim-11] File 'C:/Xilinx/Vivado/2017.4/data/xsim/ip/xsim_ip.ini' copied to run dir:'C:/Users/arockson/Documents/ECE449/ECE-499/ECE449Main.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-54] Inspecting design source files for 'top_tb' in fileset 'sim_1'...
+INFO: [SIM-utils-43] Exported 'C:/Users/arockson/Documents/ECE449/ECE-499/ECE449Main.sim/sim_1/behav/xsim/blk_mem_gen_0.mif'
+INFO: [SIM-utils-43] Exported 'C:/Users/arockson/Documents/ECE449/ECE-499/ECE449Main.sim/sim_1/behav/xsim/testFactOverflow.coe'
+INFO: [SIM-utils-43] Exported 'C:/Users/arockson/Documents/ECE449/ECE-499/ECE449Main.sim/sim_1/behav/xsim/rom_formatA.coe'
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'C:/Users/arockson/Documents/ECE449/ECE-499/ECE449Main.sim/sim_1/behav/xsim'
+"xvhdl --incr --relax -prj top_tb_vhdl.prj"
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/arockson/Documents/ECE449/ECE-499/ECE449Main.srcs/sources_1/new/datapath.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity datapath
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/arockson/Documents/ECE449/ECE-499/led_display.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity led_display
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/arockson/Documents/ECE449/ECE-499/ECE449Main.srcs/sources_1/new/top.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity top
+INFO: [USF-XSim-69] 'compile' step finished in '2' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'C:/Users/arockson/Documents/ECE449/ECE-499/ECE449Main.sim/sim_1/behav/xsim'
+Vivado Simulator 2017.4
+Copyright 1986-1999, 2001-2016 Xilinx, Inc. All Rights Reserved.
+Running: C:/Xilinx/Vivado/2017.4/bin/unwrapped/win64.o/xelab.exe -wto bd56acb4f8004fa8831a86f65c5f783c --incr --debug typical --relax --mt 2 -L xil_defaultlib -L secureip -L xpm --snapshot top_tb_behav xil_defaultlib.top_tb -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling package std.standard
+Compiling package std.textio
+Compiling package ieee.std_logic_1164
+Compiling package ieee.numeric_std
+Compiling package unisim.vcomponents
+Compiling package ieee.std_logic_arith
+Compiling package ieee.std_logic_signed
+Compiling package ieee.std_logic_textio
+Compiling package ieee.vital_timing
+Compiling package ieee.vital_primitives
+Compiling package unisim.vpkg
+Compiling architecture behavioral of entity xil_defaultlib.BranchController [branchcontroller_default]
+Compiling architecture behavioral of entity xil_defaultlib.led_display [led_display_default]
+Compiling architecture behavioral of entity xil_defaultlib.PC [pc_default]
+Compiling architecture gnd_v of entity unisim.GND [gnd_default]
+Compiling architecture rb18_internal_vhdl_v of entity unisim.RB18_INTERNAL_VHDL [\RB18_INTERNAL_VHDL(bram_size=18...]
+Compiling architecture ramb18e1_v of entity unisim.RAMB18E1 [\RAMB18E1(init_00="0000011001001...]
+Compiling architecture structure of entity xil_defaultlib.blk_mem_gen_0_blk_mem_gen_prim_wrapper_init [blk_mem_gen_0_blk_mem_gen_prim_w...]
+Compiling architecture structure of entity xil_defaultlib.blk_mem_gen_0_blk_mem_gen_prim_width [blk_mem_gen_0_blk_mem_gen_prim_w...]
+Compiling architecture structure of entity xil_defaultlib.blk_mem_gen_0_blk_mem_gen_generic_cstr [blk_mem_gen_0_blk_mem_gen_generi...]
+Compiling architecture structure of entity xil_defaultlib.blk_mem_gen_0_blk_mem_gen_top [blk_mem_gen_0_blk_mem_gen_top_de...]
+Compiling architecture structure of entity xil_defaultlib.blk_mem_gen_0_blk_mem_gen_v8_4_1_synth [blk_mem_gen_0_blk_mem_gen_v8_4_1...]
+Compiling architecture structure of entity xil_defaultlib.blk_mem_gen_0_blk_mem_gen_v8_4_1 [blk_mem_gen_0_blk_mem_gen_v8_4_1...]
+Compiling architecture structure of entity xil_defaultlib.blk_mem_gen_0 [blk_mem_gen_0_default]
+Compiling architecture rtl of entity xil_defaultlib.if_id_register [if_id_register_default]
+Compiling architecture behavioral of entity xil_defaultlib.RegCtrl [regctrl_default]
+Compiling architecture behavioral of entity xil_defaultlib.register_file [register_file_default]
+Compiling architecture rtl of entity xil_defaultlib.id_ex_register [id_ex_register_default]
+Compiling architecture behavioral of entity xil_defaultlib.ALUv2 [aluv2_default]
+Compiling architecture rtl of entity xil_defaultlib.ex_mem_register [ex_mem_register_default]
+Compiling architecture rb18_internal_vhdl_v of entity unisim.RB18_INTERNAL_VHDL [\RB18_INTERNAL_VHDL(bram_size=18...]
+Compiling architecture ramb18e1_v of entity unisim.RAMB18E1 [\RAMB18E1(doa_reg=1,read_width_a...]
+Compiling architecture structure of entity xil_defaultlib.blk_mem_gen_1_blk_mem_gen_prim_wrapper_init [blk_mem_gen_1_blk_mem_gen_prim_w...]
+Compiling architecture structure of entity xil_defaultlib.blk_mem_gen_1_blk_mem_gen_prim_width [blk_mem_gen_1_blk_mem_gen_prim_w...]
+Compiling architecture structure of entity xil_defaultlib.blk_mem_gen_1_blk_mem_gen_generic_cstr [blk_mem_gen_1_blk_mem_gen_generi...]
+Compiling architecture structure of entity xil_defaultlib.blk_mem_gen_1_blk_mem_gen_top [blk_mem_gen_1_blk_mem_gen_top_de...]
+Compiling architecture structure of entity xil_defaultlib.blk_mem_gen_1_blk_mem_gen_v8_4_1_synth [blk_mem_gen_1_blk_mem_gen_v8_4_1...]
+Compiling architecture structure of entity xil_defaultlib.blk_mem_gen_1_blk_mem_gen_v8_4_1 [blk_mem_gen_1_blk_mem_gen_v8_4_1...]
+Compiling architecture structure of entity xil_defaultlib.blk_mem_gen_1 [blk_mem_gen_1_default]
+Compiling architecture rtl of entity xil_defaultlib.mem_wb_register [mem_wb_register_default]
+Compiling architecture behavioral of entity xil_defaultlib.datapath [datapath_default]
+Compiling architecture behavioral of entity xil_defaultlib.top [top_default]
+Compiling architecture simulate of entity xil_defaultlib.top_tb
+Built simulation snapshot top_tb_behav
+run_program: Time (s): cpu = 00:00:00 ; elapsed = 00:00:06 . Memory (MB): peak = 2775.738 ; gain = 0.000
+INFO: [USF-XSim-69] 'elaborate' step finished in '6' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in 'C:/Users/arockson/Documents/ECE449/ECE-499/ECE449Main.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "top_tb_behav -key {Behavioral:sim_1:Functional:top_tb} -tclbatch {top_tb.tcl} -view {C:/Users/arockson/Documents/ECE449/ECE-499/top_tb_behav.wcfg} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Vivado Simulator 2017.4
+Time resolution is 1 ps
+open_wave_config C:/Users/arockson/Documents/ECE449/ECE-499/top_tb_behav.wcfg
+source top_tb.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+# run 1000ns
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'top_tb_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 1000ns
+launch_simulation: Time (s): cpu = 00:00:01 ; elapsed = 00:00:11 . Memory (MB): peak = 2775.738 ; gain = 0.000
+open_hw
+connect_hw_server
+INFO: [Labtools 27-2285] Connecting to hw_server url TCP:localhost:3121
+INFO: [Labtools 27-2222] Launching hw_server...
+INFO: [Labtools 27-2221] Launch Output:
+
+****** Xilinx hw_server v2017.4
+  **** Build date : Dec 15 2017-21:08:27
+    ** Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
+
+
+open_hw_target
+INFO: [Labtoolstcl 44-466] Opening hw_target localhost:3121/xilinx_tcf/Digilent/210183A8A7D3A
+set_property PROGRAM.FILE {C:/Users/arockson/Documents/ECE449/ECE-499/ECE449Main.runs/impl_1/top.bit} [get_hw_devices xc7a35t_0]
+current_hw_device [get_hw_devices xc7a35t_0]
+refresh_hw_device -update_hw_probes false [lindex [get_hw_devices xc7a35t_0] 0]
+INFO: [Labtools 27-1434] Device xc7a35t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+WARNING: [Labtools 27-3361] The debug hub core was not detected.
+Resolution: 
+1. Make sure the clock connected to the debug hub (dbg_hub) core is a free running clock and is active.
+2. Make sure the BSCAN_SWITCH_USER_MASK device property in Vivado Hardware Manager reflects the user scan chain setting in the design and refresh the device.  To determine the user scan chain setting in the design, open the implemented design and use 'get_property C_USER_SCAN_CHAIN [get_debug_cores dbg_hub]'.
+For more details on setting the scan chain property, consult the Vivado Debug and Programming User Guide (UG908).
+close_hw
+set_property is_enabled false [get_files  C:/Users/arockson/Documents/ECE449/ECE-499/ECE449Main.srcs/sources_1/new/top_tb.vhd]
+WARNING: [IP_Flow 19-4067] Ignoring invalid widget type specified checkbox.Providing a default widget
+WARNING: [IP_Flow 19-4067] Ignoring invalid widget type specified checkbox.Providing a default widget
+set_property -dict [list CONFIG.Coe_File {C:/Users/arockson/Documents/ECE449/counter.coe}] [get_ips blk_mem_gen_0]
+INFO: [IP_Flow 19-3484] Absolute path of file 'c:/Users/arockson/Documents/ECE449/counter.coe' provided. It will be converted relative to IP Instance files '../../../../../counter.coe'
+generate_target all [get_files  C:/Users/arockson/Documents/ECE449/ECE-499/ECE449Main.srcs/sources_1/ip/blk_mem_gen_0/blk_mem_gen_0.xci]
+INFO: [IP_Flow 19-1686] Generating 'Instantiation Template' target for IP 'blk_mem_gen_0'...
+INFO: [IP_Flow 19-1686] Generating 'Synthesis' target for IP 'blk_mem_gen_0'...
+INFO: [IP_Flow 19-1686] Generating 'Simulation' target for IP 'blk_mem_gen_0'...
+INFO: [IP_Flow 19-1686] Generating 'Miscellaneous' target for IP 'blk_mem_gen_0'...
+INFO: [IP_Flow 19-1686] Generating 'Change Log' target for IP 'blk_mem_gen_0'...
+catch { config_ip_cache -export [get_ips -all blk_mem_gen_0] }
+export_ip_user_files -of_objects [get_files C:/Users/arockson/Documents/ECE449/ECE-499/ECE449Main.srcs/sources_1/ip/blk_mem_gen_0/blk_mem_gen_0.xci] -no_script -sync -force -quiet
+reset_run blk_mem_gen_0_synth_1
+WARNING: [Vivado 12-1017] Problems encountered:
+1. Failed to delete one or more files in run directory C:/Users/arockson/Documents/ECE449/ECE-499/ECE449Main.runs/blk_mem_gen_0_synth_1
+
+launch_runs -jobs 4 blk_mem_gen_0_synth_1
+[Mon Apr 13 13:14:49 2026] Launched blk_mem_gen_0_synth_1...
+Run output will be captured here: C:/Users/arockson/Documents/ECE449/ECE-499/ECE449Main.runs/blk_mem_gen_0_synth_1/runme.log
+INFO: [Vivado 12-4357] Exporting simulation files for 'blk_mem_gen_0'... please wait for 'blk_mem_gen_0_synth_1' run to finish...
+wait_on_run blk_mem_gen_0_synth_1
+[Mon Apr 13 13:14:50 2026] Waiting for blk_mem_gen_0_synth_1 to finish...
+[Mon Apr 13 13:14:55 2026] Waiting for blk_mem_gen_0_synth_1 to finish...
+[Mon Apr 13 13:15:00 2026] Waiting for blk_mem_gen_0_synth_1 to finish...
+[Mon Apr 13 13:15:05 2026] Waiting for blk_mem_gen_0_synth_1 to finish...
+[Mon Apr 13 13:15:15 2026] Waiting for blk_mem_gen_0_synth_1 to finish...
+[Mon Apr 13 13:15:25 2026] Waiting for blk_mem_gen_0_synth_1 to finish...
+[Mon Apr 13 13:15:36 2026] Waiting for blk_mem_gen_0_synth_1 to finish...
+[Mon Apr 13 13:15:46 2026] Waiting for blk_mem_gen_0_synth_1 to finish...
+[Mon Apr 13 13:16:06 2026] Waiting for blk_mem_gen_0_synth_1 to finish...
+[Mon Apr 13 13:16:26 2026] Waiting for blk_mem_gen_0_synth_1 to finish...
+[Mon Apr 13 13:16:46 2026] Waiting for blk_mem_gen_0_synth_1 to finish...
+
+*** Running vivado
+    with args -log blk_mem_gen_0.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source blk_mem_gen_0.tcl
+
+
+****** Vivado v2017.4 (64-bit)
+  **** SW Build 2086221 on Fri Dec 15 20:55:39 MST 2017
+  **** IP Build 2085800 on Fri Dec 15 22:25:07 MST 2017
+    ** Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
+
+source blk_mem_gen_0.tcl -notrace
+Command: synth_design -top blk_mem_gen_0 -part xc7a35tcpg236-1 -mode out_of_context
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7a35t'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a35t'
+INFO: Launching helper process for spawning children vivado processes
+INFO: Helper process launched with PID 3636 
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:11 ; elapsed = 00:00:12 . Memory (MB): peak = 342.160 ; gain = 100.008
+---------------------------------------------------------------------------------
+INFO: [Synth 8-638] synthesizing module 'blk_mem_gen_0' [c:/Users/arockson/Documents/ECE449/ECE-499/ECE449Main.srcs/sources_1/ip/blk_mem_gen_0/synth/blk_mem_gen_0.vhd:68]
+	Parameter C_FAMILY bound to: artix7 - type: string 
+	Parameter C_XDEVICEFAMILY bound to: artix7 - type: string 
+	Parameter C_ELABORATION_DIR bound to: ./ - type: string 
+	Parameter C_INTERFACE_TYPE bound to: 0 - type: integer 
+	Parameter C_AXI_TYPE bound to: 1 - type: integer 
+	Parameter C_AXI_SLAVE_TYPE bound to: 0 - type: integer 
+	Parameter C_USE_BRAM_BLOCK bound to: 0 - type: integer 
+	Parameter C_ENABLE_32BIT_ADDRESS bound to: 0 - type: integer 
+	Parameter C_CTRL_ECC_ALGO bound to: NONE - type: string 
+	Parameter C_HAS_AXI_ID bound to: 0 - type: integer 
+	Parameter C_AXI_ID_WIDTH bound to: 4 - type: integer 
+	Parameter C_MEM_TYPE bound to: 3 - type: integer 
+	Parameter C_BYTE_SIZE bound to: 9 - type: integer 
+	Parameter C_ALGORITHM bound to: 1 - type: integer 
+	Parameter C_PRIM_TYPE bound to: 1 - type: integer 
+	Parameter C_LOAD_INIT_FILE bound to: 1 - type: integer 
+	Parameter C_INIT_FILE_NAME bound to: blk_mem_gen_0.mif - type: string 
+	Parameter C_INIT_FILE bound to: blk_mem_gen_0.mem - type: string 
+	Parameter C_USE_DEFAULT_DATA bound to: 0 - type: integer 
+	Parameter C_DEFAULT_DATA bound to: 0 - type: string 
+	Parameter C_HAS_RSTA bound to: 0 - type: integer 
+	Parameter C_RST_PRIORITY_A bound to: CE - type: string 
+	Parameter C_RSTRAM_A bound to: 0 - type: integer 
+	Parameter C_INITA_VAL bound to: 0 - type: string 
+	Parameter C_HAS_ENA bound to: 1 - type: integer 
+	Parameter C_HAS_REGCEA bound to: 0 - type: integer 
+	Parameter C_USE_BYTE_WEA bound to: 0 - type: integer 
+	Parameter C_WEA_WIDTH bound to: 1 - type: integer 
+	Parameter C_WRITE_MODE_A bound to: WRITE_FIRST - type: string 
+	Parameter C_WRITE_WIDTH_A bound to: 16 - type: integer 
+	Parameter C_READ_WIDTH_A bound to: 16 - type: integer 
+	Parameter C_WRITE_DEPTH_A bound to: 1024 - type: integer 
+	Parameter C_READ_DEPTH_A bound to: 1024 - type: integer 
+	Parameter C_ADDRA_WIDTH bound to: 10 - type: integer 
+	Parameter C_HAS_RSTB bound to: 0 - type: integer 
+	Parameter C_RST_PRIORITY_B bound to: CE - type: string 
+	Parameter C_RSTRAM_B bound to: 0 - type: integer 
+	Parameter C_INITB_VAL bound to: 0 - type: string 
+	Parameter C_HAS_ENB bound to: 0 - type: integer 
+	Parameter C_HAS_REGCEB bound to: 0 - type: integer 
+	Parameter C_USE_BYTE_WEB bound to: 0 - type: integer 
+	Parameter C_WEB_WIDTH bound to: 1 - type: integer 
+	Parameter C_WRITE_MODE_B bound to: WRITE_FIRST - type: string 
+	Parameter C_WRITE_WIDTH_B bound to: 16 - type: integer 
+	Parameter C_READ_WIDTH_B bound to: 16 - type: integer 
+	Parameter C_WRITE_DEPTH_B bound to: 1024 - type: integer 
+	Parameter C_READ_DEPTH_B bound to: 1024 - type: integer 
+	Parameter C_ADDRB_WIDTH bound to: 10 - type: integer 
+	Parameter C_HAS_MEM_OUTPUT_REGS_A bound to: 0 - type: integer 
+	Parameter C_HAS_MEM_OUTPUT_REGS_B bound to: 0 - type: integer 
+	Parameter C_HAS_MUX_OUTPUT_REGS_A bound to: 0 - type: integer 
+	Parameter C_HAS_MUX_OUTPUT_REGS_B bound to: 0 - type: integer 
+	Parameter C_MUX_PIPELINE_STAGES bound to: 0 - type: integer 
+	Parameter C_HAS_SOFTECC_INPUT_REGS_A bound to: 0 - type: integer 
+	Parameter C_HAS_SOFTECC_OUTPUT_REGS_B bound to: 0 - type: integer 
+	Parameter C_USE_SOFTECC bound to: 0 - type: integer 
+	Parameter C_USE_ECC bound to: 0 - type: integer 
+	Parameter C_EN_ECC_PIPE bound to: 0 - type: integer 
+	Parameter C_HAS_INJECTERR bound to: 0 - type: integer 
+	Parameter C_SIM_COLLISION_CHECK bound to: ALL - type: string 
+	Parameter C_COMMON_CLK bound to: 0 - type: integer 
+	Parameter C_DISABLE_WARN_BHV_COLL bound to: 0 - type: integer 
+	Parameter C_EN_SLEEP_PIN bound to: 0 - type: integer 
+	Parameter C_USE_URAM bound to: 0 - type: integer 
+	Parameter C_EN_RDADDRA_CHG bound to: 0 - type: integer 
+	Parameter C_EN_RDADDRB_CHG bound to: 0 - type: integer 
+	Parameter C_EN_DEEPSLEEP_PIN bound to: 0 - type: integer 
+	Parameter C_EN_SHUTDOWN_PIN bound to: 0 - type: integer 
+	Parameter C_EN_SAFETY_CKT bound to: 0 - type: integer 
+	Parameter C_DISABLE_WARN_BHV_RANGE bound to: 0 - type: integer 
+	Parameter C_COUNT_36K_BRAM bound to: 0 - type: string 
+	Parameter C_COUNT_18K_BRAM bound to: 1 - type: string 
+	Parameter C_EST_POWER_SUMMARY bound to: Estimated Power for IP     :     1.3548 mW - type: string 
+INFO: [Synth 8-3491] module 'blk_mem_gen_v8_4_1' declared at 'c:/Users/arockson/Documents/ECE449/ECE-499/ECE449Main.srcs/sources_1/ip/blk_mem_gen_0/hdl/blk_mem_gen_v8_4_vhsyn_rfs.vhd:195313' bound to instance 'U0' of component 'blk_mem_gen_v8_4_1' [c:/Users/arockson/Documents/ECE449/ECE-499/ECE449Main.srcs/sources_1/ip/blk_mem_gen_0/synth/blk_mem_gen_0.vhd:230]
+INFO: [Synth 8-256] done synthesizing module 'blk_mem_gen_0' (9#1) [c:/Users/arockson/Documents/ECE449/ECE-499/ECE449Main.srcs/sources_1/ip/blk_mem_gen_0/synth/blk_mem_gen_0.vhd:68]
+WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper_init has unconnected port SSRA
+WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper_init has unconnected port CLKB
+WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper_init has unconnected port SSRB
+WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper_init has unconnected port ENB
+WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper_init has unconnected port REGCEB
+WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper_init has unconnected port WEB[0]
+WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper_init has unconnected port ADDRB[9]
+WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper_init has unconnected port ADDRB[8]
+WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper_init has unconnected port ADDRB[7]
+WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper_init has unconnected port ADDRB[6]
+WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper_init has unconnected port ADDRB[5]
+WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper_init has unconnected port ADDRB[4]
+WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper_init has unconnected port ADDRB[3]
+WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper_init has unconnected port ADDRB[2]
+WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper_init has unconnected port ADDRB[1]
+WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper_init has unconnected port ADDRB[0]
+WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper_init has unconnected port DINB[17]
+WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper_init has unconnected port DINB[16]
+WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper_init has unconnected port DINB[15]
+WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper_init has unconnected port DINB[14]
+WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper_init has unconnected port DINB[13]
+WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper_init has unconnected port DINB[12]
+WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper_init has unconnected port DINB[11]
+WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper_init has unconnected port DINB[10]
+WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper_init has unconnected port DINB[9]
+WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper_init has unconnected port DINB[8]
+WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper_init has unconnected port DINB[7]
+WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper_init has unconnected port DINB[6]
+WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper_init has unconnected port DINB[5]
+WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper_init has unconnected port DINB[4]
+WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper_init has unconnected port DINB[3]
+WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper_init has unconnected port DINB[2]
+WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper_init has unconnected port DINB[1]
+WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper_init has unconnected port DINB[0]
+WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper_init has unconnected port SLEEP
+WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper_init has unconnected port INJECTSBITERR
+WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper_init has unconnected port INJECTDBITERR
+WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper_init has unconnected port ECCPIPECE
+WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper_init has unconnected port ram_rstram_b
+WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper_init has unconnected port ram_rstreg_b
+WARNING: [Synth 8-3331] design blk_mem_gen_generic_cstr has unconnected port REGCEA[0]
+WARNING: [Synth 8-3331] design blk_mem_gen_generic_cstr has unconnected port WEA[1]
+WARNING: [Synth 8-3331] design blk_mem_gen_generic_cstr has unconnected port REGCEB[0]
+WARNING: [Synth 8-3331] design blk_mem_gen_generic_cstr has unconnected port WEB[1]
+WARNING: [Synth 8-3331] design blk_mem_gen_generic_cstr has unconnected port INJECTSBITERR
+WARNING: [Synth 8-3331] design blk_mem_gen_generic_cstr has unconnected port INJECTDBITERR
+WARNING: [Synth 8-3331] design blk_mem_output_block has unconnected port CLKB
+WARNING: [Synth 8-3331] design blk_mem_output_block has unconnected port DOUTB_I[15]
+WARNING: [Synth 8-3331] design blk_mem_output_block has unconnected port DOUTB_I[14]
+WARNING: [Synth 8-3331] design blk_mem_output_block has unconnected port DOUTB_I[13]
+WARNING: [Synth 8-3331] design blk_mem_output_block has unconnected port DOUTB_I[12]
+WARNING: [Synth 8-3331] design blk_mem_output_block has unconnected port DOUTB_I[11]
+WARNING: [Synth 8-3331] design blk_mem_output_block has unconnected port DOUTB_I[10]
+WARNING: [Synth 8-3331] design blk_mem_output_block has unconnected port DOUTB_I[9]
+WARNING: [Synth 8-3331] design blk_mem_output_block has unconnected port DOUTB_I[8]
+WARNING: [Synth 8-3331] design blk_mem_output_block has unconnected port DOUTB_I[7]
+WARNING: [Synth 8-3331] design blk_mem_output_block has unconnected port DOUTB_I[6]
+WARNING: [Synth 8-3331] design blk_mem_output_block has unconnected port DOUTB_I[5]
+WARNING: [Synth 8-3331] design blk_mem_output_block has unconnected port DOUTB_I[4]
+WARNING: [Synth 8-3331] design blk_mem_output_block has unconnected port DOUTB_I[3]
+WARNING: [Synth 8-3331] design blk_mem_output_block has unconnected port DOUTB_I[2]
+WARNING: [Synth 8-3331] design blk_mem_output_block has unconnected port DOUTB_I[1]
+WARNING: [Synth 8-3331] design blk_mem_output_block has unconnected port DOUTB_I[0]
+WARNING: [Synth 8-3331] design blk_mem_output_block has unconnected port SBITERR_I
+WARNING: [Synth 8-3331] design blk_mem_output_block has unconnected port DBITERR_I
+WARNING: [Synth 8-3331] design blk_mem_output_block has unconnected port RDADDRECC_I[9]
+WARNING: [Synth 8-3331] design blk_mem_output_block has unconnected port RDADDRECC_I[8]
+WARNING: [Synth 8-3331] design blk_mem_output_block has unconnected port RDADDRECC_I[7]
+WARNING: [Synth 8-3331] design blk_mem_output_block has unconnected port RDADDRECC_I[6]
+WARNING: [Synth 8-3331] design blk_mem_output_block has unconnected port RDADDRECC_I[5]
+WARNING: [Synth 8-3331] design blk_mem_output_block has unconnected port RDADDRECC_I[4]
+WARNING: [Synth 8-3331] design blk_mem_output_block has unconnected port RDADDRECC_I[3]
+WARNING: [Synth 8-3331] design blk_mem_output_block has unconnected port RDADDRECC_I[2]
+WARNING: [Synth 8-3331] design blk_mem_output_block has unconnected port RDADDRECC_I[1]
+WARNING: [Synth 8-3331] design blk_mem_output_block has unconnected port RDADDRECC_I[0]
+WARNING: [Synth 8-3331] design blk_mem_input_block has unconnected port RSTA
+WARNING: [Synth 8-3331] design blk_mem_input_block has unconnected port REGCEA
+WARNING: [Synth 8-3331] design blk_mem_input_block has unconnected port WEA[0]
+WARNING: [Synth 8-3331] design blk_mem_input_block has unconnected port DINA[15]
+WARNING: [Synth 8-3331] design blk_mem_input_block has unconnected port DINA[14]
+WARNING: [Synth 8-3331] design blk_mem_input_block has unconnected port DINA[13]
+WARNING: [Synth 8-3331] design blk_mem_input_block has unconnected port DINA[12]
+WARNING: [Synth 8-3331] design blk_mem_input_block has unconnected port DINA[11]
+WARNING: [Synth 8-3331] design blk_mem_input_block has unconnected port DINA[10]
+WARNING: [Synth 8-3331] design blk_mem_input_block has unconnected port DINA[9]
+WARNING: [Synth 8-3331] design blk_mem_input_block has unconnected port DINA[8]
+WARNING: [Synth 8-3331] design blk_mem_input_block has unconnected port DINA[7]
+WARNING: [Synth 8-3331] design blk_mem_input_block has unconnected port DINA[6]
+WARNING: [Synth 8-3331] design blk_mem_input_block has unconnected port DINA[5]
+WARNING: [Synth 8-3331] design blk_mem_input_block has unconnected port DINA[4]
+WARNING: [Synth 8-3331] design blk_mem_input_block has unconnected port DINA[3]
+WARNING: [Synth 8-3331] design blk_mem_input_block has unconnected port DINA[2]
+WARNING: [Synth 8-3331] design blk_mem_input_block has unconnected port DINA[1]
+WARNING: [Synth 8-3331] design blk_mem_input_block has unconnected port DINA[0]
+WARNING: [Synth 8-3331] design blk_mem_input_block has unconnected port CLKB
+WARNING: [Synth 8-3331] design blk_mem_input_block has unconnected port RSTB
+WARNING: [Synth 8-3331] design blk_mem_input_block has unconnected port ENB
+WARNING: [Synth 8-3331] design blk_mem_input_block has unconnected port REGCEB
+WARNING: [Synth 8-3331] design blk_mem_input_block has unconnected port WEB[0]
+WARNING: [Synth 8-3331] design blk_mem_input_block has unconnected port ADDRB[9]
+INFO: [Common 17-14] Message 'Synth 8-3331' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:01:21 ; elapsed = 00:01:23 . Memory (MB): peak = 601.645 ; gain = 359.492
+---------------------------------------------------------------------------------
+
+Report Check Netlist: 
++------+------------------+-------+---------+-------+------------------+
+|      |Item              |Errors |Warnings |Status |Description       |
++------+------------------+-------+---------+-------+------------------+
+|1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
++------+------------------+-------+---------+-------+------------------+
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:01:21 ; elapsed = 00:01:23 . Memory (MB): peak = 601.645 ; gain = 359.492
+---------------------------------------------------------------------------------
+INFO: [Netlist 29-17] Analyzing 1 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Device 21-403] Loading part xc7a35tcpg236-1
+INFO: [Project 1-570] Preparing netlist for logic optimization
+
+Processing XDC Constraints
+Initializing timing engine
+Parsing XDC File [c:/Users/arockson/Documents/ECE449/ECE-499/ECE449Main.srcs/sources_1/ip/blk_mem_gen_0/blk_mem_gen_0_ooc.xdc] for cell 'U0'
+Finished Parsing XDC File [c:/Users/arockson/Documents/ECE449/ECE-499/ECE449Main.srcs/sources_1/ip/blk_mem_gen_0/blk_mem_gen_0_ooc.xdc] for cell 'U0'
+Parsing XDC File [C:/Users/arockson/Documents/ECE449/ECE-499/ECE449Main.runs/blk_mem_gen_0_synth_1/dont_touch.xdc]
+Finished Parsing XDC File [C:/Users/arockson/Documents/ECE449/ECE-499/ECE449Main.runs/blk_mem_gen_0_synth_1/dont_touch.xdc]
+Completed Processing XDC Constraints
+
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.006 . Memory (MB): peak = 645.219 ; gain = 0.000
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:01:35 ; elapsed = 00:01:37 . Memory (MB): peak = 645.219 ; gain = 403.066
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xc7a35tcpg236-1
+---------------------------------------------------------------------------------
+Finished Loading Part and Timing Information : Time (s): cpu = 00:01:35 ; elapsed = 00:01:37 . Memory (MB): peak = 645.219 ; gain = 403.066
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying 'set_property' XDC Constraints
+---------------------------------------------------------------------------------
+Applied set_property DONT_TOUCH = true for U0. (constraint file  C:/Users/arockson/Documents/ECE449/ECE-499/ECE449Main.runs/blk_mem_gen_0_synth_1/dont_touch.xdc, line 9).
+---------------------------------------------------------------------------------
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:01:35 ; elapsed = 00:01:37 . Memory (MB): peak = 645.219 ; gain = 403.066
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:01:35 ; elapsed = 00:01:37 . Memory (MB): peak = 645.219 ; gain = 403.066
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+Detailed RTL Component Info : 
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start RTL Hierarchical Component Statistics 
+---------------------------------------------------------------------------------
+Hierarchical RTL Component report 
+---------------------------------------------------------------------------------
+Finished RTL Hierarchical Component Statistics
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 90 (col length:60)
+BRAMs: 100 (col length: RAMB18 60 RAMB36 30)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Cross Boundary and Area Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:01:36 ; elapsed = 00:01:38 . Memory (MB): peak = 645.219 ; gain = 403.066
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Applying XDC Timing Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:01:44 ; elapsed = 00:01:47 . Memory (MB): peak = 702.137 ; gain = 459.984
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:01:44 ; elapsed = 00:01:47 . Memory (MB): peak = 702.137 ; gain = 459.984
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:01:44 ; elapsed = 00:01:47 . Memory (MB): peak = 711.730 ; gain = 469.578
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:01:45 ; elapsed = 00:01:48 . Memory (MB): peak = 711.730 ; gain = 469.578
+---------------------------------------------------------------------------------
+
+Report Check Netlist: 
++------+------------------+-------+---------+-------+------------------+
+|      |Item              |Errors |Warnings |Status |Description       |
++------+------------------+-------+---------+-------+------------------+
+|1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
++------+------------------+-------+---------+-------+------------------+
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:01:45 ; elapsed = 00:01:48 . Memory (MB): peak = 711.730 ; gain = 469.578
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Rebuilding User Hierarchy
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:01:45 ; elapsed = 00:01:48 . Memory (MB): peak = 711.730 ; gain = 469.578
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Ports
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Ports : Time (s): cpu = 00:01:45 ; elapsed = 00:01:48 . Memory (MB): peak = 711.730 ; gain = 469.578
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:01:45 ; elapsed = 00:01:48 . Memory (MB): peak = 711.730 ; gain = 469.578
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Nets
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Nets : Time (s): cpu = 00:01:45 ; elapsed = 00:01:48 . Memory (MB): peak = 711.730 ; gain = 469.578
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+Report BlackBoxes: 
++-+--------------+----------+
+| |BlackBox name |Instances |
++-+--------------+----------+
++-+--------------+----------+
+
+Report Cell Usage: 
++------+---------+------+
+|      |Cell     |Count |
++------+---------+------+
+|1     |RAMB18E1 |     1|
++------+---------+------+
+
+Report Instance Areas: 
++------+---------------------------------------------+------------------------------+------+
+|      |Instance                                     |Module                        |Cells |
++------+---------------------------------------------+------------------------------+------+
+|1     |top                                          |                              |     1|
+|2     |  U0                                         |blk_mem_gen_v8_4_1            |     1|
+|3     |    inst_blk_mem_gen                         |blk_mem_gen_v8_4_1_synth      |     1|
+|4     |      \gnbram.gnativebmg.native_blk_mem_gen  |blk_mem_gen_top               |     1|
+|5     |        \valid.cstr                          |blk_mem_gen_generic_cstr      |     1|
+|6     |          \ramloop[0].ram.r                  |blk_mem_gen_prim_width        |     1|
+|7     |            \prim_init.ram                   |blk_mem_gen_prim_wrapper_init |     1|
++------+---------------------------------------------+------------------------------+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:01:45 ; elapsed = 00:01:48 . Memory (MB): peak = 711.730 ; gain = 469.578
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 0 critical warnings and 181 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:17 ; elapsed = 00:01:40 . Memory (MB): peak = 711.730 ; gain = 426.004
+Synthesis Optimization Complete : Time (s): cpu = 00:01:45 ; elapsed = 00:01:48 . Memory (MB): peak = 711.730 ; gain = 469.578
+INFO: [Project 1-571] Translating synthesized netlist
+INFO: [Netlist 29-17] Analyzing 1 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+INFO: [Common 17-83] Releasing license: Synthesis
+17 Infos, 100 Warnings, 0 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:01:47 ; elapsed = 00:01:50 . Memory (MB): peak = 723.527 ; gain = 492.891
+INFO: [Common 17-1381] The checkpoint 'C:/Users/arockson/Documents/ECE449/ECE-499/ECE449Main.runs/blk_mem_gen_0_synth_1/blk_mem_gen_0.dcp' has been generated.
+INFO: [Coretcl 2-1482] Added synthesis output to IP cache for IP c:/Users/arockson/Documents/ECE449/ECE-499/ECE449Main.srcs/sources_1/ip/blk_mem_gen_0/blk_mem_gen_0.xci
+INFO: [Coretcl 2-1174] Renamed 6 cell refs.
+INFO: [Common 17-1381] The checkpoint 'C:/Users/arockson/Documents/ECE449/ECE-499/ECE449Main.runs/blk_mem_gen_0_synth_1/blk_mem_gen_0.dcp' has been generated.
+INFO: [runtcl-4] Executing : report_utilization -file blk_mem_gen_0_utilization_synth.rpt -pb blk_mem_gen_0_utilization_synth.pb
+report_utilization: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.021 . Memory (MB): peak = 723.527 ; gain = 0.000
+INFO: [Common 17-206] Exiting Vivado at Mon Apr 13 13:16:47 2026...
+[Mon Apr 13 13:16:51 2026] blk_mem_gen_0_synth_1 finished
+wait_on_run: Time (s): cpu = 00:00:01 ; elapsed = 00:02:01 . Memory (MB): peak = 2784.902 ; gain = 0.000
+export_simulation -of_objects [get_files C:/Users/arockson/Documents/ECE449/ECE-499/ECE449Main.srcs/sources_1/ip/blk_mem_gen_0/blk_mem_gen_0.xci] -directory C:/Users/arockson/Documents/ECE449/ECE-499/ECE449Main.ip_user_files/sim_scripts -ip_user_files_dir C:/Users/arockson/Documents/ECE449/ECE-499/ECE449Main.ip_user_files -ipstatic_source_dir C:/Users/arockson/Documents/ECE449/ECE-499/ECE449Main.ip_user_files/ipstatic -lib_map_path [list {modelsim=C:/Users/arockson/Documents/ECE449/ECE-499/ECE449Main.cache/compile_simlib/modelsim} {questa=C:/Users/arockson/Documents/ECE449/ECE-499/ECE449Main.cache/compile_simlib/questa} {riviera=C:/Users/arockson/Documents/ECE449/ECE-499/ECE449Main.cache/compile_simlib/riviera} {activehdl=C:/Users/arockson/Documents/ECE449/ECE-499/ECE449Main.cache/compile_simlib/activehdl}] -use_ip_compiled_libs -force -quiet
+reset_run synth_1
+WARNING: [Vivado 12-1017] Problems encountered:
+1. Failed to delete one or more files in run directory C:/Users/arockson/Documents/ECE449/ECE-499/ECE449Main.runs/synth_1
+
+launch_runs impl_1 -to_step write_bitstream -jobs 4
+[Mon Apr 13 13:17:25 2026] Launched synth_1...
+Run output will be captured here: C:/Users/arockson/Documents/ECE449/ECE-499/ECE449Main.runs/synth_1/runme.log
+[Mon Apr 13 13:17:25 2026] Launched impl_1...
+Run output will be captured here: C:/Users/arockson/Documents/ECE449/ECE-499/ECE449Main.runs/impl_1/runme.log
+open_hw
+connect_hw_server
+INFO: [Labtools 27-2285] Connecting to hw_server url TCP:localhost:3121
+INFO: [Labtools 27-2222] Launching hw_server...
+INFO: [Labtools 27-2221] Launch Output:
+
+****** Xilinx hw_server v2017.4
+  **** Build date : Dec 15 2017-21:08:27
+    ** Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
+
+
+open_hw_target
+INFO: [Labtoolstcl 44-466] Opening hw_target localhost:3121/xilinx_tcf/Digilent/210183A8A7D3A
+set_property PROGRAM.FILE {C:/Users/arockson/Documents/ECE449/ECE-499/ECE449Main.runs/impl_1/top.bit} [get_hw_devices xc7a35t_0]
+current_hw_device [get_hw_devices xc7a35t_0]
+refresh_hw_device -update_hw_probes false [lindex [get_hw_devices xc7a35t_0] 0]
+INFO: [Labtools 27-1434] Device xc7a35t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+WARNING: [Labtools 27-3361] The debug hub core was not detected.
+Resolution: 
+1. Make sure the clock connected to the debug hub (dbg_hub) core is a free running clock and is active.
+2. Make sure the BSCAN_SWITCH_USER_MASK device property in Vivado Hardware Manager reflects the user scan chain setting in the design and refresh the device.  To determine the user scan chain setting in the design, open the implemented design and use 'get_property C_USER_SCAN_CHAIN [get_debug_cores dbg_hub]'.
+For more details on setting the scan chain property, consult the Vivado Debug and Programming User Guide (UG908).
+set_property PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property PROGRAM.FILE {C:/Users/arockson/Documents/ECE449/ECE-499/ECE449Main.runs/impl_1/top.bit} [get_hw_devices xc7a35t_0]
+program_hw_devices [get_hw_devices xc7a35t_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
+INFO: [Labtools 27-1434] Device xc7a35t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+WARNING: [Labtools 27-3361] The debug hub core was not detected.
+Resolution: 
+1. Make sure the clock connected to the debug hub (dbg_hub) core is a free running clock and is active.
+2. Make sure the BSCAN_SWITCH_USER_MASK device property in Vivado Hardware Manager reflects the user scan chain setting in the design and refresh the device.  To determine the user scan chain setting in the design, open the implemented design and use 'get_property C_USER_SCAN_CHAIN [get_debug_cores dbg_hub]'.
+For more details on setting the scan chain property, consult the Vivado Debug and Programming User Guide (UG908).
+close_hw
+reset_run synth_1
+WARNING: [Vivado 12-1017] Problems encountered:
+1. Failed to delete one or more files in run directory C:/Users/arockson/Documents/ECE449/ECE-499/ECE449Main.runs/synth_1
+
+launch_runs impl_1 -to_step write_bitstream -jobs 4
+[Mon Apr 13 13:27:44 2026] Launched synth_1...
+Run output will be captured here: C:/Users/arockson/Documents/ECE449/ECE-499/ECE449Main.runs/synth_1/runme.log
+[Mon Apr 13 13:27:44 2026] Launched impl_1...
+Run output will be captured here: C:/Users/arockson/Documents/ECE449/ECE-499/ECE449Main.runs/impl_1/runme.log
+reset_run synth_1
+WARNING: [Vivado 12-1017] Problems encountered:
+1. Failed to delete one or more files in run directory C:/Users/arockson/Documents/ECE449/ECE-499/ECE449Main.runs/synth_1
+
+launch_runs impl_1 -to_step write_bitstream -jobs 4
+[Mon Apr 13 13:29:00 2026] Launched synth_1...
+Run output will be captured here: C:/Users/arockson/Documents/ECE449/ECE-499/ECE449Main.runs/synth_1/runme.log
+[Mon Apr 13 13:29:00 2026] Launched impl_1...
+Run output will be captured here: C:/Users/arockson/Documents/ECE449/ECE-499/ECE449Main.runs/impl_1/runme.log
+open_hw
+connect_hw_server
+INFO: [Labtools 27-2285] Connecting to hw_server url TCP:localhost:3121
+INFO: [Labtools 27-2222] Launching hw_server...
+INFO: [Labtools 27-2221] Launch Output:
+
+****** Xilinx hw_server v2017.4
+  **** Build date : Dec 15 2017-21:08:27
+    ** Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
+
+
+open_hw_target
+INFO: [Labtoolstcl 44-466] Opening hw_target localhost:3121/xilinx_tcf/Digilent/210183A8A7D3A
+set_property PROGRAM.FILE {C:/Users/arockson/Documents/ECE449/ECE-499/ECE449Main.runs/impl_1/top.bit} [get_hw_devices xc7a35t_0]
+current_hw_device [get_hw_devices xc7a35t_0]
+refresh_hw_device -update_hw_probes false [lindex [get_hw_devices xc7a35t_0] 0]
+INFO: [Labtools 27-1434] Device xc7a35t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+WARNING: [Labtools 27-3361] The debug hub core was not detected.
+Resolution: 
+1. Make sure the clock connected to the debug hub (dbg_hub) core is a free running clock and is active.
+2. Make sure the BSCAN_SWITCH_USER_MASK device property in Vivado Hardware Manager reflects the user scan chain setting in the design and refresh the device.  To determine the user scan chain setting in the design, open the implemented design and use 'get_property C_USER_SCAN_CHAIN [get_debug_cores dbg_hub]'.
+For more details on setting the scan chain property, consult the Vivado Debug and Programming User Guide (UG908).
+set_property PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property PROGRAM.FILE {C:/Users/arockson/Documents/ECE449/ECE-499/ECE449Main.runs/impl_1/top.bit} [get_hw_devices xc7a35t_0]
+program_hw_devices [get_hw_devices xc7a35t_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
+INFO: [Labtools 27-1434] Device xc7a35t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+WARNING: [Labtools 27-3361] The debug hub core was not detected.
+Resolution: 
+1. Make sure the clock connected to the debug hub (dbg_hub) core is a free running clock and is active.
+2. Make sure the BSCAN_SWITCH_USER_MASK device property in Vivado Hardware Manager reflects the user scan chain setting in the design and refresh the device.  To determine the user scan chain setting in the design, open the implemented design and use 'get_property C_USER_SCAN_CHAIN [get_debug_cores dbg_hub]'.
+For more details on setting the scan chain property, consult the Vivado Debug and Programming User Guide (UG908).
+close_hw
+add_files -norecurse C:/Users/arockson/Documents/ECE449/ECE-499/console_v1_02.vhd
+update_compile_order -fileset sources_1
+reset_run synth_1
+WARNING: [Vivado 12-1017] Problems encountered:
+1. Failed to delete one or more files in run directory C:/Users/arockson/Documents/ECE449/ECE-499/ECE449Main.runs/synth_1
+
+launch_runs impl_1 -to_step write_bitstream -jobs 4
+[Mon Apr 13 14:32:52 2026] Launched synth_1...
+Run output will be captured here: C:/Users/arockson/Documents/ECE449/ECE-499/ECE449Main.runs/synth_1/runme.log
+[Mon Apr 13 14:32:52 2026] Launched impl_1...
+Run output will be captured here: C:/Users/arockson/Documents/ECE449/ECE-499/ECE449Main.runs/impl_1/runme.log
+reset_run synth_1
+WARNING: [Vivado 12-1017] Problems encountered:
+1. Failed to delete one or more files in run directory C:/Users/arockson/Documents/ECE449/ECE-499/ECE449Main.runs/synth_1
+
+launch_runs impl_1 -to_step write_bitstream -jobs 4
+[Mon Apr 13 14:45:58 2026] Launched synth_1...
+Run output will be captured here: C:/Users/arockson/Documents/ECE449/ECE-499/ECE449Main.runs/synth_1/runme.log
+[Mon Apr 13 14:45:58 2026] Launched impl_1...
+Run output will be captured here: C:/Users/arockson/Documents/ECE449/ECE-499/ECE449Main.runs/impl_1/runme.log
+reset_run synth_1
+WARNING: [Vivado 12-1017] Problems encountered:
+1. Failed to delete one or more files in run directory C:/Users/arockson/Documents/ECE449/ECE-499/ECE449Main.runs/synth_1
+
+launch_runs impl_1 -to_step write_bitstream -jobs 4
+[Mon Apr 13 14:51:46 2026] Launched synth_1...
+Run output will be captured here: C:/Users/arockson/Documents/ECE449/ECE-499/ECE449Main.runs/synth_1/runme.log
+[Mon Apr 13 14:51:46 2026] Launched impl_1...
+Run output will be captured here: C:/Users/arockson/Documents/ECE449/ECE-499/ECE449Main.runs/impl_1/runme.log
+open_hw
+connect_hw_server
+INFO: [Labtools 27-2285] Connecting to hw_server url TCP:localhost:3121
+INFO: [Labtools 27-2222] Launching hw_server...
+INFO: [Labtools 27-2221] Launch Output:
+
+****** Xilinx hw_server v2017.4
+  **** Build date : Dec 15 2017-21:08:27
+    ** Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
+
+
+open_hw_target
+INFO: [Labtoolstcl 44-466] Opening hw_target localhost:3121/xilinx_tcf/Digilent/210183A8A7D3A
+set_property PROGRAM.FILE {C:/Users/arockson/Documents/ECE449/ECE-499/ECE449Main.runs/impl_1/top.bit} [get_hw_devices xc7a35t_0]
+current_hw_device [get_hw_devices xc7a35t_0]
+refresh_hw_device -update_hw_probes false [lindex [get_hw_devices xc7a35t_0] 0]
+INFO: [Labtools 27-1434] Device xc7a35t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+WARNING: [Labtools 27-3361] The debug hub core was not detected.
+Resolution: 
+1. Make sure the clock connected to the debug hub (dbg_hub) core is a free running clock and is active.
+2. Make sure the BSCAN_SWITCH_USER_MASK device property in Vivado Hardware Manager reflects the user scan chain setting in the design and refresh the device.  To determine the user scan chain setting in the design, open the implemented design and use 'get_property C_USER_SCAN_CHAIN [get_debug_cores dbg_hub]'.
+For more details on setting the scan chain property, consult the Vivado Debug and Programming User Guide (UG908).
+set_property PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property PROGRAM.FILE {C:/Users/arockson/Documents/ECE449/ECE-499/ECE449Main.runs/impl_1/top.bit} [get_hw_devices xc7a35t_0]
+program_hw_devices [get_hw_devices xc7a35t_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
+INFO: [Labtools 27-1434] Device xc7a35t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+WARNING: [Labtools 27-3361] The debug hub core was not detected.
+Resolution: 
+1. Make sure the clock connected to the debug hub (dbg_hub) core is a free running clock and is active.
+2. Make sure the BSCAN_SWITCH_USER_MASK device property in Vivado Hardware Manager reflects the user scan chain setting in the design and refresh the device.  To determine the user scan chain setting in the design, open the implemented design and use 'get_property C_USER_SCAN_CHAIN [get_debug_cores dbg_hub]'.
+For more details on setting the scan chain property, consult the Vivado Debug and Programming User Guide (UG908).
+close_hw
+close_hw: Time (s): cpu = 00:00:03 ; elapsed = 00:00:06 . Memory (MB): peak = 2806.723 ; gain = 0.000
+WARNING: [IP_Flow 19-4067] Ignoring invalid widget type specified checkbox.Providing a default widget
+WARNING: [IP_Flow 19-4067] Ignoring invalid widget type specified checkbox.Providing a default widget
+set_property -dict [list CONFIG.Coe_File {C:/Users/arockson/Documents/ECE449/loop.coe}] [get_ips blk_mem_gen_0]
+INFO: [IP_Flow 19-3484] Absolute path of file 'c:/Users/arockson/Documents/ECE449/loop.coe' provided. It will be converted relative to IP Instance files '../../../../../loop.coe'
+generate_target all [get_files  C:/Users/arockson/Documents/ECE449/ECE-499/ECE449Main.srcs/sources_1/ip/blk_mem_gen_0/blk_mem_gen_0.xci]
+INFO: [IP_Flow 19-1686] Generating 'Instantiation Template' target for IP 'blk_mem_gen_0'...
+INFO: [IP_Flow 19-1686] Generating 'Synthesis' target for IP 'blk_mem_gen_0'...
+INFO: [IP_Flow 19-1686] Generating 'Simulation' target for IP 'blk_mem_gen_0'...
+INFO: [IP_Flow 19-1686] Generating 'Miscellaneous' target for IP 'blk_mem_gen_0'...
+INFO: [IP_Flow 19-1686] Generating 'Change Log' target for IP 'blk_mem_gen_0'...
+catch { config_ip_cache -export [get_ips -all blk_mem_gen_0] }
+export_ip_user_files -of_objects [get_files C:/Users/arockson/Documents/ECE449/ECE-499/ECE449Main.srcs/sources_1/ip/blk_mem_gen_0/blk_mem_gen_0.xci] -no_script -sync -force -quiet
+reset_run blk_mem_gen_0_synth_1
+WARNING: [Vivado 12-1017] Problems encountered:
+1. Failed to delete one or more files in run directory C:/Users/arockson/Documents/ECE449/ECE-499/ECE449Main.runs/blk_mem_gen_0_synth_1
+
+launch_runs -jobs 4 blk_mem_gen_0_synth_1
+[Mon Apr 13 14:58:26 2026] Launched blk_mem_gen_0_synth_1...
+Run output will be captured here: C:/Users/arockson/Documents/ECE449/ECE-499/ECE449Main.runs/blk_mem_gen_0_synth_1/runme.log
+INFO: [Vivado 12-4357] Exporting simulation files for 'blk_mem_gen_0'... please wait for 'blk_mem_gen_0_synth_1' run to finish...
+wait_on_run blk_mem_gen_0_synth_1
+[Mon Apr 13 14:58:26 2026] Waiting for blk_mem_gen_0_synth_1 to finish...
+[Mon Apr 13 14:58:31 2026] Waiting for blk_mem_gen_0_synth_1 to finish...
+[Mon Apr 13 14:58:36 2026] Waiting for blk_mem_gen_0_synth_1 to finish...
+[Mon Apr 13 14:58:41 2026] Waiting for blk_mem_gen_0_synth_1 to finish...
+[Mon Apr 13 14:58:51 2026] Waiting for blk_mem_gen_0_synth_1 to finish...
+[Mon Apr 13 14:59:01 2026] Waiting for blk_mem_gen_0_synth_1 to finish...
+[Mon Apr 13 14:59:11 2026] Waiting for blk_mem_gen_0_synth_1 to finish...
+[Mon Apr 13 14:59:21 2026] Waiting for blk_mem_gen_0_synth_1 to finish...
+[Mon Apr 13 14:59:42 2026] Waiting for blk_mem_gen_0_synth_1 to finish...
+[Mon Apr 13 15:00:02 2026] Waiting for blk_mem_gen_0_synth_1 to finish...
+[Mon Apr 13 15:00:22 2026] Waiting for blk_mem_gen_0_synth_1 to finish...
+
+*** Running vivado
+    with args -log blk_mem_gen_0.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source blk_mem_gen_0.tcl
+
+
+****** Vivado v2017.4 (64-bit)
+  **** SW Build 2086221 on Fri Dec 15 20:55:39 MST 2017
+  **** IP Build 2085800 on Fri Dec 15 22:25:07 MST 2017
+    ** Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
+
+source blk_mem_gen_0.tcl -notrace
+Command: synth_design -top blk_mem_gen_0 -part xc7a35tcpg236-1 -mode out_of_context
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7a35t'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a35t'
+INFO: Launching helper process for spawning children vivado processes
+INFO: Helper process launched with PID 10212 
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:11 ; elapsed = 00:00:12 . Memory (MB): peak = 342.160 ; gain = 99.875
+---------------------------------------------------------------------------------
+INFO: [Synth 8-638] synthesizing module 'blk_mem_gen_0' [c:/Users/arockson/Documents/ECE449/ECE-499/ECE449Main.srcs/sources_1/ip/blk_mem_gen_0/synth/blk_mem_gen_0.vhd:68]
+	Parameter C_FAMILY bound to: artix7 - type: string 
+	Parameter C_XDEVICEFAMILY bound to: artix7 - type: string 
+	Parameter C_ELABORATION_DIR bound to: ./ - type: string 
+	Parameter C_INTERFACE_TYPE bound to: 0 - type: integer 
+	Parameter C_AXI_TYPE bound to: 1 - type: integer 
+	Parameter C_AXI_SLAVE_TYPE bound to: 0 - type: integer 
+	Parameter C_USE_BRAM_BLOCK bound to: 0 - type: integer 
+	Parameter C_ENABLE_32BIT_ADDRESS bound to: 0 - type: integer 
+	Parameter C_CTRL_ECC_ALGO bound to: NONE - type: string 
+	Parameter C_HAS_AXI_ID bound to: 0 - type: integer 
+	Parameter C_AXI_ID_WIDTH bound to: 4 - type: integer 
+	Parameter C_MEM_TYPE bound to: 3 - type: integer 
+	Parameter C_BYTE_SIZE bound to: 9 - type: integer 
+	Parameter C_ALGORITHM bound to: 1 - type: integer 
+	Parameter C_PRIM_TYPE bound to: 1 - type: integer 
+	Parameter C_LOAD_INIT_FILE bound to: 1 - type: integer 
+	Parameter C_INIT_FILE_NAME bound to: blk_mem_gen_0.mif - type: string 
+	Parameter C_INIT_FILE bound to: blk_mem_gen_0.mem - type: string 
+	Parameter C_USE_DEFAULT_DATA bound to: 0 - type: integer 
+	Parameter C_DEFAULT_DATA bound to: 0 - type: string 
+	Parameter C_HAS_RSTA bound to: 0 - type: integer 
+	Parameter C_RST_PRIORITY_A bound to: CE - type: string 
+	Parameter C_RSTRAM_A bound to: 0 - type: integer 
+	Parameter C_INITA_VAL bound to: 0 - type: string 
+	Parameter C_HAS_ENA bound to: 1 - type: integer 
+	Parameter C_HAS_REGCEA bound to: 0 - type: integer 
+	Parameter C_USE_BYTE_WEA bound to: 0 - type: integer 
+	Parameter C_WEA_WIDTH bound to: 1 - type: integer 
+	Parameter C_WRITE_MODE_A bound to: WRITE_FIRST - type: string 
+	Parameter C_WRITE_WIDTH_A bound to: 16 - type: integer 
+	Parameter C_READ_WIDTH_A bound to: 16 - type: integer 
+	Parameter C_WRITE_DEPTH_A bound to: 1024 - type: integer 
+	Parameter C_READ_DEPTH_A bound to: 1024 - type: integer 
+	Parameter C_ADDRA_WIDTH bound to: 10 - type: integer 
+	Parameter C_HAS_RSTB bound to: 0 - type: integer 
+	Parameter C_RST_PRIORITY_B bound to: CE - type: string 
+	Parameter C_RSTRAM_B bound to: 0 - type: integer 
+	Parameter C_INITB_VAL bound to: 0 - type: string 
+	Parameter C_HAS_ENB bound to: 0 - type: integer 
+	Parameter C_HAS_REGCEB bound to: 0 - type: integer 
+	Parameter C_USE_BYTE_WEB bound to: 0 - type: integer 
+	Parameter C_WEB_WIDTH bound to: 1 - type: integer 
+	Parameter C_WRITE_MODE_B bound to: WRITE_FIRST - type: string 
+	Parameter C_WRITE_WIDTH_B bound to: 16 - type: integer 
+	Parameter C_READ_WIDTH_B bound to: 16 - type: integer 
+	Parameter C_WRITE_DEPTH_B bound to: 1024 - type: integer 
+	Parameter C_READ_DEPTH_B bound to: 1024 - type: integer 
+	Parameter C_ADDRB_WIDTH bound to: 10 - type: integer 
+	Parameter C_HAS_MEM_OUTPUT_REGS_A bound to: 0 - type: integer 
+	Parameter C_HAS_MEM_OUTPUT_REGS_B bound to: 0 - type: integer 
+	Parameter C_HAS_MUX_OUTPUT_REGS_A bound to: 0 - type: integer 
+	Parameter C_HAS_MUX_OUTPUT_REGS_B bound to: 0 - type: integer 
+	Parameter C_MUX_PIPELINE_STAGES bound to: 0 - type: integer 
+	Parameter C_HAS_SOFTECC_INPUT_REGS_A bound to: 0 - type: integer 
+	Parameter C_HAS_SOFTECC_OUTPUT_REGS_B bound to: 0 - type: integer 
+	Parameter C_USE_SOFTECC bound to: 0 - type: integer 
+	Parameter C_USE_ECC bound to: 0 - type: integer 
+	Parameter C_EN_ECC_PIPE bound to: 0 - type: integer 
+	Parameter C_HAS_INJECTERR bound to: 0 - type: integer 
+	Parameter C_SIM_COLLISION_CHECK bound to: ALL - type: string 
+	Parameter C_COMMON_CLK bound to: 0 - type: integer 
+	Parameter C_DISABLE_WARN_BHV_COLL bound to: 0 - type: integer 
+	Parameter C_EN_SLEEP_PIN bound to: 0 - type: integer 
+	Parameter C_USE_URAM bound to: 0 - type: integer 
+	Parameter C_EN_RDADDRA_CHG bound to: 0 - type: integer 
+	Parameter C_EN_RDADDRB_CHG bound to: 0 - type: integer 
+	Parameter C_EN_DEEPSLEEP_PIN bound to: 0 - type: integer 
+	Parameter C_EN_SHUTDOWN_PIN bound to: 0 - type: integer 
+	Parameter C_EN_SAFETY_CKT bound to: 0 - type: integer 
+	Parameter C_DISABLE_WARN_BHV_RANGE bound to: 0 - type: integer 
+	Parameter C_COUNT_36K_BRAM bound to: 0 - type: string 
+	Parameter C_COUNT_18K_BRAM bound to: 1 - type: string 
+	Parameter C_EST_POWER_SUMMARY bound to: Estimated Power for IP     :     1.3548 mW - type: string 
+INFO: [Synth 8-3491] module 'blk_mem_gen_v8_4_1' declared at 'c:/Users/arockson/Documents/ECE449/ECE-499/ECE449Main.srcs/sources_1/ip/blk_mem_gen_0/hdl/blk_mem_gen_v8_4_vhsyn_rfs.vhd:195313' bound to instance 'U0' of component 'blk_mem_gen_v8_4_1' [c:/Users/arockson/Documents/ECE449/ECE-499/ECE449Main.srcs/sources_1/ip/blk_mem_gen_0/synth/blk_mem_gen_0.vhd:230]
+INFO: [Synth 8-256] done synthesizing module 'blk_mem_gen_0' (9#1) [c:/Users/arockson/Documents/ECE449/ECE-499/ECE449Main.srcs/sources_1/ip/blk_mem_gen_0/synth/blk_mem_gen_0.vhd:68]
+WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper_init has unconnected port SSRA
+WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper_init has unconnected port CLKB
+WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper_init has unconnected port SSRB
+WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper_init has unconnected port ENB
+WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper_init has unconnected port REGCEB
+WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper_init has unconnected port WEB[0]
+WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper_init has unconnected port ADDRB[9]
+WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper_init has unconnected port ADDRB[8]
+WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper_init has unconnected port ADDRB[7]
+WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper_init has unconnected port ADDRB[6]
+WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper_init has unconnected port ADDRB[5]
+WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper_init has unconnected port ADDRB[4]
+WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper_init has unconnected port ADDRB[3]
+WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper_init has unconnected port ADDRB[2]
+WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper_init has unconnected port ADDRB[1]
+WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper_init has unconnected port ADDRB[0]
+WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper_init has unconnected port DINB[17]
+WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper_init has unconnected port DINB[16]
+WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper_init has unconnected port DINB[15]
+WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper_init has unconnected port DINB[14]
+WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper_init has unconnected port DINB[13]
+WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper_init has unconnected port DINB[12]
+WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper_init has unconnected port DINB[11]
+WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper_init has unconnected port DINB[10]
+WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper_init has unconnected port DINB[9]
+WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper_init has unconnected port DINB[8]
+WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper_init has unconnected port DINB[7]
+WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper_init has unconnected port DINB[6]
+WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper_init has unconnected port DINB[5]
+WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper_init has unconnected port DINB[4]
+WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper_init has unconnected port DINB[3]
+WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper_init has unconnected port DINB[2]
+WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper_init has unconnected port DINB[1]
+WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper_init has unconnected port DINB[0]
+WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper_init has unconnected port SLEEP
+WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper_init has unconnected port INJECTSBITERR
+WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper_init has unconnected port INJECTDBITERR
+WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper_init has unconnected port ECCPIPECE
+WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper_init has unconnected port ram_rstram_b
+WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper_init has unconnected port ram_rstreg_b
+WARNING: [Synth 8-3331] design blk_mem_gen_generic_cstr has unconnected port REGCEA[0]
+WARNING: [Synth 8-3331] design blk_mem_gen_generic_cstr has unconnected port WEA[1]
+WARNING: [Synth 8-3331] design blk_mem_gen_generic_cstr has unconnected port REGCEB[0]
+WARNING: [Synth 8-3331] design blk_mem_gen_generic_cstr has unconnected port WEB[1]
+WARNING: [Synth 8-3331] design blk_mem_gen_generic_cstr has unconnected port INJECTSBITERR
+WARNING: [Synth 8-3331] design blk_mem_gen_generic_cstr has unconnected port INJECTDBITERR
+WARNING: [Synth 8-3331] design blk_mem_output_block has unconnected port CLKB
+WARNING: [Synth 8-3331] design blk_mem_output_block has unconnected port DOUTB_I[15]
+WARNING: [Synth 8-3331] design blk_mem_output_block has unconnected port DOUTB_I[14]
+WARNING: [Synth 8-3331] design blk_mem_output_block has unconnected port DOUTB_I[13]
+WARNING: [Synth 8-3331] design blk_mem_output_block has unconnected port DOUTB_I[12]
+WARNING: [Synth 8-3331] design blk_mem_output_block has unconnected port DOUTB_I[11]
+WARNING: [Synth 8-3331] design blk_mem_output_block has unconnected port DOUTB_I[10]
+WARNING: [Synth 8-3331] design blk_mem_output_block has unconnected port DOUTB_I[9]
+WARNING: [Synth 8-3331] design blk_mem_output_block has unconnected port DOUTB_I[8]
+WARNING: [Synth 8-3331] design blk_mem_output_block has unconnected port DOUTB_I[7]
+WARNING: [Synth 8-3331] design blk_mem_output_block has unconnected port DOUTB_I[6]
+WARNING: [Synth 8-3331] design blk_mem_output_block has unconnected port DOUTB_I[5]
+WARNING: [Synth 8-3331] design blk_mem_output_block has unconnected port DOUTB_I[4]
+WARNING: [Synth 8-3331] design blk_mem_output_block has unconnected port DOUTB_I[3]
+WARNING: [Synth 8-3331] design blk_mem_output_block has unconnected port DOUTB_I[2]
+WARNING: [Synth 8-3331] design blk_mem_output_block has unconnected port DOUTB_I[1]
+WARNING: [Synth 8-3331] design blk_mem_output_block has unconnected port DOUTB_I[0]
+WARNING: [Synth 8-3331] design blk_mem_output_block has unconnected port SBITERR_I
+WARNING: [Synth 8-3331] design blk_mem_output_block has unconnected port DBITERR_I
+WARNING: [Synth 8-3331] design blk_mem_output_block has unconnected port RDADDRECC_I[9]
+WARNING: [Synth 8-3331] design blk_mem_output_block has unconnected port RDADDRECC_I[8]
+WARNING: [Synth 8-3331] design blk_mem_output_block has unconnected port RDADDRECC_I[7]
+WARNING: [Synth 8-3331] design blk_mem_output_block has unconnected port RDADDRECC_I[6]
+WARNING: [Synth 8-3331] design blk_mem_output_block has unconnected port RDADDRECC_I[5]
+WARNING: [Synth 8-3331] design blk_mem_output_block has unconnected port RDADDRECC_I[4]
+WARNING: [Synth 8-3331] design blk_mem_output_block has unconnected port RDADDRECC_I[3]
+WARNING: [Synth 8-3331] design blk_mem_output_block has unconnected port RDADDRECC_I[2]
+WARNING: [Synth 8-3331] design blk_mem_output_block has unconnected port RDADDRECC_I[1]
+WARNING: [Synth 8-3331] design blk_mem_output_block has unconnected port RDADDRECC_I[0]
+WARNING: [Synth 8-3331] design blk_mem_input_block has unconnected port RSTA
+WARNING: [Synth 8-3331] design blk_mem_input_block has unconnected port REGCEA
+WARNING: [Synth 8-3331] design blk_mem_input_block has unconnected port WEA[0]
+WARNING: [Synth 8-3331] design blk_mem_input_block has unconnected port DINA[15]
+WARNING: [Synth 8-3331] design blk_mem_input_block has unconnected port DINA[14]
+WARNING: [Synth 8-3331] design blk_mem_input_block has unconnected port DINA[13]
+WARNING: [Synth 8-3331] design blk_mem_input_block has unconnected port DINA[12]
+WARNING: [Synth 8-3331] design blk_mem_input_block has unconnected port DINA[11]
+WARNING: [Synth 8-3331] design blk_mem_input_block has unconnected port DINA[10]
+WARNING: [Synth 8-3331] design blk_mem_input_block has unconnected port DINA[9]
+WARNING: [Synth 8-3331] design blk_mem_input_block has unconnected port DINA[8]
+WARNING: [Synth 8-3331] design blk_mem_input_block has unconnected port DINA[7]
+WARNING: [Synth 8-3331] design blk_mem_input_block has unconnected port DINA[6]
+WARNING: [Synth 8-3331] design blk_mem_input_block has unconnected port DINA[5]
+WARNING: [Synth 8-3331] design blk_mem_input_block has unconnected port DINA[4]
+WARNING: [Synth 8-3331] design blk_mem_input_block has unconnected port DINA[3]
+WARNING: [Synth 8-3331] design blk_mem_input_block has unconnected port DINA[2]
+WARNING: [Synth 8-3331] design blk_mem_input_block has unconnected port DINA[1]
+WARNING: [Synth 8-3331] design blk_mem_input_block has unconnected port DINA[0]
+WARNING: [Synth 8-3331] design blk_mem_input_block has unconnected port CLKB
+WARNING: [Synth 8-3331] design blk_mem_input_block has unconnected port RSTB
+WARNING: [Synth 8-3331] design blk_mem_input_block has unconnected port ENB
+WARNING: [Synth 8-3331] design blk_mem_input_block has unconnected port REGCEB
+WARNING: [Synth 8-3331] design blk_mem_input_block has unconnected port WEB[0]
+WARNING: [Synth 8-3331] design blk_mem_input_block has unconnected port ADDRB[9]
+INFO: [Common 17-14] Message 'Synth 8-3331' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:01:22 ; elapsed = 00:01:24 . Memory (MB): peak = 599.926 ; gain = 357.641
+---------------------------------------------------------------------------------
+
+Report Check Netlist: 
++------+------------------+-------+---------+-------+------------------+
+|      |Item              |Errors |Warnings |Status |Description       |
++------+------------------+-------+---------+-------+------------------+
+|1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
++------+------------------+-------+---------+-------+------------------+
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:01:22 ; elapsed = 00:01:24 . Memory (MB): peak = 599.926 ; gain = 357.641
+---------------------------------------------------------------------------------
+INFO: [Netlist 29-17] Analyzing 1 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Device 21-403] Loading part xc7a35tcpg236-1
+INFO: [Project 1-570] Preparing netlist for logic optimization
+
+Processing XDC Constraints
+Initializing timing engine
+Parsing XDC File [c:/Users/arockson/Documents/ECE449/ECE-499/ECE449Main.srcs/sources_1/ip/blk_mem_gen_0/blk_mem_gen_0_ooc.xdc] for cell 'U0'
+Finished Parsing XDC File [c:/Users/arockson/Documents/ECE449/ECE-499/ECE449Main.srcs/sources_1/ip/blk_mem_gen_0/blk_mem_gen_0_ooc.xdc] for cell 'U0'
+Parsing XDC File [C:/Users/arockson/Documents/ECE449/ECE-499/ECE449Main.runs/blk_mem_gen_0_synth_1/dont_touch.xdc]
+Finished Parsing XDC File [C:/Users/arockson/Documents/ECE449/ECE-499/ECE449Main.runs/blk_mem_gen_0_synth_1/dont_touch.xdc]
+Completed Processing XDC Constraints
+
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.006 . Memory (MB): peak = 646.160 ; gain = 0.000
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:01:36 ; elapsed = 00:01:39 . Memory (MB): peak = 646.160 ; gain = 403.875
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xc7a35tcpg236-1
+---------------------------------------------------------------------------------
+Finished Loading Part and Timing Information : Time (s): cpu = 00:01:36 ; elapsed = 00:01:39 . Memory (MB): peak = 646.160 ; gain = 403.875
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying 'set_property' XDC Constraints
+---------------------------------------------------------------------------------
+Applied set_property DONT_TOUCH = true for U0. (constraint file  C:/Users/arockson/Documents/ECE449/ECE-499/ECE449Main.runs/blk_mem_gen_0_synth_1/dont_touch.xdc, line 9).
+---------------------------------------------------------------------------------
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:01:36 ; elapsed = 00:01:39 . Memory (MB): peak = 646.160 ; gain = 403.875
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:01:37 ; elapsed = 00:01:39 . Memory (MB): peak = 646.160 ; gain = 403.875
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+Detailed RTL Component Info : 
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start RTL Hierarchical Component Statistics 
+---------------------------------------------------------------------------------
+Hierarchical RTL Component report 
+---------------------------------------------------------------------------------
+Finished RTL Hierarchical Component Statistics
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 90 (col length:60)
+BRAMs: 100 (col length: RAMB18 60 RAMB36 30)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Cross Boundary and Area Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:01:37 ; elapsed = 00:01:40 . Memory (MB): peak = 646.160 ; gain = 403.875
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Applying XDC Timing Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:01:46 ; elapsed = 00:01:49 . Memory (MB): peak = 703.602 ; gain = 461.316
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:01:46 ; elapsed = 00:01:49 . Memory (MB): peak = 703.602 ; gain = 461.316
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:01:46 ; elapsed = 00:01:49 . Memory (MB): peak = 713.188 ; gain = 470.902
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:01:47 ; elapsed = 00:01:49 . Memory (MB): peak = 713.188 ; gain = 470.902
+---------------------------------------------------------------------------------
+
+Report Check Netlist: 
++------+------------------+-------+---------+-------+------------------+
+|      |Item              |Errors |Warnings |Status |Description       |
++------+------------------+-------+---------+-------+------------------+
+|1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
++------+------------------+-------+---------+-------+------------------+
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:01:47 ; elapsed = 00:01:49 . Memory (MB): peak = 713.188 ; gain = 470.902
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Rebuilding User Hierarchy
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:01:47 ; elapsed = 00:01:49 . Memory (MB): peak = 713.188 ; gain = 470.902
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Ports
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Ports : Time (s): cpu = 00:01:47 ; elapsed = 00:01:49 . Memory (MB): peak = 713.188 ; gain = 470.902
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:01:47 ; elapsed = 00:01:49 . Memory (MB): peak = 713.188 ; gain = 470.902
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Nets
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Nets : Time (s): cpu = 00:01:47 ; elapsed = 00:01:49 . Memory (MB): peak = 713.188 ; gain = 470.902
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+Report BlackBoxes: 
++-+--------------+----------+
+| |BlackBox name |Instances |
++-+--------------+----------+
++-+--------------+----------+
+
+Report Cell Usage: 
++------+---------+------+
+|      |Cell     |Count |
++------+---------+------+
+|1     |RAMB18E1 |     1|
++------+---------+------+
+
+Report Instance Areas: 
++------+---------------------------------------------+------------------------------+------+
+|      |Instance                                     |Module                        |Cells |
++------+---------------------------------------------+------------------------------+------+
+|1     |top                                          |                              |     1|
+|2     |  U0                                         |blk_mem_gen_v8_4_1            |     1|
+|3     |    inst_blk_mem_gen                         |blk_mem_gen_v8_4_1_synth      |     1|
+|4     |      \gnbram.gnativebmg.native_blk_mem_gen  |blk_mem_gen_top               |     1|
+|5     |        \valid.cstr                          |blk_mem_gen_generic_cstr      |     1|
+|6     |          \ramloop[0].ram.r                  |blk_mem_gen_prim_width        |     1|
+|7     |            \prim_init.ram                   |blk_mem_gen_prim_wrapper_init |     1|
++------+---------------------------------------------+------------------------------+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:01:47 ; elapsed = 00:01:49 . Memory (MB): peak = 713.188 ; gain = 470.902
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 0 critical warnings and 181 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:18 ; elapsed = 00:01:42 . Memory (MB): peak = 713.188 ; gain = 424.668
+Synthesis Optimization Complete : Time (s): cpu = 00:01:47 ; elapsed = 00:01:50 . Memory (MB): peak = 713.188 ; gain = 470.902
+INFO: [Project 1-571] Translating synthesized netlist
+INFO: [Netlist 29-17] Analyzing 1 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+INFO: [Common 17-83] Releasing license: Synthesis
+17 Infos, 100 Warnings, 0 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:01:49 ; elapsed = 00:01:52 . Memory (MB): peak = 725.594 ; gain = 494.820
+INFO: [Common 17-1381] The checkpoint 'C:/Users/arockson/Documents/ECE449/ECE-499/ECE449Main.runs/blk_mem_gen_0_synth_1/blk_mem_gen_0.dcp' has been generated.
+INFO: [Coretcl 2-1482] Added synthesis output to IP cache for IP c:/Users/arockson/Documents/ECE449/ECE-499/ECE449Main.srcs/sources_1/ip/blk_mem_gen_0/blk_mem_gen_0.xci
+INFO: [Coretcl 2-1174] Renamed 6 cell refs.
+INFO: [Common 17-1381] The checkpoint 'C:/Users/arockson/Documents/ECE449/ECE-499/ECE449Main.runs/blk_mem_gen_0_synth_1/blk_mem_gen_0.dcp' has been generated.
+INFO: [runtcl-4] Executing : report_utilization -file blk_mem_gen_0_utilization_synth.rpt -pb blk_mem_gen_0_utilization_synth.pb
+report_utilization: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.023 . Memory (MB): peak = 725.594 ; gain = 0.000
+INFO: [Common 17-206] Exiting Vivado at Mon Apr 13 15:00:26 2026...
+[Mon Apr 13 15:00:27 2026] blk_mem_gen_0_synth_1 finished
+wait_on_run: Time (s): cpu = 00:00:01 ; elapsed = 00:02:01 . Memory (MB): peak = 2829.070 ; gain = 0.000
+export_simulation -of_objects [get_files C:/Users/arockson/Documents/ECE449/ECE-499/ECE449Main.srcs/sources_1/ip/blk_mem_gen_0/blk_mem_gen_0.xci] -directory C:/Users/arockson/Documents/ECE449/ECE-499/ECE449Main.ip_user_files/sim_scripts -ip_user_files_dir C:/Users/arockson/Documents/ECE449/ECE-499/ECE449Main.ip_user_files -ipstatic_source_dir C:/Users/arockson/Documents/ECE449/ECE-499/ECE449Main.ip_user_files/ipstatic -lib_map_path [list {modelsim=C:/Users/arockson/Documents/ECE449/ECE-499/ECE449Main.cache/compile_simlib/modelsim} {questa=C:/Users/arockson/Documents/ECE449/ECE-499/ECE449Main.cache/compile_simlib/questa} {riviera=C:/Users/arockson/Documents/ECE449/ECE-499/ECE449Main.cache/compile_simlib/riviera} {activehdl=C:/Users/arockson/Documents/ECE449/ECE-499/ECE449Main.cache/compile_simlib/activehdl}] -use_ip_compiled_libs -force -quiet
+reset_run synth_1
+WARNING: [Vivado 12-1017] Problems encountered:
+1. Failed to delete one or more files in run directory C:/Users/arockson/Documents/ECE449/ECE-499/ECE449Main.runs/synth_1
+
+launch_runs impl_1 -to_step write_bitstream -jobs 4
+[Mon Apr 13 15:00:50 2026] Launched synth_1...
+Run output will be captured here: C:/Users/arockson/Documents/ECE449/ECE-499/ECE449Main.runs/synth_1/runme.log
+[Mon Apr 13 15:00:50 2026] Launched impl_1...
+Run output will be captured here: C:/Users/arockson/Documents/ECE449/ECE-499/ECE449Main.runs/impl_1/runme.log
+open_hw
+connect_hw_server
+INFO: [Labtools 27-2285] Connecting to hw_server url TCP:localhost:3121
+INFO: [Labtools 27-2222] Launching hw_server...
+INFO: [Labtools 27-2221] Launch Output:
+
+****** Xilinx hw_server v2017.4
+  **** Build date : Dec 15 2017-21:08:27
+    ** Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
+
+
+open_hw_target
+INFO: [Labtoolstcl 44-466] Opening hw_target localhost:3121/xilinx_tcf/Digilent/210183A8A7D3A
+set_property PROGRAM.FILE {C:/Users/arockson/Documents/ECE449/ECE-499/ECE449Main.runs/impl_1/top.bit} [get_hw_devices xc7a35t_0]
+current_hw_device [get_hw_devices xc7a35t_0]
+refresh_hw_device -update_hw_probes false [lindex [get_hw_devices xc7a35t_0] 0]
+INFO: [Labtools 27-1434] Device xc7a35t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+WARNING: [Labtools 27-3361] The debug hub core was not detected.
+Resolution: 
+1. Make sure the clock connected to the debug hub (dbg_hub) core is a free running clock and is active.
+2. Make sure the BSCAN_SWITCH_USER_MASK device property in Vivado Hardware Manager reflects the user scan chain setting in the design and refresh the device.  To determine the user scan chain setting in the design, open the implemented design and use 'get_property C_USER_SCAN_CHAIN [get_debug_cores dbg_hub]'.
+For more details on setting the scan chain property, consult the Vivado Debug and Programming User Guide (UG908).
+set_property PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property PROGRAM.FILE {C:/Users/arockson/Documents/ECE449/ECE-499/ECE449Main.runs/impl_1/top.bit} [get_hw_devices xc7a35t_0]
+program_hw_devices [get_hw_devices xc7a35t_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
+INFO: [Labtools 27-1434] Device xc7a35t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+WARNING: [Labtools 27-3361] The debug hub core was not detected.
+Resolution: 
+1. Make sure the clock connected to the debug hub (dbg_hub) core is a free running clock and is active.
+2. Make sure the BSCAN_SWITCH_USER_MASK device property in Vivado Hardware Manager reflects the user scan chain setting in the design and refresh the device.  To determine the user scan chain setting in the design, open the implemented design and use 'get_property C_USER_SCAN_CHAIN [get_debug_cores dbg_hub]'.
+For more details on setting the scan chain property, consult the Vivado Debug and Programming User Guide (UG908).
+set_property PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property PROGRAM.FILE {C:/Users/arockson/Documents/ECE449/ECE-499/ECE449Main.runs/impl_1/top.bit} [get_hw_devices xc7a35t_0]
+program_hw_devices [get_hw_devices xc7a35t_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
+INFO: [Labtools 27-1434] Device xc7a35t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+WARNING: [Labtools 27-3361] The debug hub core was not detected.
+Resolution: 
+1. Make sure the clock connected to the debug hub (dbg_hub) core is a free running clock and is active.
+2. Make sure the BSCAN_SWITCH_USER_MASK device property in Vivado Hardware Manager reflects the user scan chain setting in the design and refresh the device.  To determine the user scan chain setting in the design, open the implemented design and use 'get_property C_USER_SCAN_CHAIN [get_debug_cores dbg_hub]'.
+For more details on setting the scan chain property, consult the Vivado Debug and Programming User Guide (UG908).
+close_hw
+close_hw: Time (s): cpu = 00:00:03 ; elapsed = 00:00:06 . Memory (MB): peak = 2829.070 ; gain = 0.000
+WARNING: [IP_Flow 19-4067] Ignoring invalid widget type specified checkbox.Providing a default widget
+WARNING: [IP_Flow 19-4067] Ignoring invalid widget type specified checkbox.Providing a default widget
+set_property -dict [list CONFIG.Coe_File {C:/Users/arockson/Documents/ECE449/ECE-499/ECE449Main.srcs/sources_1/MemFiles/testFactOverflow.coe}] [get_ips blk_mem_gen_0]
+INFO: [IP_Flow 19-3484] Absolute path of file 'c:/Users/arockson/Documents/ECE449/ECE-499/ECE449Main.srcs/sources_1/MemFiles/testFactOverflow.coe' provided. It will be converted relative to IP Instance files '../../MemFiles/testFactOverflow.coe'
+generate_target all [get_files  C:/Users/arockson/Documents/ECE449/ECE-499/ECE449Main.srcs/sources_1/ip/blk_mem_gen_0/blk_mem_gen_0.xci]
+INFO: [IP_Flow 19-1686] Generating 'Instantiation Template' target for IP 'blk_mem_gen_0'...
+INFO: [IP_Flow 19-1686] Generating 'Synthesis' target for IP 'blk_mem_gen_0'...
+INFO: [IP_Flow 19-1686] Generating 'Simulation' target for IP 'blk_mem_gen_0'...
+INFO: [IP_Flow 19-1686] Generating 'Miscellaneous' target for IP 'blk_mem_gen_0'...
+INFO: [IP_Flow 19-1686] Generating 'Change Log' target for IP 'blk_mem_gen_0'...
+catch { config_ip_cache -export [get_ips -all blk_mem_gen_0] }
+INFO: [IP_Flow 19-4993] Using cached IP synthesis design for IP blk_mem_gen_0, cache-ID = 4d4f9d92d35ea128; cache size = 0.837 MB.
+catch { [ delete_ip_run [get_ips -all blk_mem_gen_0] ] }
+WARNING: [Vivado 12-1017] Problems encountered:
+1. Failed to delete one or more files in run directory C:/Users/arockson/Documents/ECE449/ECE-499/ECE449Main.runs/blk_mem_gen_0_synth_1
+
+INFO: [Project 1-386] Moving file 'C:/Users/arockson/Documents/ECE449/ECE-499/ECE449Main.srcs/sources_1/ip/blk_mem_gen_0/blk_mem_gen_0.xci' from fileset 'blk_mem_gen_0' to fileset 'sources_1'.
+delete_fileset: Time (s): cpu = 00:00:02 ; elapsed = 00:00:10 . Memory (MB): peak = 2831.672 ; gain = 0.000
+delete_ip_run: Time (s): cpu = 00:00:02 ; elapsed = 00:00:11 . Memory (MB): peak = 2831.672 ; gain = 0.000
+export_ip_user_files -of_objects [get_files C:/Users/arockson/Documents/ECE449/ECE-499/ECE449Main.srcs/sources_1/ip/blk_mem_gen_0/blk_mem_gen_0.xci] -no_script -sync -force -quiet
+create_ip_run [get_files -of_objects [get_fileset sources_1] C:/Users/arockson/Documents/ECE449/ECE-499/ECE449Main.srcs/sources_1/ip/blk_mem_gen_0/blk_mem_gen_0.xci]
+INFO: [Vivado 12-3453] The given sub-design is up-to-date, no action was taken.  If a run is still desired, use the '-force' option for the file:'C:/Users/arockson/Documents/ECE449/ECE-499/ECE449Main.srcs/sources_1/ip/blk_mem_gen_0/blk_mem_gen_0.xci'
+update_compile_order -fileset sources_1
+reset_run synth_1
+WARNING: [Vivado 12-1017] Problems encountered:
+1. Failed to delete one or more files in run directory C:/Users/arockson/Documents/ECE449/ECE-499/ECE449Main.runs/synth_1
+
+launch_runs impl_1 -to_step write_bitstream -jobs 4
+INFO: [Vivado 12-4149] The synthesis checkpoint for IP 'C:/Users/arockson/Documents/ECE449/ECE-499/ECE449Main.srcs/sources_1/ip/blk_mem_gen_0/blk_mem_gen_0.xci' is already up-to-date
+[Mon Apr 13 15:09:50 2026] Launched synth_1...
+Run output will be captured here: C:/Users/arockson/Documents/ECE449/ECE-499/ECE449Main.runs/synth_1/runme.log
+[Mon Apr 13 15:09:50 2026] Launched impl_1...
+Run output will be captured here: C:/Users/arockson/Documents/ECE449/ECE-499/ECE449Main.runs/impl_1/runme.log
+open_hw
+connect_hw_server
+INFO: [Labtools 27-2285] Connecting to hw_server url TCP:localhost:3121
+INFO: [Labtools 27-2222] Launching hw_server...
+INFO: [Labtools 27-2221] Launch Output:
+
+****** Xilinx hw_server v2017.4
+  **** Build date : Dec 15 2017-21:08:27
+    ** Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
+
+
+open_hw_target
+INFO: [Labtoolstcl 44-466] Opening hw_target localhost:3121/xilinx_tcf/Digilent/210183A8A7D3A
+set_property PROGRAM.FILE {C:/Users/arockson/Documents/ECE449/ECE-499/ECE449Main.runs/impl_1/top.bit} [get_hw_devices xc7a35t_0]
+current_hw_device [get_hw_devices xc7a35t_0]
+refresh_hw_device -update_hw_probes false [lindex [get_hw_devices xc7a35t_0] 0]
+INFO: [Labtools 27-1434] Device xc7a35t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+WARNING: [Labtools 27-3361] The debug hub core was not detected.
+Resolution: 
+1. Make sure the clock connected to the debug hub (dbg_hub) core is a free running clock and is active.
+2. Make sure the BSCAN_SWITCH_USER_MASK device property in Vivado Hardware Manager reflects the user scan chain setting in the design and refresh the device.  To determine the user scan chain setting in the design, open the implemented design and use 'get_property C_USER_SCAN_CHAIN [get_debug_cores dbg_hub]'.
+For more details on setting the scan chain property, consult the Vivado Debug and Programming User Guide (UG908).
+set_property PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property PROGRAM.FILE {C:/Users/arockson/Documents/ECE449/ECE-499/ECE449Main.runs/impl_1/top.bit} [get_hw_devices xc7a35t_0]
+program_hw_devices [get_hw_devices xc7a35t_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
+INFO: [Labtools 27-1434] Device xc7a35t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+WARNING: [Labtools 27-3361] The debug hub core was not detected.
+Resolution: 
+1. Make sure the clock connected to the debug hub (dbg_hub) core is a free running clock and is active.
+2. Make sure the BSCAN_SWITCH_USER_MASK device property in Vivado Hardware Manager reflects the user scan chain setting in the design and refresh the device.  To determine the user scan chain setting in the design, open the implemented design and use 'get_property C_USER_SCAN_CHAIN [get_debug_cores dbg_hub]'.
+For more details on setting the scan chain property, consult the Vivado Debug and Programming User Guide (UG908).
+close_hw
+set_property is_enabled true [get_files  C:/Users/arockson/Documents/ECE449/ECE-499/ECE449Main.srcs/sources_1/new/top_tb.vhd]
+update_compile_order -fileset sources_1
+update_compile_order -fileset sources_1
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+launch_simulation
+INFO: [Vivado 12-5698] Checking validity of IPs in the design for the 'XSim' simulator...
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'C:/Users/arockson/Documents/ECE449/ECE-499/ECE449Main.sim/sim_1/behav/xsim'
+INFO: [Vivado 12-4795] Using compiled simulation libraries for IPs
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [USF-XSim-7] Finding pre-compiled libraries...
+INFO: [USF-XSim-11] File 'C:/Xilinx/Vivado/2017.4/data/xsim/ip/xsim_ip.ini' copied to run dir:'C:/Users/arockson/Documents/ECE449/ECE-499/ECE449Main.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-54] Inspecting design source files for 'top_tb' in fileset 'sim_1'...
+INFO: [SIM-utils-43] Exported 'C:/Users/arockson/Documents/ECE449/ECE-499/ECE449Main.sim/sim_1/behav/xsim/blk_mem_gen_0.mif'
+INFO: [SIM-utils-43] Exported 'C:/Users/arockson/Documents/ECE449/ECE-499/ECE449Main.sim/sim_1/behav/xsim/testFactOverflow.coe'
+INFO: [SIM-utils-43] Exported 'C:/Users/arockson/Documents/ECE449/ECE-499/ECE449Main.sim/sim_1/behav/xsim/rom_formatA.coe'
+INFO: [SIM-utils-43] Exported 'C:/Users/arockson/Documents/ECE449/ECE-499/ECE449Main.sim/sim_1/behav/xsim/counter.coe'
+INFO: [SIM-utils-43] Exported 'C:/Users/arockson/Documents/ECE449/ECE-499/ECE449Main.sim/sim_1/behav/xsim/loop.coe'
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'C:/Users/arockson/Documents/ECE449/ECE-499/ECE449Main.sim/sim_1/behav/xsim'
+"xvhdl --incr --relax -prj top_tb_vhdl.prj"
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/arockson/Documents/ECE449/ECE-499/ECE449Main.srcs/sources_1/ip/blk_mem_gen_0/blk_mem_gen_0_sim_netlist.vhdl" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity blk_mem_gen_0_blk_mem_gen_prim_wrapper_init
+INFO: [VRFC 10-307] analyzing entity blk_mem_gen_0_blk_mem_gen_prim_width
+INFO: [VRFC 10-307] analyzing entity blk_mem_gen_0_blk_mem_gen_generic_cstr
+INFO: [VRFC 10-307] analyzing entity blk_mem_gen_0_blk_mem_gen_top
+INFO: [VRFC 10-307] analyzing entity blk_mem_gen_0_blk_mem_gen_v8_4_1_synth
+INFO: [VRFC 10-307] analyzing entity blk_mem_gen_0_blk_mem_gen_v8_4_1
+INFO: [VRFC 10-307] analyzing entity blk_mem_gen_0
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/arockson/Documents/ECE449/ECE-499/ECE449Main.srcs/sources_1/new/RF8_16.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity register_file
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/arockson/Documents/ECE449/ECE-499/console_v1_02.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity console
+INFO: [VRFC 10-307] analyzing entity video_timing
+INFO: [VRFC 10-307] analyzing entity word_to_ascii
+INFO: [VRFC 10-307] analyzing entity byte_to_ascii
+INFO: [VRFC 10-307] analyzing entity nibble_to_ascii
+INFO: [VRFC 10-307] analyzing entity bit_to_ascii
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/arockson/Documents/ECE449/ECE-499/ECE449Main.srcs/sources_1/new/datapath.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity datapath
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/arockson/Documents/ECE449/ECE-499/led_display.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity led_display
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/arockson/Documents/ECE449/ECE-499/ECE449Main.srcs/sources_1/new/top.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity top
+INFO: [USF-XSim-69] 'compile' step finished in '2' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'C:/Users/arockson/Documents/ECE449/ECE-499/ECE449Main.sim/sim_1/behav/xsim'
+Vivado Simulator 2017.4
+Copyright 1986-1999, 2001-2016 Xilinx, Inc. All Rights Reserved.
+Running: C:/Xilinx/Vivado/2017.4/bin/unwrapped/win64.o/xelab.exe -wto bd56acb4f8004fa8831a86f65c5f783c --incr --debug typical --relax --mt 2 -L xil_defaultlib -L secureip -L xpm --snapshot top_tb_behav xil_defaultlib.top_tb -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+ERROR: [VRFC 10-664] expression has 16 elements ; expected 15 [C:/Users/arockson/Documents/ECE449/ECE-499/ECE449Main.srcs/sources_1/new/top_tb.vhd:15]
+ERROR: [XSIM 43-3321] Static elaboration of top level VHDL design unit top_tb in library work failed.
+INFO: [USF-XSim-69] 'elaborate' step finished in '2' seconds
+INFO: [USF-XSim-99] Step results log file:'C:/Users/arockson/Documents/ECE449/ECE-499/ECE449Main.sim/sim_1/behav/xsim/elaborate.log'
+ERROR: [USF-XSim-62] 'elaborate' step failed with error(s). Please check the Tcl console output or 'C:/Users/arockson/Documents/ECE449/ECE-499/ECE449Main.sim/sim_1/behav/xsim/elaborate.log' file for more information.
+ERROR: [Vivado 12-4473] Detected error while running simulation. Please correct the issue and retry this operation.
+launch_simulation: Time (s): cpu = 00:00:00 ; elapsed = 00:00:12 . Memory (MB): peak = 2915.895 ; gain = 0.000
+ERROR: [Common 17-39] 'launch_simulation' failed due to earlier errors.
+launch_simulation
+INFO: [Vivado 12-5698] Checking validity of IPs in the design for the 'XSim' simulator...
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'C:/Users/arockson/Documents/ECE449/ECE-499/ECE449Main.sim/sim_1/behav/xsim'
+INFO: [Vivado 12-4795] Using compiled simulation libraries for IPs
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [USF-XSim-7] Finding pre-compiled libraries...
+INFO: [USF-XSim-11] File 'C:/Xilinx/Vivado/2017.4/data/xsim/ip/xsim_ip.ini' copied to run dir:'C:/Users/arockson/Documents/ECE449/ECE-499/ECE449Main.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-54] Inspecting design source files for 'top_tb' in fileset 'sim_1'...
+INFO: [SIM-utils-43] Exported 'C:/Users/arockson/Documents/ECE449/ECE-499/ECE449Main.sim/sim_1/behav/xsim/blk_mem_gen_0.mif'
+INFO: [SIM-utils-43] Exported 'C:/Users/arockson/Documents/ECE449/ECE-499/ECE449Main.sim/sim_1/behav/xsim/testFactOverflow.coe'
+INFO: [SIM-utils-43] Exported 'C:/Users/arockson/Documents/ECE449/ECE-499/ECE449Main.sim/sim_1/behav/xsim/rom_formatA.coe'
+INFO: [SIM-utils-43] Exported 'C:/Users/arockson/Documents/ECE449/ECE-499/ECE449Main.sim/sim_1/behav/xsim/counter.coe'
+INFO: [SIM-utils-43] Exported 'C:/Users/arockson/Documents/ECE449/ECE-499/ECE449Main.sim/sim_1/behav/xsim/loop.coe'
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'C:/Users/arockson/Documents/ECE449/ECE-499/ECE449Main.sim/sim_1/behav/xsim'
+"xvhdl --incr --relax -prj top_tb_vhdl.prj"
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/arockson/Documents/ECE449/ECE-499/ECE449Main.srcs/sources_1/new/top.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity top
+INFO: [USF-XSim-69] 'compile' step finished in '1' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'C:/Users/arockson/Documents/ECE449/ECE-499/ECE449Main.sim/sim_1/behav/xsim'
+Vivado Simulator 2017.4
+Copyright 1986-1999, 2001-2016 Xilinx, Inc. All Rights Reserved.
+Running: C:/Xilinx/Vivado/2017.4/bin/unwrapped/win64.o/xelab.exe -wto bd56acb4f8004fa8831a86f65c5f783c --incr --debug typical --relax --mt 2 -L xil_defaultlib -L secureip -L xpm --snapshot top_tb_behav xil_defaultlib.top_tb -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+ERROR: [VRFC 10-2666] formal port debug_console has no actual or default value [C:/Users/arockson/Documents/ECE449/ECE-499/ECE449Main.srcs/sources_1/new/datapath.vhd:47]
+ERROR: [VRFC 10-2666] formal port board_clk has no actual or default value [C:/Users/arockson/Documents/ECE449/ECE-499/ECE449Main.srcs/sources_1/new/top.vhd:21]
+ERROR: [XSIM 43-3321] Static elaboration of top level VHDL design unit top_tb in library work failed.
+INFO: [USF-XSim-69] 'elaborate' step finished in '3' seconds
+INFO: [USF-XSim-99] Step results log file:'C:/Users/arockson/Documents/ECE449/ECE-499/ECE449Main.sim/sim_1/behav/xsim/elaborate.log'
+ERROR: [USF-XSim-62] 'elaborate' step failed with error(s). Please check the Tcl console output or 'C:/Users/arockson/Documents/ECE449/ECE-499/ECE449Main.sim/sim_1/behav/xsim/elaborate.log' file for more information.
+ERROR: [Vivado 12-4473] Detected error while running simulation. Please correct the issue and retry this operation.
+ERROR: [Common 17-39] 'launch_simulation' failed due to earlier errors.
+update_compile_order -fileset sources_1
+export_ip_user_files -of_objects  [get_files C:/Users/arockson/Documents/ECE449/ECE-499/console_v1_02.vhd] -no_script -reset -force -quiet
+remove_files  C:/Users/arockson/Documents/ECE449/ECE-499/console_v1_02.vhd
+launch_simulation
+INFO: [Vivado 12-5698] Checking validity of IPs in the design for the 'XSim' simulator...
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'C:/Users/arockson/Documents/ECE449/ECE-499/ECE449Main.sim/sim_1/behav/xsim'
+INFO: [Vivado 12-4795] Using compiled simulation libraries for IPs
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [USF-XSim-7] Finding pre-compiled libraries...
+INFO: [USF-XSim-11] File 'C:/Xilinx/Vivado/2017.4/data/xsim/ip/xsim_ip.ini' copied to run dir:'C:/Users/arockson/Documents/ECE449/ECE-499/ECE449Main.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-54] Inspecting design source files for 'top_tb' in fileset 'sim_1'...
+INFO: [SIM-utils-43] Exported 'C:/Users/arockson/Documents/ECE449/ECE-499/ECE449Main.sim/sim_1/behav/xsim/blk_mem_gen_0.mif'
+INFO: [SIM-utils-43] Exported 'C:/Users/arockson/Documents/ECE449/ECE-499/ECE449Main.sim/sim_1/behav/xsim/testFactOverflow.coe'
+INFO: [SIM-utils-43] Exported 'C:/Users/arockson/Documents/ECE449/ECE-499/ECE449Main.sim/sim_1/behav/xsim/rom_formatA.coe'
+INFO: [SIM-utils-43] Exported 'C:/Users/arockson/Documents/ECE449/ECE-499/ECE449Main.sim/sim_1/behav/xsim/counter.coe'
+INFO: [SIM-utils-43] Exported 'C:/Users/arockson/Documents/ECE449/ECE-499/ECE449Main.sim/sim_1/behav/xsim/loop.coe'
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'C:/Users/arockson/Documents/ECE449/ECE-499/ECE449Main.sim/sim_1/behav/xsim'
+"xvhdl --incr --relax -prj top_tb_vhdl.prj"
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/arockson/Documents/ECE449/ECE-499/ECE449Main.srcs/sources_1/new/RF8_16.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity register_file
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/arockson/Documents/ECE449/ECE-499/ECE449Main.srcs/sources_1/new/datapath.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity datapath
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/arockson/Documents/ECE449/ECE-499/ECE449Main.srcs/sources_1/new/top.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity top
+INFO: [USF-XSim-69] 'compile' step finished in '1' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'C:/Users/arockson/Documents/ECE449/ECE-499/ECE449Main.sim/sim_1/behav/xsim'
+Vivado Simulator 2017.4
+Copyright 1986-1999, 2001-2016 Xilinx, Inc. All Rights Reserved.
+Running: C:/Xilinx/Vivado/2017.4/bin/unwrapped/win64.o/xelab.exe -wto bd56acb4f8004fa8831a86f65c5f783c --incr --debug typical --relax --mt 2 -L xil_defaultlib -L secureip -L xpm --snapshot top_tb_behav xil_defaultlib.top_tb -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling package std.standard
+Compiling package std.textio
+Compiling package ieee.std_logic_1164
+Compiling package ieee.numeric_std
+Compiling package unisim.vcomponents
+Compiling package ieee.std_logic_arith
+Compiling package ieee.std_logic_signed
+Compiling package ieee.std_logic_textio
+Compiling package ieee.vital_timing
+Compiling package ieee.vital_primitives
+Compiling package unisim.vpkg
+Compiling architecture behavioral of entity xil_defaultlib.BranchController [branchcontroller_default]
+Compiling architecture behavioral of entity xil_defaultlib.led_display [led_display_default]
+Compiling architecture behavioral of entity xil_defaultlib.PC [pc_default]
+Compiling architecture gnd_v of entity unisim.GND [gnd_default]
+Compiling architecture rb18_internal_vhdl_v of entity unisim.RB18_INTERNAL_VHDL [\RB18_INTERNAL_VHDL(bram_size=18...]
+Compiling architecture ramb18e1_v of entity unisim.RAMB18E1 [\RAMB18E1(init_00="0000011001001...]
+Compiling architecture structure of entity xil_defaultlib.blk_mem_gen_0_blk_mem_gen_prim_wrapper_init [blk_mem_gen_0_blk_mem_gen_prim_w...]
+Compiling architecture structure of entity xil_defaultlib.blk_mem_gen_0_blk_mem_gen_prim_width [blk_mem_gen_0_blk_mem_gen_prim_w...]
+Compiling architecture structure of entity xil_defaultlib.blk_mem_gen_0_blk_mem_gen_generic_cstr [blk_mem_gen_0_blk_mem_gen_generi...]
+Compiling architecture structure of entity xil_defaultlib.blk_mem_gen_0_blk_mem_gen_top [blk_mem_gen_0_blk_mem_gen_top_de...]
+Compiling architecture structure of entity xil_defaultlib.blk_mem_gen_0_blk_mem_gen_v8_4_1_synth [blk_mem_gen_0_blk_mem_gen_v8_4_1...]
+Compiling architecture structure of entity xil_defaultlib.blk_mem_gen_0_blk_mem_gen_v8_4_1 [blk_mem_gen_0_blk_mem_gen_v8_4_1...]
+Compiling architecture structure of entity xil_defaultlib.blk_mem_gen_0 [blk_mem_gen_0_default]
+Compiling architecture rtl of entity xil_defaultlib.if_id_register [if_id_register_default]
+Compiling architecture behavioral of entity xil_defaultlib.RegCtrl [regctrl_default]
+Compiling architecture behavioral of entity xil_defaultlib.register_file [register_file_default]
+Compiling architecture rtl of entity xil_defaultlib.id_ex_register [id_ex_register_default]
+Compiling architecture behavioral of entity xil_defaultlib.ALUv2 [aluv2_default]
+Compiling architecture rtl of entity xil_defaultlib.ex_mem_register [ex_mem_register_default]
+Compiling architecture rb18_internal_vhdl_v of entity unisim.RB18_INTERNAL_VHDL [\RB18_INTERNAL_VHDL(bram_size=18...]
+Compiling architecture ramb18e1_v of entity unisim.RAMB18E1 [\RAMB18E1(doa_reg=1,read_width_a...]
+Compiling architecture structure of entity xil_defaultlib.blk_mem_gen_1_blk_mem_gen_prim_wrapper_init [blk_mem_gen_1_blk_mem_gen_prim_w...]
+Compiling architecture structure of entity xil_defaultlib.blk_mem_gen_1_blk_mem_gen_prim_width [blk_mem_gen_1_blk_mem_gen_prim_w...]
+Compiling architecture structure of entity xil_defaultlib.blk_mem_gen_1_blk_mem_gen_generic_cstr [blk_mem_gen_1_blk_mem_gen_generi...]
+Compiling architecture structure of entity xil_defaultlib.blk_mem_gen_1_blk_mem_gen_top [blk_mem_gen_1_blk_mem_gen_top_de...]
+Compiling architecture structure of entity xil_defaultlib.blk_mem_gen_1_blk_mem_gen_v8_4_1_synth [blk_mem_gen_1_blk_mem_gen_v8_4_1...]
+Compiling architecture structure of entity xil_defaultlib.blk_mem_gen_1_blk_mem_gen_v8_4_1 [blk_mem_gen_1_blk_mem_gen_v8_4_1...]
+Compiling architecture structure of entity xil_defaultlib.blk_mem_gen_1 [blk_mem_gen_1_default]
+Compiling architecture rtl of entity xil_defaultlib.mem_wb_register [mem_wb_register_default]
+Compiling architecture behavioral of entity xil_defaultlib.datapath [datapath_default]
+Compiling architecture behavioral of entity xil_defaultlib.top [top_default]
+Compiling architecture simulate of entity xil_defaultlib.top_tb
+Built simulation snapshot top_tb_behav
+run_program: Time (s): cpu = 00:00:00 ; elapsed = 00:00:06 . Memory (MB): peak = 2915.895 ; gain = 0.000
+INFO: [USF-XSim-69] 'elaborate' step finished in '6' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in 'C:/Users/arockson/Documents/ECE449/ECE-499/ECE449Main.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "top_tb_behav -key {Behavioral:sim_1:Functional:top_tb} -tclbatch {top_tb.tcl} -view {C:/Users/arockson/Documents/ECE449/ECE-499/top_tb_behav.wcfg} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Vivado Simulator 2017.4
+Time resolution is 1 ps
+open_wave_config C:/Users/arockson/Documents/ECE449/ECE-499/top_tb_behav.wcfg
+source top_tb.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+# run 1000ns
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'top_tb_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 1000ns
+launch_simulation: Time (s): cpu = 00:00:05 ; elapsed = 00:00:11 . Memory (MB): peak = 2915.895 ; gain = 0.000

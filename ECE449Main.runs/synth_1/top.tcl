@@ -36,12 +36,15 @@ set_property ip_output_repo c:/Users/arockson/Documents/ECE449/ECE-499/ECE449Mai
 set_property ip_cache_permissions {read write} [current_project]
 add_files c:/Users/arockson/Documents/ECE449/ECE-499/ECE449Main.srcs/sources_1/new/rom_formatA.coe
 add_files c:/Users/arockson/Documents/ECE449/ECE-499/ECE449Main.srcs/sources_1/MemFiles/testFactOverflow.coe
+add_files c:/Users/arockson/Documents/ECE449/counter.coe
+add_files c:/Users/arockson/Documents/ECE449/loop.coe
 read_vhdl -library xil_defaultlib {
   C:/Users/arockson/Documents/ECE449/ECE-499/ECE449Main.srcs/sources_1/new/ALUv2.vhd
   C:/Users/arockson/Documents/ECE449/ECE-499/ECE449Main.srcs/sources_1/new/BranchController.vhd
   C:/Users/arockson/Documents/ECE449/ECE-499/ECE449Main.srcs/sources_1/new/PC.vhd
   C:/Users/arockson/Documents/ECE449/ECE-499/ECE449Main.srcs/sources_1/new/RF8_16.vhd
   C:/Users/arockson/Documents/ECE449/ECE-499/ECE449Main.srcs/sources_1/new/RegCtrl.vhd
+  C:/Users/arockson/Documents/ECE449/ECE-499/console_v1_02.vhd
   C:/Users/arockson/Documents/ECE449/ECE-499/ECE449Main.srcs/sources_1/new/datapath.vhd
   C:/Users/arockson/Documents/ECE449/ECE-499/ECE449Main.srcs/sources_1/new/pipeline_registers/ex-mem.vhd
   C:/Users/arockson/Documents/ECE449/ECE-499/ECE449Main.srcs/sources_1/new/pipeline_registers/id-ex.vhd
@@ -67,6 +70,8 @@ foreach dcp [get_files -quiet -all -filter file_type=="Design\ Checkpoint"] {
 read_xdc C:/Users/arockson/Documents/ECE449/ECE-499/ECE449Main.srcs/sources_1/MemFiles/constraints.xdc
 set_property used_in_implementation false [get_files C:/Users/arockson/Documents/ECE449/ECE-499/ECE449Main.srcs/sources_1/MemFiles/constraints.xdc]
 
+read_xdc dont_touch.xdc
+set_property used_in_implementation false [get_files dont_touch.xdc]
 
 synth_design -top top -part xc7a35tcpg236-1
 

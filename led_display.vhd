@@ -151,13 +151,13 @@ clock_divider : process
 )
 
 
-variable divider : integer range 0 to 4 := 0;
+variable divider : integer range 0 to 10000 := 0;
 
 begin
 
     if ( rising_edge( board_clock )) then
         divider := divider + 1;
-        if ( divider = 4 ) then
+        if ( divider = 10000 ) then
             divider := 0;
 
             digit_select <= digit_select + 1;
