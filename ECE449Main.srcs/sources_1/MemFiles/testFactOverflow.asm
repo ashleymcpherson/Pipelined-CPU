@@ -1,40 +1,51 @@
-; ECE 449
-; The factorial of IN input number
-; OUT(r1)=IN*(IN-1)*(IN-2)*…*2
-; This loop should run (N-1) times
-; This code tests whether there is a multiply overflow. If there is
-; it outputs 0
-; Please modify the code to use the overflow test you implemented
+; ECE 449 - Factorial with Overflow Detection
+; Computes OUT = IN! using memory-mapped IO
+; If MUL overflows 16-bit signed range, outputs 0 instead
+;
+; Memory-mapped IO:
+;   0xFFF0 = switches (input N)
+;   0xFFF2 = LEDs    (output)
+;
+; Register usage:
+;   r0 = input N (counts down to 2)
+;   r1 = factorial accumulator
+;   r5 = constant 1
+;   r6 = constant 2 (loop stop threshold)
+;   r7 = scratch / LOADIMM target
 
-
-ORG 0x100
-;.DATA
-;.CODE
 START:
+        LOADIMM.upper   0x00
+        LOADIMM.lower   0x01
+        MOV r5, r7              ; r5 = 1
 
-	LOADIMM.upper	0x00
-	LOADIMM.lower	0x01 
-	MOV r5, r7		; r5 is the decrement value
-	MOV r1, r5 		; r1 is the Factorial variable, so it is initialized to 1
-	MOV r6, r5 		; r6 is initialized to 1, then it’s shifted to get 2
-	SHL r6,1 		; the lowest value to be multiplied by (r6=2)
-	IN  r0			; input number
+        MOV r1, r5              ; r1 = 1 (factorial accumulator)
+        MOV r6, r5              ; r6 = 1
+        SHL r6, 1               ; r6 = 2
+
+        LOADIMM.upper   0xFF
+        LOADIMM.lower   0xF0
+        LOAD r0, r7             ; r0 = M[0xFFF0] = N
+
 LOOP:
-	MUL r1,r1,r0    	; the actual multiplication to find the factorial (IN!)
-	;test for overflow
-	BRR.overflow ;OVERFLOW
+        MUL r1, r1, r0          ; r1 = r1 * r0  (sets flag_v on overflow)
+        BRR.V OVERFLOW          ; if overflow, jump to error output
 
-	SUB r0,r0,r5    	; to move to the lower number (r0-1)
-	SUB r4,r0,r6    	; to check if r0 reaches 2
-	TEST r4 		; IF negative 
-	BRR.N PRINT		; go and output the factorial result
-	BRR LOOP		; ElSE, not done yet, go and continue multiplying 
+        SUB r0, r0, r5          ; r0 = r0 - 1
+        SUB r4, r0, r6          ; r4 = r0 - 2
+        TEST r4                 ; set N if r4 < 0 (r0 < 2, done)
+        BRR.N PRINT             ; done, output result
+        BRR LOOP                ; else keep multiplying
+
 PRINT:
-	OUT r1 			; Printout the Factorial
-	BRR START		; goto the beginning and loop getting new input 
+        LOADIMM.upper   0xFF
+        LOADIMM.lower   0xF2
+        STORE r7, r1            ; M[0xFFF2] = r1 -> LEDs
+        BRR START
 
 OVERFLOW:
-	LOADIMM.upper	0x00
-	LOADIMM.lower	0x00
-	OUT 	r7		; Printout the error code 0
-	BRR	START		; goto the beginning and loop getting new input 
+        LOADIMM.upper   0x00
+        LOADIMM.lower   0x00    ; r7 = 0
+        LOADIMM.upper   0xFF
+        LOADIMM.lower   0xF2
+        STORE r7, r7            ; M[0xFFF2] = 0 -> LEDs show 0
+        BRR START
