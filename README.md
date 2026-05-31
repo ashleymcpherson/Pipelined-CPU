@@ -1,5 +1,5 @@
 # 16-bit Pipelined CPU
-The project's code can be found at: 
+The main code files can be found at: **ECE449Main.srcs/sources_1/new**
 
 This project presents the design and implementation of a custom 16-bit pipelined Central Processing Unit (CPU) using VHDL in Vivado 2017.4. The processor supports three instruction formats, including Format A for arithmetic and logic operations, Format B for branching and control flow, and Format L for memory access. The architecture is based on a 5-stage pipeline. This consists of Instruction Fetch (IF), Instruction Decode (ID), Execute (EX), Memory Access (MEM), and Write Back (WB) stages, which enable efficient instruction execution through parallelism.
 
